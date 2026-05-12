@@ -1,91 +1,276 @@
-<!doctype html>
-<html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="SehaNoor - موقع تعريفي جاهز للنشر على GitHub Pages."
-    />
-    <title>SehaNoor</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="#home" aria-label="SehaNoor">
-        <span class="brand-mark">SN</span>
-        <span>SehaNoor</span>
-      </a>
-      <nav class="site-nav" aria-label="التنقل الرئيسي">
-        <a href="#about">عن الموقع</a>
-        <a href="#features">المزايا</a>
-        <a href="#contact">تواصل</a>
-      </nav>
-    </header>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="אורט בריא - פרויקט בריאות של ב''ס אורט עבאט רביעה בנגב">
+  <title>אורט בריא | ب''س أورط عبط ربيعة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <main>
-      <section class="hero" id="home">
-        <div class="hero-content">
-          <p class="eyebrow">منصة صحية عربية</p>
-          <h1>SehaNoor</h1>
-          <p class="hero-copy">
-            مساحة رقمية واضحة ومريحة لتقديم معلومات صحية موثوقة، وتنظيم
-            المحتوى بطريقة يسهل الوصول إليها من أي جهاز.
-          </p>
-          <div class="hero-actions">
-            <a class="button primary" href="#features">استكشف المزايا</a>
-            <a class="button secondary" href="#contact">تواصل معنا</a>
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="logo">
+        <div class="logo-emblem">🌿</div>
+        <div>
+          <div class="logo-name" data-key="logo.name">אורט בריא</div>
+          <div class="logo-school" data-key="logo.school">ב''ס אורט עבאט רביעה</div>
+        </div>
+      </a>
+
+      <nav class="desktop-nav">
+        <a href="#bmi"        data-key="nav.bmi">מחשבון BMI</a>
+        <a href="#articles"   data-key="nav.articles">מאמרים</a>
+        <a href="#activities" data-key="nav.activities">פעילויות</a>
+        <a href="#tips"       data-key="nav.tips">עצות לניצחון</a>
+        <a href="#about"      data-key="nav.about">אודות</a>
+      </nav>
+
+      <div class="header-right">
+        <button class="lang-btn" id="langToggle" aria-label="Toggle language">
+          <span>🌐</span> <span id="langLabel">العربية</span>
+        </button>
+        <button class="burger" id="burger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#bmi"        data-key="nav.bmi">מחשבון BMI</a>
+      <a href="#articles"   data-key="nav.articles">מאמרים</a>
+      <a href="#activities" data-key="nav.activities">פעילויות</a>
+      <a href="#tips"       data-key="nav.tips">עצות לניצחון</a>
+      <a href="#about"      data-key="nav.about">אודות</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-shapes" aria-hidden="true">
+        <div class="shape s1"></div>
+        <div class="shape s2"></div>
+        <div class="shape s3"></div>
+      </div>
+      <div class="container hero-layout">
+        <div class="hero-text">
+          <div class="hero-badge" data-key="hero.badge">ב''ס אורט עבאט רביעה | رابعة النقب</div>
+          <h1 data-key="hero.title">אורט בריא</h1>
+          <p class="hero-slogan" data-key="hero.slogan">לאכול • להתעמל • לאהוב</p>
+          <p class="hero-desc" data-key="hero.desc">פרויקט בריאות לקידום אורח חיים בריא בקרב תלמידי ביה''ס אורט עבאט רביעה בנגב — לאכול נכון, לזוז יותר ולאהוב את הבריאות שלנו.</p>
+          <div class="hero-btns">
+            <a href="#bmi"      class="btn btn-primary"  data-key="hero.cta1">בדוק את ה-BMI שלך</a>
+            <a href="#articles" class="btn btn-outline"   data-key="hero.cta2">מאמרים בריאותיים</a>
           </div>
         </div>
-      </section>
-
-      <section class="section" id="about">
-        <div class="section-heading">
-          <p class="eyebrow">عن SehaNoor</p>
-          <h2>موقع بسيط، سريع، وجاهز للنشر</h2>
+        <div class="hero-cards" aria-hidden="true">
+          <div class="hcard" style="--hc:#FFF3E0"><div class="hcard-icon">🥗</div><div data-key="hero.c1">תזונה נכונה</div></div>
+          <div class="hcard" style="--hc:#E8F5E9"><div class="hcard-icon">🏃</div><div data-key="hero.c2">פעילות גופנית</div></div>
+          <div class="hcard" style="--hc:#E3F2FD"><div class="hcard-icon">💧</div><div data-key="hero.c3">שתיית מים</div></div>
+          <div class="hcard" style="--hc:#FFF9C4"><div class="hcard-icon">☀️</div><div data-key="hero.c4">הגנה מהשמש</div></div>
         </div>
-        <p class="section-copy">
-          هذه نسخة أولية ثابتة يمكن تطويرها لاحقًا إلى موقع تعريفي كامل، مدونة
-          صحية، أو واجهة لخدمة طبية. البنية الحالية مناسبة مباشرة لـ GitHub
-          Pages ولا تحتاج إلى خادم خاص.
-        </p>
-      </section>
+      </div>
+    </section>
 
-      <section class="feature-grid" id="features" aria-label="مزايا الموقع">
-        <article class="feature-card">
-          <h3>تصميم متجاوب</h3>
-          <p>يعرض المحتوى بوضوح على الهاتف، الجهاز اللوحي، وسطح المكتب.</p>
-        </article>
-        <article class="feature-card">
-          <h3>تحميل سريع</h3>
-          <p>ملفات ثابتة خفيفة تناسب الاستضافة المجانية على GitHub Pages.</p>
-        </article>
-        <article class="feature-card">
-          <h3>جاهز للتوسع</h3>
-          <p>يمكن إضافة صفحات جديدة، مقالات، نماذج، أو أقسام تعريفية بسهولة.</p>
-        </article>
-      </section>
-
-      <section class="contact-band" id="contact">
-        <div>
-          <p class="eyebrow">ابدأ من هنا</p>
-          <h2>جاهز للرفع إلى GitHub Pages</h2>
+    <!-- ===== BMI CALCULATOR ===== -->
+    <section class="section" id="bmi">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag" data-key="bmi.tag">כלי בריאות</span>
+          <h2 data-key="bmi.title">מחשבון מדד מסת הגוף (BMI)</h2>
+          <p data-key="bmi.subtitle">הזן את הנתונים שלך וקבל הערכה אישית עם המלצות מותאמות</p>
         </div>
-        <a class="button primary" href="mailto:hello@example.com">hello@example.com</a>
-      </section>
-    </main>
 
-    <footer class="site-footer">
-      <span>© <span id="year"></span> SehaNoor</span>
-      <span>Built for GitHub Pages</span>
-    </footer>
+        <div class="bmi-grid">
+          <!-- Form -->
+          <div class="bmi-card">
+            <h3 data-key="bmi.formTitle">הפרטים שלך</h3>
+            <form id="bmiForm" novalidate>
+              <div class="field-row">
+                <div class="field">
+                  <label for="weight" data-key="bmi.weightLabel">משקל (ק''ג)</label>
+                  <input type="number" id="weight" min="10" max="300" step="0.1" placeholder="70" required>
+                </div>
+                <div class="field">
+                  <label for="height" data-key="bmi.heightLabel">גובה (ס''מ)</label>
+                  <input type="number" id="height" min="50" max="250" step="0.5" placeholder="170" required>
+                </div>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="age" data-key="bmi.ageLabel">גיל (שנים)</label>
+                  <input type="number" id="age" min="2" max="100" placeholder="15" required>
+                </div>
+                <div class="field">
+                  <label for="gender" data-key="bmi.genderLabel">מין</label>
+                  <select id="gender">
+                    <option value="male"   data-key="bmi.male">זכר</option>
+                    <option value="female" data-key="bmi.female">נקבה</option>
+                  </select>
+                </div>
+              </div>
+              <div id="bmiError" class="form-error" role="alert" aria-live="polite"></div>
+              <button type="submit" class="btn btn-primary btn-full" id="calcBtn" data-key="bmi.calcBtn">
+                חשב את ה-BMI שלי
+              </button>
+            </form>
 
-    <script src="script.js"></script>
-  </body>
+            <div class="bmi-info-boxes">
+              <div class="info-box" style="--bc:#3498db">
+                <span class="info-box-range">&lt; 18.5</span>
+                <span data-key="bmi.catUnder">תת-משקל</span>
+              </div>
+              <div class="info-box" style="--bc:#27ae60">
+                <span class="info-box-range">18.5–24.9</span>
+                <span data-key="bmi.catNormal">תקין</span>
+              </div>
+              <div class="info-box" style="--bc:#f39c12">
+                <span class="info-box-range">25–29.9</span>
+                <span data-key="bmi.catOver">עודף משקל</span>
+              </div>
+              <div class="info-box" style="--bc:#e74c3c">
+                <span class="info-box-range">≥ 30</span>
+                <span data-key="bmi.catObese">השמנה</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Result -->
+          <div class="bmi-result" id="bmiResult">
+            <div class="result-empty" id="resultEmpty">
+              <div class="result-empty-icon">⚖️</div>
+              <p data-key="bmi.emptyMsg">מלא את הפרטים ולחץ ''חשב'' כדי לראות את התוצאה שלך</p>
+            </div>
+            <div class="result-content" id="resultContent" hidden>
+              <!-- Ring gauge -->
+              <div class="ring-wrap">
+                <svg class="ring" viewBox="0 0 140 140" aria-hidden="true">
+                  <circle cx="70" cy="70" r="58" fill="none" stroke="#e8ecf0" stroke-width="12"/>
+                  <circle id="ringArc" cx="70" cy="70" r="58" fill="none" stroke-width="12"
+                    stroke-linecap="round" stroke-dasharray="364.4" stroke-dashoffset="364.4"
+                    transform="rotate(-90 70 70)"/>
+                </svg>
+                <div class="ring-inside">
+                  <span class="ring-num" id="ringNum">--</span>
+                  <span class="ring-lbl">BMI</span>
+                </div>
+              </div>
+
+              <div class="result-status" id="resultStatus"></div>
+
+              <!-- Scale bar -->
+              <div class="scale-wrap">
+                <div class="scale-bar">
+                  <div class="seg" style="background:#3498db;flex:1.5"></div>
+                  <div class="seg" style="background:#27ae60;flex:3.5"></div>
+                  <div class="seg" style="background:#f39c12;flex:2"></div>
+                  <div class="seg" style="background:#e74c3c;flex:3"></div>
+                </div>
+                <div class="scale-pin" id="scalePin"></div>
+                <div class="scale-labels">
+                  <span data-key="bmi.catUnder">תת-משקל</span>
+                  <span data-key="bmi.catNormal">תקין</span>
+                  <span data-key="bmi.catOver">עודף</span>
+                  <span data-key="bmi.catObese">השמנה</span>
+                </div>
+              </div>
+
+              <div class="rec-box" id="recBox"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ARTICLES ===== -->
+    <section class="section section-alt" id="articles">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag" data-key="articles.tag">תוכן בריאותי</span>
+          <h2 data-key="articles.title">מאמרים בריאותיים</h2>
+          <p data-key="articles.subtitle">מידע חשוב על תזונה, שתייה, ספורט ובריאות עבור הקהילה הבדואית בנגב</p>
+        </div>
+        <div class="articles-grid" id="articlesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== ACTIVITIES ===== -->
+    <section class="section" id="activities">
+      <div class="container">
+        <div class="sec-head">
+          <span class="sec-tag" data-key="act.tag">פעילויות הפרויקט</span>
+          <h2 data-key="act.title">פעילויות קיץ בריא</h2>
+          <p data-key="act.subtitle">הפעילויות שמפעיל ביה''ס לקידום בריאות התלמידים והקהילה</p>
+        </div>
+        <div class="activities-grid" id="activitiesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== COMPETITION TIPS ===== -->
+    <section class="section section-dark" id="tips">
+      <div class="container">
+        <div class="sec-head light">
+          <span class="sec-tag inv" data-key="tips.tag">הצעות לזכייה</span>
+          <h2 data-key="tips.title">כיצד לזכות בתחרות אורט בריא</h2>
+          <p data-key="tips.subtitle">אסטרטגיות ורעיונות שיעזרו לביה''ס שלנו לבלוט ולהוביל</p>
+        </div>
+        <div class="tips-grid" id="tipsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about-wrap">
+          <div class="about-col">
+            <span class="sec-tag" data-key="about.tag">אודות הפרויקט</span>
+            <h2 data-key="about.title">אורט בריא</h2>
+            <p data-key="about.p1">אורט בריא הוא פרויקט לאומי של רשת אורט ישראל שמטרתו לקדם אורח חיים בריא בקרב תלמידים בכל הארץ, עם דגש על תזונה נכונה, פעילות גופנית ורווחה נפשית.</p>
+            <p data-key="about.p2">ביה''ס אורט עבאט רביעה משתתף בפרויקט עם דגש מיוחד על הקהילה הבדואית בנגב, תוך שמירה על ייחודיות התרבות המקומית ושילובה עם עקרונות הבריאות המודרנית.</p>
+            <div class="about-btns">
+              <a href="https://www.ort.org.il/ortbari/" target="_blank" rel="noopener" class="btn btn-primary" data-key="about.btn1">אתר אורט בריא</a>
+              <a href="https://www.ort.org.il/" target="_blank" rel="noopener" class="btn btn-outline" data-key="about.btn2">רשת אורט ישראל</a>
+            </div>
+          </div>
+          <div class="emoji-grid" aria-hidden="true">
+            <div class="eg-cell" style="--c:#FFF3E0">🥗</div>
+            <div class="eg-cell" style="--c:#E8F5E9">🏃‍♂️</div>
+            <div class="eg-cell" style="--c:#E3F2FD">💧</div>
+            <div class="eg-cell" style="--c:#FFF9C4">☀️</div>
+            <div class="eg-cell" style="--c:#FCE4EC">🍎</div>
+            <div class="eg-cell" style="--c:#F3E5F5">🏋️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">🌿 <span data-key="footer.name">אורט בריא</span></div>
+        <div data-key="footer.school">ב''ס אורט עבאט רביעה | رابعة النقب</div>
+      </div>
+      <div class="footer-mid">
+        <div data-key="footer.project">פרויקט: אורט בריא 2025–2026</div>
+        <div>© <span id="year"></span> | <span data-key="footer.rights">כל הזכויות שמורות</span></div>
+      </div>
+      <div class="footer-links">
+        <a href="https://www.ort.org.il/" target="_blank" rel="noopener">ORT Israel</a>
+        <a href="https://www.ort.org.il/ortbari/" target="_blank" rel="noopener">ORT Bari</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
