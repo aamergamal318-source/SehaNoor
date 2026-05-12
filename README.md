@@ -1,23 +1,16 @@
-# SehaNoor
+# מובילי בריאות בנגב
 
-موقع ثابت جاهز للنشر على GitHub Pages.
+אתר סטטי להצגת מיזם בית הספר אורט אבו רביעה במסגרת תחרות / יוזמת **אורט בריא**.
 
-## النشر على GitHub Pages
+האתר בנוי לפרסום ישיר ב-GitHub Pages וכולל:
 
-1. أنشئ مستودعًا جديدًا على GitHub.
-2. اربط هذا المجلد بالمستودع:
+- `index.html` - עמוד התצוגה הראשי.
+- `styles.css` - עיצוב רספונסיבי מלא.
+- `script.js` - תפריט מובייל, אנימציות גלילה ומוני נתונים.
+- `images/` - שמות קבצי התמונות שיש להחליף בתמונות אמיתיות.
+- `assets/ort-bari-summary.pdf` - קובץ תקציר זמני להחלפה ב-PDF סופי.
 
-```powershell
-git init
-git add .
-git commit -m "Initial site"
-git branch -M main
-git remote add origin https://github.com/YOUR-USER/YOUR-REPO.git
-git push -u origin main
-```
+## פרסום
 
-3. في GitHub افتح:
-   `Settings > Pages > Build and deployment`
-4. اختر `GitHub Actions`.
-
-سيتم نشر الموقع تلقائيًا بعد كل رفع إلى فرع `main`.
+הפרויקט כולל workflow מוכן בנתיב `.github/workflows/pages.yml`.
+לאחר push לענף `main`, GitHub Pages יפרסם את האתר אוטומטית אם Pages מוגדר ל-GitHub Actions.
