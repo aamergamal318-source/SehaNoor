@@ -32,7 +32,7 @@ const CONTENT = {
     "bmi.childNote":"ملاحظة: للأطفال والمراهقين (2–18 سنة)، يُقيَّم المؤشر وفق النسب المئوية للعمر والجنس بحسب مراجع CDC.",
     "art.eyebrow":"محتوى صحي مميز","art.h2":"مقالات صحية",
     "art.sub":"معلومات علمية حول التغذية والنشاط والصحة للمجتمع البدوي في النقب",
-    "art.more":"اقرأ المزيد","art.less":"أقل",
+    "art.more":"اقرأ المزيد","art.less":"أقل","art.readFull":"اقرأ المقالة كاملة",
     "act.eyebrow":"ما نقوم به","act.h2":"أنشطة الصيف الصحي",
     "act.sub":"برامج وأنشطة المدرسة لتعزيز الصحة في المجتمع",
     "gal.eyebrow":"لحظات مميزة","gal.h2":"معرض الصور",
@@ -76,7 +76,7 @@ const CONTENT = {
     "bmi.childNote":"הערה: לילדים ומתבגרים (2–18), ה-BMI מוערך לפי אחוזוני גיל ומין לפי מחקרי CDC.",
     "art.eyebrow":"תוכן בריאותי מיוחד","art.h2":"מאמרים בריאותיים",
     "art.sub":"מידע מדעי על תזונה, פעילות ובריאות לקהילה הבדואית בנגב",
-    "art.more":"קרא עוד","art.less":"הצג פחות",
+    "art.more":"קרא עוד","art.less":"הצג פחות","art.readFull":"קרא את המאמר המלא",
     "act.eyebrow":"מה אנחנו עושים","act.h2":"פעילויות קיץ בריא",
     "act.sub":"תוכניות ופעילויות ביה''ס לקידום הבריאות בקהילה",
     "gal.eyebrow":"רגעים מיוחדים","gal.h2":"גלריית תמונות",
@@ -99,14 +99,14 @@ const CONTENT = {
    ============================================================ */
 const ARTICLES = {
   ar: [
-    { img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&q=80", cat:"تغذية", catBg:"#E8F5E9", catColor:"#2E7D32",
+    { slug:"food", img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&q=80", cat:"تغذية", catBg:"#E8F5E9", catColor:"#2E7D32",
       title:"الغذاء الصحي في المجتمع البدوي",
       sum:"المطبخ البدوي التقليدي مليء بالكنوز الصحية — كيف نحافظ على الجيد ونتخلى عن الضار؟",
       full:`<p>تحتوي الأطعمة التقليدية للمجتمع البدوي على عناصر صحية قيّمة: المنسف من الضأن والأرز، خبز الطابون، المجدرة بالعدس، والسلطات الطازجة — جميعها غنية بالبروتين والألياف والفيتامينات.</p>
       <p><strong>التحدي اليوم:</strong> دخول الأطعمة المصنعة والمشروبات المحلاة وتراجع العادات الغذائية الصحية التقليدية.</p>
       <p><strong>توصيات مهمة:</strong></p>
       <ul><li>فضّل خبز الطابون على الخبز الأبيض المصنع</li><li>تناول العدس والحمص والبرغل يومياً</li><li>أضف خضروات ورقية لكل وجبة</li><li>استبدل المشروبات المحلاة بالماء والشاي الطبيعي</li><li>قلل جذرياً من الوجبات السريعة والمعلبات</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&auto=format&q=80", cat:"شرب الماء", catBg:"#E3F2FD", catColor:"#1565C0",
+    { slug:"water", img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&auto=format&q=80", cat:"شرب الماء", catBg:"#E3F2FD", catColor:"#1565C0",
       title:"الماء — الحياة في قلب النقب",
       sum:"في النقب الحار، الترطيب ليس خياراً بل ضرورة. كم تحتاج وكيف تحقق ذلك؟",
       full:`<p>يُفقَد الجسم كميات كبيرة من السوائل عبر التعرق في مناخ النقب، مما يؤدي إلى الجفاف الذي يضرّ بالتركيز والأداء والصحة العامة.</p>
@@ -114,19 +114,19 @@ const ARTICLES = {
       <ul><li>الأطفال (6–12 سنة): 1.5 لتر على الأقل</li><li>المراهقون (12–18 سنة): 2 لتر على الأقل</li><li>البالغون: 2–3 لتر، أكثر في الصيف</li></ul>
       <p><strong>نصائح ذهبية:</strong></p>
       <ul><li>ابدأ يومك بكوب ماء قبل الإفطار</li><li>ضع زجاجة ماء على مكتبك دائماً</li><li>تناول فواكه وخضروات غنية بالماء كالبطيخ والخيار</li><li>أضف نعناعاً أو ليموناً للنكهة</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&auto=format&q=80", cat:"الحماية من الشمس", catBg:"#FFF9C4", catColor:"#F57F17",
+    { slug:"sun", img:"https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&auto=format&q=80", cat:"الحماية من الشمس", catBg:"#FFF9C4", catColor:"#F57F17",
       title:"الحماية الذكية من أشعة الشمس",
       sum:"شمس النقب قوية طوال العام. كيف تتمتع بالخارج مع حماية جلدك وصحتك؟",
       full:`<p>الأشعة فوق البنفسجية في النقب خطيرة بشكل خاص بين 10 صباحاً و4 مساءً. التعرض دون حماية يسبب حروق الشمس، الإجهاد الحراري، وأضراراً جلدية طويلة الأمد.</p>
       <p><strong>قواعد الحماية الخمس:</strong></p>
       <ul><li>🧴 كريم واقٍ SPF 30+ قبل 30 دقيقة من الخروج، يُجدَّد كل ساعتين</li><li>🧢 قبعة بحواف عريضة تحمي الوجه والرقبة</li><li>🕶️ نظارات شمسية معتمدة لمنع UV</li><li>👕 ملابس قطنية فاتحة ومريحة</li><li>🌳 ابحث عن الظل في ساعات الذروة</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&q=80", cat:"نشاط بدني", catBg:"#FFF3E0", catColor:"#E65100",
+    { slug:"activity", img:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&q=80", cat:"نشاط بدني", catBg:"#FFF3E0", catColor:"#E65100",
       title:"تحرَّك! — النشاط البدني للصحة",
       sum:"30 دقيقة نشاط يومياً تغير حياتك. كيف نتحرك في صيف النقب الحار؟",
       full:`<p>النشاط البدني المنتظم يخفض الوزن، يحسّن المزاج، يقوي العظام، ويرفع مستوى التركيز. الأطفال والمراهقون يحتاجون 60 دقيقة على الأقل يومياً.</p>
       <p><strong>أفكار للنشاط في النقب:</strong></p>
       <ul><li>المشي أو الجري في الصباح الباكر (قبل 9 صباحاً)</li><li>السباحة في المسبح صيفاً</li><li>كرة القدم، السلة، الكرة الطائرة مساءً</li><li>رقصة الدبكة التقليدية — نشاط وتراث</li><li>ركوب الدراجات في الحي</li><li>تمارين اليوغا والتمدد صباحاً</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&q=80", cat:"وجبات خفيفة", catBg:"#FCE4EC", catColor:"#880E4F",
+    { slug:"snacks", img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&q=80", cat:"وجبات خفيفة", catBg:"#FCE4EC", catColor:"#880E4F",
       title:"وجبات خفيفة صحية لصيف رائع",
       sum:"بدلاً من الشيبس والغازية — بطيخ وجوز وتمر! اكتشف بدائل لذيذة وصحية.",
       full:`<p>في الصيف نميل لتناول وجبات باردة ومحلاة. الخيار الصحيح يحسّن الطاقة ويحمي الصحة.</p>
@@ -135,13 +135,13 @@ const ARTICLES = {
       <p><strong>تجنّب:</strong> المشروبات الغازية، الشيبس، الحلويات الصناعية — تحتوي كميات خطيرة من السكر والملح والدهون.</p>` },
   ],
   he: [
-    { img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&q=80", cat:"תזונה", catBg:"#E8F5E9", catColor:"#2E7D32",
+    { slug:"food", img:"https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&auto=format&q=80", cat:"תזונה", catBg:"#E8F5E9", catColor:"#2E7D32",
       title:"תזונה בריאה בחברה הבדואית",
       sum:"המטבח הבדואי המסורתי עמוס בכנוי בריאות — כיצד שומרים על הטוב ומשפרים את הרע?",
       full:`<p>מאכלים בדואיים מסורתיים עשירים בחלבון, סיבים וויטמינים: מנסף, לחם טאבון, מוג'דרה עדשים, סלטים טריים — כולם מזון מעולה. הבעיה: מזונות מעובדים ומשקאות ממותקים חדרו לתפריט היומי.</p>
       <p><strong>המלצות מעשיות:</strong></p>
       <ul><li>העדף לחם טאבון על לחם לבן</li><li>אכל עדשים, חומוס וגריסים יומיומית</li><li>הוסף ירקות עלים לכל ארוחה</li><li>החלף משקאות ממותקים במים ותה טבעי</li><li>הגבל מזון מהיר ומזון מעובד</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&auto=format&q=80", cat:"שתיית מים", catBg:"#E3F2FD", catColor:"#1565C0",
+    { slug:"water", img:"https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&auto=format&q=80", cat:"שתיית מים", catBg:"#E3F2FD", catColor:"#1565C0",
       title:"מים — חיים בנגב",
       sum:"בנגב החם, שתיית מים מספיקה אינה מותרות — היא הכרח. כמה צריך ומתי?",
       full:`<p>האקלים הצחיח של הנגב מחייב שתייה מרובה. גוף מיובש פוגע בריכוז, בביצועים ובבריאות הכללית.</p>
@@ -149,19 +149,19 @@ const ARTICLES = {
       <ul><li>ילדים 6–12: לפחות 1.5 ליטר</li><li>מתבגרים 12–18: לפחות 2 ליטר</li><li>מבוגרים: 2–3 ליטר, יותר בקיץ</li></ul>
       <p><strong>טיפים לשתייה יותר:</strong></p>
       <ul><li>שתה כוס מים לפני ארוחת הבוקר</li><li>שמור בקבוק מים על השולחן</li><li>אכל מלפפון, אבטיח ועגבנייה</li><li>הוסף ליים או נענע לטעם</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&auto=format&q=80", cat:"הגנה מהשמש", catBg:"#FFF9C4", catColor:"#F57F17",
+    { slug:"sun", img:"https://images.unsplash.com/photo-1527430253228-e93688616381?w=600&auto=format&q=80", cat:"הגנה מהשמש", catBg:"#FFF9C4", catColor:"#F57F17",
       title:"הגנה חכמה מהשמש",
       sum:"בנגב שמש חזקה כל השנה. כיצד נהנים בחוץ בצורה בטוחה ומוגנת?",
       full:`<p>קרינת UV בנגב חזקה במיוחד בין 10:00–16:00. חשיפה ללא הגנה גורמת לכוויות, עייפות ונזקים לטווח ארוך.</p>
       <p><strong>חמישה כללי הגנה:</strong></p>
       <ul><li>🧴 קרם הגנה SPF 30+ — 30 דקות לפני יציאה, מחדש כל שעתיים</li><li>🧢 כובע עם שוליים רחבים</li><li>🕶️ משקפי שמש עם מסנן UV</li><li>👕 בגדים קלים מכותנה בצבעים בהירים</li><li>🌳 חפש צל בשעות הקיצוניות</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&q=80", cat:"פעילות גופנית", catBg:"#FFF3E0", catColor:"#E65100",
+    { slug:"activity", img:"https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&auto=format&q=80", cat:"פעילות גופנית", catBg:"#FFF3E0", catColor:"#E65100",
       title:"זוז! — פעילות גופנית לבריאות",
       sum:"30 דקות פעילות ביום משנות הכל. איך מפעילים את הגוף גם בקיץ הנגב?",
       full:`<p>פעילות גופנית סדירה מפחיתה משקל, משפרת מצב רוח, מחזקת עצמות ומעלה ריכוז.</p>
       <p><strong>רעיונות לפעילות בנגב:</strong></p>
       <ul><li>הליכה/ריצה לפני 9:00 או אחרי 17:00</li><li>שחייה בבריכה ציבורית</li><li>ספורט קבוצתי: כדורגל, כדורסל, כדורעף</li><li>ריקוד דבקה מסורתי</li><li>רכיבה על אופניים</li><li>יוגה ומתיחות בבוקר</li></ul>` },
-    { img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&q=80", cat:"חטיפים בריאים", catBg:"#FCE4EC", catColor:"#880E4F",
+    { slug:"snacks", img:"https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&auto=format&q=80", cat:"חטיפים בריאים", catBg:"#FCE4EC", catColor:"#880E4F",
       title:"חטיפים בריאים לקיץ מושלם",
       sum:"במקום צ'יפס ודיאט — תאנים, אגוזים ואבטיח! גלה חלופות טעימות ובריאות.",
       full:`<p>בקיץ אנו אוכלים יותר חטיפים. בחירה נכונה שומרת על הבריאות ומשפרת את האנרגיה.</p>
@@ -461,12 +461,14 @@ function renderArticles() {
   const list = ARTICLES[lang];
   document.getElementById("artGrid").innerHTML = list.map((a, i) => `
     <article class="art-card" data-aos>
-      <div class="art-img-box">
-        <img class="art-img" src="${a.img}" alt="${a.title}" loading="lazy"
-             onerror="this.parentElement.style.background='${a.catBg}';this.style.display='none'">
-        <div class="art-img-ov"></div>
-        <div class="art-pill" style="background:${a.catBg};color:${a.catColor}">${a.cat}</div>
-      </div>
+      <a class="art-img-link" href="articles/${a.slug}.html">
+        <div class="art-img-box">
+          <img class="art-img" src="${a.img}" alt="${a.title}" loading="lazy"
+               onerror="this.parentElement.style.background='${a.catBg}';this.style.display='none'">
+          <div class="art-img-ov"></div>
+          <div class="art-pill" style="background:${a.catBg};color:${a.catColor}">${a.cat}</div>
+        </div>
+      </a>
       <div class="art-body">
         <div class="art-title">${a.title}</div>
         <div class="art-sum">${a.sum}</div>
@@ -477,6 +479,7 @@ function renderArticles() {
           <span id="atl${i}">${c["art.more"]}</span>
           <span class="art-arr">▼</span>
         </button>
+        <a class="art-full-btn" href="articles/${a.slug}.html">${c["art.readFull"]} →</a>
       </div>
     </article>`).join("");
   initAOS();

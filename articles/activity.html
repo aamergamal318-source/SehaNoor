@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>النشاط البدني | أورط صحي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="article.css">
+</head>
+<body class="lang-ar" data-article-id="activity">
+
+  <div class="reading-line" id="readingLine"></div>
+  <div class="scroll-prog" id="scrollProg"></div>
+
+  <button class="btt" id="bttBtn" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <header class="hdr" id="hdr">
+    <div class="hdr-inner container">
+      <a href="../index.html" class="brand">
+        <div class="brand-gem">🌿</div>
+        <div>
+          <div class="brand-name" data-key="logo.name">أورط صحي</div>
+          <div class="brand-sub" data-key="logo.school">اورط أبو ربيعة</div>
+        </div>
+      </a>
+      <div class="hdr-r">
+        <button class="back-btn" id="backBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          <span data-key="nav.back">رجوع</span>
+        </button>
+        <button class="lang-pill" id="langBtn">🌐 <span id="langLabel">עברית</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="art-hero" id="artHero">
+    <img class="hero-bg-img" id="heroBgImg" src="" alt="">
+    <div class="hero-ov"></div>
+    <div class="hero-content container">
+      <div class="hero-breadcrumb">
+        <a href="../index.html" id="bcHome">الرئيسية</a>
+        <span>›</span>
+        <span id="bcArticles">مقالات</span>
+        <span>›</span>
+        <span id="bcTitle"></span>
+      </div>
+      <div class="hero-cat" id="heroCat"></div>
+      <h1 class="hero-title" id="heroTitle"></h1>
+      <p class="hero-subtitle" id="heroSubtitle"></p>
+      <div class="hero-meta">
+        <span id="heroRt"></span>
+        <span id="heroSchool"></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="art-layout">
+      <article class="art-main">
+        <div class="art-intro" id="artIntro"></div>
+        <div id="artSections"></div>
+        <div id="artTips"></div>
+      </article>
+
+      <aside class="art-sidebar">
+        <div class="sidebar-sticky">
+          <div class="toc-card">
+            <div class="card-head">
+              <span class="card-head-ico">📋</span>
+              <span id="tocTitle">المحتويات</span>
+            </div>
+            <ul class="toc-list" id="tocList"></ul>
+          </div>
+
+          <div class="facts-card">
+            <div class="card-head">
+              <span class="card-head-ico">⚡</span>
+              <span id="factsTitle">حقائق سريعة</span>
+            </div>
+            <div class="facts-list" id="factsList"></div>
+          </div>
+
+          <div class="related-card">
+            <div class="card-head">
+              <span class="card-head-ico">📚</span>
+              <span id="relatedTitle">مقالات ذات صلة</span>
+            </div>
+            <div class="related-list" id="relatedList"></div>
+          </div>
+
+          <div class="share-card">
+            <div class="card-head">
+              <span class="card-head-ico">🔗</span>
+              <span id="shareTitle">مشاركة</span>
+            </div>
+            <div class="share-btns">
+              <button class="share-btn" id="shareCopyBtn">📋 نسخ الرابط</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <footer class="art-footer">
+    <div class="container">
+      <div>
+        <div class="ft-logo" id="ftLogo">أورط صحي</div>
+        <div class="ft-school" id="ftSchool">اورط أبو ربيعة</div>
+      </div>
+      <div class="ft-copy">© <span id="year"></span></div>
+    </div>
+  </footer>
+
+  <script src="article.js"></script>
+</body>
+</html>

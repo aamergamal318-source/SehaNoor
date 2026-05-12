@@ -469,6 +469,7 @@ button { font-family: inherit; cursor: pointer; }
 .art-exp strong { color:var(--blue); }
 .art-foot {
   padding:14px 20px; border-top:1px solid var(--border); margin-top:auto;
+  display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
 }
 .art-toggle {
   display:flex; align-items:center; gap:6px;
@@ -479,6 +480,16 @@ button { font-family: inherit; cursor: pointer; }
 .art-toggle:hover { gap:10px; }
 .art-arr { transition:transform .25s; display:inline-block; }
 .art-toggle.open .art-arr { transform:rotate(180deg); }
+.art-img-link { display:block; }
+.art-full-btn {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:6px 14px; border-radius:50px;
+  background:var(--blue); color:#fff;
+  font-size:.78rem; font-weight:800;
+  transition:background .2s, transform .2s;
+  white-space:nowrap;
+}
+.art-full-btn:hover { background:var(--blue-dk); transform:translateY(-2px); }
 
 /* ================================================
    ACTIVITIES
