@@ -1518,3 +1518,174 @@ h2.light { color: #fff; }
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* ══════════════════════════════════════
+   BMI CALCULATOR
+══════════════════════════════════════ */
+.bmi-wrap {
+  max-width: 680px;
+  margin: 0 auto;
+}
+.bmi-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.bmi-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.bmi-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bmi-field label {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+.bmi-field input {
+  height: 52px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0 16px;
+  font-size: 1.15rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: var(--mist);
+  transition: border-color .2s, box-shadow .2s;
+  text-align: center;
+  -moz-appearance: textfield;
+}
+.bmi-field input::-webkit-inner-spin-button,
+.bmi-field input::-webkit-outer-spin-button { -webkit-appearance: none; }
+.bmi-field input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(14,124,102,.13);
+  background: var(--paper);
+}
+.bmi-calc-btn {
+  width: 100%;
+  height: 52px;
+  font-size: 1rem;
+  border-radius: var(--radius);
+}
+.bmi-result {
+  margin-top: 20px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 32px;
+  animation: bmiIn .4s ease both;
+}
+@keyframes bmiIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.bmi-gauge {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 28px;
+}
+.bmi-number {
+  font-size: 4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--ink);
+  min-width: 120px;
+}
+.bmi-cat-badge {
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 50px;
+}
+.bmi-scale-wrap { margin-bottom: 28px; }
+.bmi-scale-bar {
+  height: 16px;
+  border-radius: 50px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 8px;
+}
+.bmi-scale-seg {
+  height: 100%;
+  width: var(--sw);
+  background: var(--sc);
+  opacity: .75;
+}
+.bmi-scale-marker {
+  position: absolute;
+  top: -4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  border: 3px solid var(--paper);
+  box-shadow: 0 2px 8px rgba(0,0,0,.28);
+  transform: translateX(-50%);
+  transition: left .55s cubic-bezier(.34,1.56,.64,1), background .3s;
+}
+.bmi-scale-nums {
+  display: flex;
+  justify-content: space-between;
+  font-size: .72rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.bmi-scale-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: .78rem;
+  font-weight: 600;
+}
+.bmi-advice-box {
+  background: var(--mist);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+  font-size: .95rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+  border-inline-start: 4px solid var(--green);
+}
+.bmi-advice-box strong {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: var(--ink);
+}
+.bmi-advice-tips {
+  margin: 0;
+  padding-inline-start: 22px;
+}
+.bmi-advice-tips li { margin-bottom: 5px; }
+.bmi-reset-btn {
+  background: none;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 10px 24px;
+  font-size: .9rem;
+  font-family: inherit;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.bmi-reset-btn:hover { border-color: var(--green); color: var(--green); }
+@media (max-width: 680px) {
+  .bmi-inputs { grid-template-columns: 1fr; }
+  .bmi-gauge  { flex-direction: column; text-align: center; }
+  .bmi-number { min-width: unset; }
+  .bmi-card, .bmi-result { padding: 22px 18px; }
+}

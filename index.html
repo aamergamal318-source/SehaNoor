@@ -61,7 +61,8 @@
         <a href="#leadership" data-he="מנהיגות תלמידים">قيادة الطلاب</a>
         <a href="#activities" data-he="פעילויות">فعاليات</a>
         <a href="#impact"     data-he="השפעה">التأثير</a>
-        <a href="#articles"   data-he="מאמרים">مقالات</a>
+        <a href="#articles"      data-he="מאמרים">مقالات</a>
+        <a href="#bmi"           data-he="מחשבון BMI">حاسبة BMI</a>
         <a href="#sustainability" data-he="המשכיות">الاستمرارية</a>
       </nav>
 
@@ -651,6 +652,62 @@
             </div>
           </a>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         BMI CALCULATOR
+    ══════════════════════════════════════ -->
+    <section class="section band-alt" id="bmi">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow" data-he="מחשבון BMI">حاسبة مؤشر كتلة الجسم</p>
+          <h2 data-he="גלה את מדד ה-BMI שלך וקבל המלצות בריאות מותאמות אישית">اكتشف مؤشر كتلة جسمك واحصل على نصائح صحية مخصصة</h2>
+          <p data-he="מדד BMI = משקל (ק&quot;ג) ÷ גובה² (מ&apos;) — כלי פשוט להערכת מצב הגוף">مؤشر كتلة الجسم = الوزن (كغ) ÷ الطول² (م) — أداة بسيطة لتقييم وزن الجسم</p>
+        </div>
+
+        <div class="bmi-wrap reveal">
+          <div class="bmi-card">
+            <div class="bmi-inputs">
+              <div class="bmi-field">
+                <label for="bmiHeight" data-he='גובה (ס"מ)'>الطول (سم)</label>
+                <input type="number" id="bmiHeight" min="100" max="230" placeholder="170" inputmode="numeric">
+              </div>
+              <div class="bmi-field">
+                <label for="bmiWeight" data-he='משקל (ק"ג)'>الوزن (كغ)</label>
+                <input type="number" id="bmiWeight" min="20" max="300" placeholder="65" inputmode="numeric">
+              </div>
+            </div>
+            <button class="btn btn-primary bmi-calc-btn" id="bmiCalcBtn" data-he="חשב BMI">احسب مؤشر كتلة الجسم</button>
+          </div>
+
+          <div class="bmi-result" id="bmiResult" hidden>
+            <div class="bmi-gauge">
+              <div class="bmi-number" id="bmiNumber">--</div>
+              <div class="bmi-cat-badge" id="bmiCatBadge"></div>
+            </div>
+            <div class="bmi-scale-wrap">
+              <div class="bmi-scale-bar">
+                <div class="bmi-scale-seg" style="--sc:#42A5F5;--sw:24%"></div>
+                <div class="bmi-scale-seg" style="--sc:#66BB6A;--sw:26%"></div>
+                <div class="bmi-scale-seg" style="--sc:#FFA726;--sw:20%"></div>
+                <div class="bmi-scale-seg" style="--sc:#EF5350;--sw:30%"></div>
+                <div class="bmi-scale-marker" id="bmiMarker"></div>
+              </div>
+              <div class="bmi-scale-nums">
+                <span>10</span><span>18.5</span><span>25</span><span>30</span><span>40+</span>
+              </div>
+              <div class="bmi-scale-labels">
+                <span data-he="רזה מדי" style="color:#42A5F5">نحيف جداً</span>
+                <span data-he="תקין"    style="color:#66BB6A">طبيعي</span>
+                <span data-he="עודף משקל" style="color:#FFA726">زائد وزن</span>
+                <span data-he="שמנות"  style="color:#EF5350">سمنة</span>
+              </div>
+            </div>
+            <div class="bmi-advice-box" id="bmiAdviceBox"></div>
+            <button class="bmi-reset-btn" id="bmiResetBtn" data-he="חשב שוב">احسب مجدداً</button>
+          </div>
         </div>
       </div>
     </section>

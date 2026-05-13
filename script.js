@@ -223,3 +223,138 @@ if (galleryItems.length) {
     }
   });
 }
+
+/* ══════════════════════════════════════
+   BMI CALCULATOR
+══════════════════════════════════════ */
+const BMI_DATA = {
+  ar: {
+    cats: [
+      { max: 18.5, label: "نحيف جداً",  color: "#1976D2", bg: "#E3F2FD",
+        title: "وزنك أقل من المعدل الطبيعي",
+        tips: [
+          "زد تناول البروتينات: اللحوم، البيض، البقوليات والجبن",
+          "أضف الدهون الصحية: زيت الزيتون، المكسرات، الأفوكادو",
+          "تناول 5–6 وجبات صغيرة يومياً بدلاً من 3 كبيرة",
+          "مارس تمارين القوة لبناء كتلة عضلية صحية",
+          "استشر طبيباً للتأكد من عدم وجود سبب طبي",
+        ]},
+      { max: 25, label: "طبيعي",        color: "#2E7D32", bg: "#E8F5E9",
+        title: "ممتاز! وزنك ضمن النطاق الصحي الطبيعي",
+        tips: [
+          "حافظ على نظامك الغذائي المتوازن الحالي",
+          "استمر في ممارسة 150 دقيقة نشاط بدني أسبوعياً",
+          "اشرب 8–10 أكواب ماء يومياً",
+          "نم 7–9 ساعات ليلاً للحفاظ على التوازن الهرموني",
+          "راقب وزنك شهرياً للاطمئنان على الاستقرار",
+        ]},
+      { max: 30, label: "زيادة وزن",   color: "#E65100", bg: "#FFF3E0",
+        title: "وزنك أعلى قليلاً من المعدل — التغيير ممكن",
+        tips: [
+          "قلل السكريات المضافة والمشروبات الغازية تدريجياً",
+          "استبدل الخبز الأبيض بالخبز الكامل والطحين الأسمر",
+          "أضف 30 دقيقة من المشي اليومي إلى روتينك",
+          "زد تناول الخضار والفواكه الطازجة في كل وجبة",
+          "خطط وجباتك مسبقاً لتجنب الأكل العشوائي",
+        ]},
+      { max: Infinity, label: "سمنة",  color: "#C62828", bg: "#FFEBEE",
+        title: "مؤشرك يستدعي اهتماماً صحياً جاداً",
+        tips: [
+          "تواصل مع طبيب الأسرة لوضع خطة صحية آمنة ومخصصة",
+          "ابدأ بخطوة واحدة: المشي 15 دقيقة يومياً ثم زد تدريجياً",
+          "الهدف: خسارة 0.5–1 كغ أسبوعياً بشكل صحي ومستدام",
+          "تجنب الحميات القاسية — التغيير التدريجي أكثر نجاعة",
+          "اطلب دعم الأسرة والأصدقاء في رحلتك الصحية",
+        ]},
+    ],
+  },
+  he: {
+    cats: [
+      { max: 18.5, label: "רזה מדי",    color: "#1976D2", bg: "#E3F2FD",
+        title: "משקלך נמוך מהטווח התקין",
+        tips: [
+          "הגבר צריכת חלבונים: בשר, ביצים, קטניות וגבינה",
+          "הוסף שומנים בריאים: שמן זית, אגוזים, אבוקדו",
+          "אכול 5–6 ארוחות קטנות ביום במקום 3 גדולות",
+          "עשה אימוני כוח לבניית מסת שריר בריאה",
+          "התייעץ עם רופא לשלילת גורמים רפואיים",
+        ]},
+      { max: 25, label: "תקין",         color: "#2E7D32", bg: "#E8F5E9",
+        title: "מצוין! המשקל שלך בטווח הבריאותי התקין",
+        tips: [
+          "המשך בתזונה המאוזנת הנוכחית",
+          "שמור על 150 דקות פעילות גופנית שבועית",
+          "שתה 8–10 כוסות מים ביום",
+          "ישן 7–9 שעות בלילה לשמירה על האיזון ההורמונלי",
+          "עקוב אחר משקלך חודשית להבטחת יציבות",
+        ]},
+      { max: 30, label: "עודף משקל",   color: "#E65100", bg: "#FFF3E0",
+        title: "משקלך גבוה מעט מהרצוי — שינוי אפשרי",
+        tips: [
+          "הפחת סוכרים מוספים ומשקאות ממותקים בהדרגה",
+          "החלף לחם לבן בלחם מחיטה מלאה",
+          "הוסף 30 דקות הליכה יומית לשגרה שלך",
+          "הגבר ירקות ופירות טריים בכל ארוחה",
+          "תכנן ארוחות מראש למניעת אכילה אקראית",
+        ]},
+      { max: Infinity, label: "שמנות", color: "#C62828", bg: "#FFEBEE",
+        title: "המדד שלך מצריך תשומת לב בריאותית רצינית",
+        tips: [
+          "פנה לרופא המשפחה לגיבוש תוכנית בריאות בטוחה ומותאמת",
+          "התחל בצעד אחד: הליכה 15 דקות ביום ואז הגדל בהדרגה",
+          "מטרה: ירידה של 0.5–1 ק\"ג בשבוע בצורה בריאה ומתמשכת",
+          "הימנע מדיאטות קיצוניות — שינוי הדרגתי יעיל יותר",
+          "בקש תמיכה ממשפחה וחברים במסע הבריאותי שלך",
+        ]},
+    ],
+  },
+};
+
+let bmiLastValue = null;
+
+function calcBMI() {
+  const h = parseFloat(document.getElementById("bmiHeight").value);
+  const w = parseFloat(document.getElementById("bmiWeight").value);
+  if (!h || !w || h < 50 || h > 280 || w < 10 || w > 500) return;
+  bmiLastValue = w / ((h / 100) ** 2);
+  renderBMI(bmiLastValue);
+}
+
+function renderBMI(bmi) {
+  const d    = BMI_DATA[currentLang];
+  const cat  = d.cats.find(c => bmi < c.max);
+  const pct  = Math.min(Math.max((bmi - 10) / 30 * 100, 2), 98);
+
+  document.getElementById("bmiNumber").textContent  = bmi.toFixed(1);
+  const badge = document.getElementById("bmiCatBadge");
+  badge.textContent       = cat.label;
+  badge.style.background  = cat.bg;
+  badge.style.color       = cat.color;
+
+  const marker = document.getElementById("bmiMarker");
+  marker.style.left       = pct + "%";
+  marker.style.background = cat.color;
+
+  document.getElementById("bmiAdviceBox").innerHTML =
+    `<strong>${cat.title}</strong><ul class="bmi-advice-tips">${cat.tips.map(t => `<li>${t}</li>`).join("")}</ul>`;
+
+  const result = document.getElementById("bmiResult");
+  result.hidden = false;
+  result.scrollIntoView({ behavior: "smooth", block: "nearest" });
+}
+
+document.getElementById("bmiCalcBtn").addEventListener("click", calcBMI);
+document.getElementById("bmiHeight").addEventListener("keydown", e => { if (e.key === "Enter") calcBMI(); });
+document.getElementById("bmiWeight").addEventListener("keydown", e => { if (e.key === "Enter") calcBMI(); });
+
+document.getElementById("bmiResetBtn").addEventListener("click", () => {
+  document.getElementById("bmiResult").hidden = true;
+  document.getElementById("bmiHeight").value  = "";
+  document.getElementById("bmiWeight").value  = "";
+  bmiLastValue = null;
+  document.getElementById("bmiHeight").focus();
+});
+
+langToggleBtn.addEventListener("click", () => {
+  if (bmiLastValue !== null) renderBMI(bmiLastValue);
+});
