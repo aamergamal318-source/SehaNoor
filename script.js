@@ -111,13 +111,15 @@ document.querySelectorAll("[data-count]").forEach((el) => counterObserver.observ
 
 function animateCounter(el) {
   const target   = Number(el.dataset.count);
+  const current  = Number(el.textContent.replace(/[^\d.-]/g, ""));
+  const from     = Number.isFinite(current) ? current : 0;
   const duration = 1400;
   const start    = performance.now();
 
   function tick(now) {
     const t       = Math.min((now - start) / duration, 1);
     const eased   = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(target * eased);
+    el.textContent = Math.round(from + (target - from) * eased);
     if (t < 1) requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
@@ -157,3 +159,67 @@ const sectionObserver = new IntersectionObserver((entries) => {
 }, { rootMargin: "-35% 0px -55% 0px", threshold: 0.01 });
 
 sections.forEach((s) => sectionObserver.observe(s));
+
+/* ═══════════════════════════════════════════════
+   GALLERY LIGHTBOX
+═══════════════════════════════════════════════ */
+const galleryItems = [...document.querySelectorAll(".gal-item")];
+
+if (galleryItems.length) {
+  const lightbox = document.createElement("div");
+  lightbox.className = "lightbox";
+  lightbox.setAttribute("role", "dialog");
+  lightbox.setAttribute("aria-modal", "true");
+  lightbox.innerHTML = `
+    <button class="lightbox-close" type="button" aria-label="إغلاق">×</button>
+    <div class="lightbox-inner">
+      <img alt="">
+      <p class="lightbox-caption"></p>
+    </div>
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector("img");
+  const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+  const lightboxClose = lightbox.querySelector(".lightbox-close");
+
+  function closeLightbox() {
+    lightbox.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  galleryItems.forEach((item) => {
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("role", "button");
+    item.setAttribute("aria-label", "تكبير الصورة");
+
+    const openItem = () => {
+      const img = item.querySelector("img");
+      const caption = item.querySelector("figcaption");
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || "";
+      lightboxCaption.textContent = caption ? caption.textContent.trim() : "";
+      lightbox.classList.add("is-open");
+      document.body.style.overflow = "hidden";
+      lightboxClose.focus();
+    };
+
+    item.addEventListener("click", openItem);
+    item.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openItem();
+      }
+    });
+  });
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.classList.contains("is-open")) {
+      closeLightbox();
+    }
+  });
+}
