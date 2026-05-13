@@ -1044,6 +1044,47 @@ h2.light { color: #fff; }
 }
 
 /* ═══════════════════════════════════════════════
+   CERTIFICATE BANNER
+═══════════════════════════════════════════════ */
+.cert-banner {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  align-items: center;
+  background: linear-gradient(135deg, var(--green-lt) 0%, var(--blue-lt) 100%);
+  border: 2px solid var(--green);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  overflow: hidden;
+}
+.cert-banner img {
+  width: 100%;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  object-fit: cover;
+}
+.cert-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cert-stars { font-size: 1.8rem; letter-spacing: 4px; }
+.cert-caption strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green-dk);
+  line-height: 1.4;
+}
+.cert-caption p {
+  color: var(--ink);
+  opacity: .8;
+  font-size: .95rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
    RESPONSIVE — TABLET (≤ 1050px)
 ═══════════════════════════════════════════════ */
 @media (max-width: 1050px) {
@@ -1123,4 +1164,6 @@ h2.light { color: #fff; }
   .ft-brand { grid-column: auto; }
   .footer-bottom { flex-direction: column; gap: 8px; }
   .quotes-grid { grid-template-columns: 1fr; }
+  .cert-banner { grid-template-columns: 1fr; }
+  .cert-banner img { max-height: 280px; object-fit: cover; }
 }
