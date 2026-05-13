@@ -254,6 +254,7 @@ button { font: inherit; cursor: pointer; }
   font-weight: 700;
   font-size: .82rem;
   margin-bottom: 22px;
+  animation: floatSoft 4s ease-in-out infinite;
 }
 .badge-pulse {
   width: 8px; height: 8px;
@@ -264,6 +265,10 @@ button { font: inherit; cursor: pointer; }
 @keyframes pulse {
   0%,100% { opacity: 1; transform: scale(1); }
   50%      { opacity: .55; transform: scale(.8); }
+}
+@keyframes floatSoft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
 }
 
 .hero h1 {
@@ -318,8 +323,13 @@ button { font: inherit; cursor: pointer; }
 .hs-item {
   padding: 22px 18px;
   border-inline-start: 1px solid var(--line);
+  transition: transform .22s ease, background .22s ease;
 }
 .hs-item:first-child { border-inline-start: none; }
+.hs-item:hover {
+  background: linear-gradient(180deg, #fff, var(--green-lt));
+  transform: translateY(-4px);
+}
 .hs-item strong {
   display: block;
   font-size: clamp(2rem, 4vw, 3rem);
@@ -350,8 +360,24 @@ button { font: inherit; cursor: pointer; }
   border: 2px solid transparent;
   transition: transform .2s, box-shadow .2s, background .2s, color .2s;
   white-space: nowrap;
+  position: relative;
+  overflow: hidden;
 }
-.btn:hover { transform: translateY(-2px); }
+.btn::before {
+  content: "";
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: -80%;
+  width: 55%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.42), transparent);
+  transform: skewX(-18deg);
+  transition: inset-inline-start .55s ease;
+  pointer-events: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+}
+.btn:hover::before { inset-inline-start: 130%; }
 .btn-primary {
   background: var(--amber);
   color: #1a1400;
@@ -364,6 +390,27 @@ button { font: inherit; cursor: pointer; }
   background: rgba(255,255,255,.1);
 }
 .btn-ghost:hover { background: rgba(255,255,255,.2); }
+.btn-soft {
+  background: rgba(255,255,255,.9);
+  color: var(--green-dk);
+  border-color: rgba(255,255,255,.35);
+}
+.btn-soft:hover { box-shadow: 0 12px 32px rgba(255,255,255,.18); }
+.btn-outline {
+  background: #fff;
+  color: var(--green-dk);
+  border-color: rgba(14,124,102,.35);
+}
+.btn-outline:hover {
+  background: var(--green-lt);
+  box-shadow: var(--shadow-sm);
+}
+.btn-outline-light {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  border-color: rgba(255,255,255,.36);
+}
+.btn-outline-light:hover { background: rgba(255,255,255,.18); }
 .band .btn-primary,
 .split-text .btn-primary {
   background: var(--green);
@@ -462,6 +509,14 @@ h2.light { color: #fff; }
   font-size: 1.05rem;
 }
 
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 34px;
+}
+
 /* Reveal animation */
 .reveal {
   opacity: 0;
@@ -477,6 +532,10 @@ h2.light { color: #fff; }
     animation-duration: .01ms !important;
   }
   .reveal { opacity: 1; transform: none; }
+  .hero-badge,
+  .quick-actions {
+    animation: none !important;
+  }
 }
 
 /* ═══════════════════════════════════════════════
@@ -582,6 +641,12 @@ h2.light { color: #fff; }
 
 .goal-card h3 { font-size: 1.12rem; margin-bottom: 8px; }
 .goal-card p  { font-size: .9rem; color: var(--muted); margin-bottom: 18px; }
+.goal-card,
+.imp-stat,
+.bl-card,
+.act-card {
+  will-change: transform;
+}
 
 .section-note {
   max-width: 720px;
@@ -1249,6 +1314,43 @@ h2.light { color: #fff; }
 }
 
 /* ═══════════════════════════════════════════════
+   QUICK ACTIONS
+═══════════════════════════════════════════════ */
+.quick-actions {
+  position: fixed;
+  z-index: 180;
+  inset-inline: 50%;
+  bottom: 18px;
+  transform: translateX(50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(219,230,239,.9);
+  box-shadow: 0 14px 42px rgba(20,33,61,.16);
+  backdrop-filter: blur(16px);
+  animation: quickRise .55s ease both;
+}
+.quick-actions a {
+  padding: 8px 13px;
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: .78rem;
+  font-weight: 900;
+  transition: background .2s, color .2s, transform .2s;
+}
+.quick-actions a:hover {
+  background: var(--green);
+  color: #fff;
+  transform: translateY(-2px);
+}
+@keyframes quickRise {
+  from { opacity: 0; transform: translateX(50%) translateY(16px); }
+  to { opacity: 1; transform: translateX(50%) translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════
    CERTIFICATE BANNER
 ═══════════════════════════════════════════════ */
 .cert-banner {
@@ -1367,6 +1469,8 @@ h2.light { color: #fff; }
   .hero-actions .btn { width: 100%; }
   .hero-stats { grid-template-columns: 1fr 1fr; }
   .hs-item { padding: 16px 12px; }
+  .section-actions { flex-direction: column; }
+  .section-actions .btn { width: 100%; }
 
   .vs-inner { gap: 0; justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; }
   .vs-item  { padding: 14px 18px; flex-shrink: 0; }
@@ -1395,4 +1499,22 @@ h2.light { color: #fff; }
   .bl-featured .bl-img img { aspect-ratio: 16 / 9; }
   .lightbox { padding: 14px; }
   .lightbox-close { top: 12px; inset-inline-end: 12px; }
+  .quick-actions {
+    inset-inline: 14px;
+    bottom: 12px;
+    transform: none;
+    justify-content: center;
+    border-radius: var(--radius);
+    animation-name: quickRiseMobile;
+  }
+  .quick-actions a {
+    flex: 1;
+    text-align: center;
+    padding-inline: 8px;
+  }
+}
+
+@keyframes quickRiseMobile {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
 }
