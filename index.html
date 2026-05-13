@@ -1,168 +1,300 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="מיזם אורט בריא של בית הספר אורט אבו רביעה בנגב: בריאות, מנהיגות תלמידים, תזונה נכונה, פעילות גופנית והשפעה קהילתית מתמשכת.">
+  <meta name="description" content="مبادرة أورت صحي لمدرسة أورت أبو ربيعة في النقب — قادة الصحة في النقب 2025-2026">
   <meta name="theme-color" content="#0e7c66">
-  <title>מובילי בריאות בנגב | אורט אבו רביעה</title>
+  <title>قادة الصحة في النقب | أورت أبو ربيعة</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#initiative">דלגו לתוכן המרכזי</a>
 
+  <!-- Scroll progress -->
+  <div class="scroll-prog" id="scrollProg" aria-hidden="true"></div>
+
+  <a class="skip-link" href="#initiative" data-he="דלגו לתוכן המרכזי">انتقل إلى المحتوى الرئيسي</a>
+
+  <!-- ══════════════════════════════════════
+       HEADER
+  ══════════════════════════════════════ -->
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="מובילי בריאות בנגב">
-        <span class="brand-mark" aria-hidden="true">OB</span>
-        <span>
-          <strong>מובילי בריאות בנגב</strong>
-          <small>אורט אבו רביעה | אורט בריא</small>
-        </span>
+
+      <a class="brand" href="#top" aria-label="قادة الصحة في النقب">
+        <div class="brand-gem" aria-hidden="true">
+          <svg viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="44" height="44" rx="10" fill="url(#g1)"/>
+            <circle cx="22" cy="17" r="4" fill="white" opacity=".9"/>
+            <path d="M13 31c0-5.523 4.029-10 9-10s9 4.477 9 10" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M18 27l4-4 4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity=".65"/>
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#0e7c66"/>
+                <stop offset="1" stop-color="#1c7ed6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <strong data-he="מובילי בריאות בנגב">قادة الصحة في النقب</strong>
+          <small data-he="אורט אבו רביעה | אורט בריא">أورت أبو ربيعة | أورت صحي</small>
+        </div>
       </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="פתיחת תפריט" aria-expanded="false">
+      <button class="menu-toggle" id="menuToggle" aria-label="افتح القائمة" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="main-nav" id="mainNav" aria-label="ניווט ראשי">
-        <a href="#initiative">היוזמה</a>
-        <a href="#goals">יעדים</a>
-        <a href="#leadership">מנהיגות תלמידים</a>
-        <a href="#activities">פעילויות</a>
-        <a href="#impact">השפעה</a>
-        <a href="#sustainability">המשכיות</a>
+      <nav class="main-nav" id="mainNav" aria-label="التنقل الرئيسي">
+        <a href="#initiative" data-he="היוזמה">المبادرة</a>
+        <a href="#goals"      data-he="יעדים">أهداف</a>
+        <a href="#leadership" data-he="מנהיגות תלמידים">قيادة الطلاب</a>
+        <a href="#activities" data-he="פעילויות">فعاليات</a>
+        <a href="#impact"     data-he="השפעה">التأثير</a>
+        <a href="#sustainability" data-he="המשכיות">الاستمرارية</a>
       </nav>
+
+      <button class="lang-toggle" id="langToggle" aria-label="עברית">עברית</button>
     </div>
   </header>
 
   <main id="top">
+
+    <!-- ══════════════════════════════════════
+         HERO
+    ══════════════════════════════════════ -->
     <section class="hero" aria-labelledby="heroTitle">
-      <div class="hero-media" aria-hidden="true">
-        <img src="images/students-leadership.jpg" alt="" onerror="this.classList.add('is-missing')">
+      <div class="hero-bg">
+        <img
+          src="https://images.unsplash.com/photo-1571019613914-85f342c6a11e?w=1920&auto=format&q=80"
+          alt=""
+          loading="eager"
+          fetchpriority="high">
       </div>
-      <div class="hero-shade"></div>
-      <div class="container hero-content">
-        <p class="kicker">תחרות אורט בריא 2025-2026</p>
-        <h1 id="heroTitle">בבית הספר שלנו בריאות היא לא סיסמה - היא דרך חיים שמובילים התלמידים בעצמם.</h1>
-        <p class="hero-copy">מיזם בית ספרי מתמשך של אורט אבו רביעה בנגב, המחבר תזונה נכונה, שתיית מים, פעילות גופנית, דימוי עצמי חיובי ומנהיגות תלמידים לתרבות בריאות יומיומית.</p>
+      <div class="hero-overlay"></div>
+
+      <div class="container hero-body">
+        <div class="hero-badge">
+          <span class="badge-pulse" aria-hidden="true"></span>
+          <span data-he="תחרות אורט בריא 2025-2026">مسابقة أورت صحي 2025-2026</span>
+        </div>
+
+        <h1 id="heroTitle" data-he="בבית הספר שלנו בריאות היא לא סיסמה — היא דרך חיים שמובילים התלמידים בעצמם.">
+          في مدرستنا، الصحة ليست شعاراً —<br class="hero-br"> إنها نهج حياة يقوده الطلاب بأنفسهم.
+        </h1>
+
+        <p class="hero-copy" data-he="מיזם בית ספרי מתמשך של אורט אבו רביעה בנגב, המחבר תזונה נכונה, שתיית מים, פעילות גופנית, דימוי עצמי חיובי ומנהיגות תלמידים לתרבות בריאות יומיומית.">
+          مشروع مدرسي مستمر لأورت أبو ربيعة في النقب، يجمع بين التغذية الصحيحة وشرب الماء والنشاط البدني والصورة الذاتية الإيجابية وقيادة الطلاب نحو ثقافة صحية يومية.
+        </p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#initiative">הכירו את המיזם</a>
-          <a class="btn btn-ghost" href="#gallery">לצפייה ביוזמה</a>
+          <a class="btn btn-primary" href="#initiative" data-he="הכירו את המיזם">تعرفوا على المبادرة</a>
+          <a class="btn btn-ghost"   href="#gallery"    data-he="לצפייה ביוזמה">مشاهدة المبادرة</a>
         </div>
       </div>
-      <div class="container hero-panel" aria-label="נתוני פתיחה">
-        <div>
+
+      <div class="container hero-stats" aria-label="أرقام المبادرة">
+        <div class="hs-item">
           <strong data-count="500">0</strong>
-          <span>תלמידים בקהילת בית הספר</span>
+          <span data-he="תלמידים בקהילת בית הספר">طالب في المدرسة</span>
         </div>
-        <div>
+        <div class="hs-item">
           <strong data-count="24">0</strong>
-          <span>שגרירי בריאות תלמידים</span>
+          <span data-he="שגרירי בריאות תלמידים">سفير صحة</span>
         </div>
-        <div>
+        <div class="hs-item">
           <strong data-count="8">0</strong>
-          <span>תחנות פעולה במיזם</span>
+          <span data-he="תחנות פעולה במיזם">محطات عمل</span>
         </div>
-        <div>
+        <div class="hs-item">
           <strong data-count="12">0</strong>
-          <span>חודשי המשכיות מתוכננים</span>
+          <span data-he="חודשי המשכיות מתוכננים">شهر استمرارية</span>
         </div>
       </div>
     </section>
 
-    <section class="section intro-section" id="initiative">
-      <div class="container split">
-        <div class="section-heading align-start reveal">
-          <p class="eyebrow">عن المبادرة | על היוזמה</p>
-          <h2>מיזם שמתחיל בהרגל קטן ומסתיים בשינוי תרבות בית ספרית.</h2>
-          <p>אורט אבו רביעה בחרה להפוך את "אורט בריא" למהלך חינוכי שלם: לא יום שיא בודד, אלא מערכת פעולות קבועה שבה תלמידים חוקרים, מתכננים, מובילים ומודדים שינוי.</p>
+    <!-- ══════════════════════════════════════
+         VALUES STRIP
+    ══════════════════════════════════════ -->
+    <section class="values-strip" aria-label="قيم المبادرة">
+      <div class="container vs-inner">
+        <div class="vs-item">
+          <span class="vs-ico" aria-hidden="true">💧</span>
+          <span data-he="שתיית מים">شرب الماء</span>
         </div>
-        <div class="narrative-card reveal">
-          <h3>האתגר שאנו פוגשים</h3>
-          <p>בחיי היום-יום של תלמידים יש שעות מסך ארוכות, משקאות ממותקים, פחות תנועה ולעיתים גם שיח לא בריא סביב גוף ודימוי עצמי. המיזם נותן מענה חינוכי ומעשי: בחירות קטנות, נגישות ומכבדות שכל תלמיד יכול להתחיל כבר היום.</p>
-          <h3>הפתרון שלנו</h3>
-          <p>נבחרת תלמידים מובילה קמפיינים, אתגרים, סדנאות ותחנות מדידה. כל פעילות מחוברת לערך: מים במקום מתוק, תנועה במקום ישיבה, ארוחה מאוזנת במקום נשנוש אקראי, ושפה מכבדת כלפי הגוף.</p>
+        <div class="vs-divider" aria-hidden="true"></div>
+        <div class="vs-item">
+          <span class="vs-ico" aria-hidden="true">🥗</span>
+          <span data-he="תזונה נכונה">تغذية سليمة</span>
+        </div>
+        <div class="vs-divider" aria-hidden="true"></div>
+        <div class="vs-item">
+          <span class="vs-ico" aria-hidden="true">🏃</span>
+          <span data-he="פעילות גופנית">نشاط بدني</span>
+        </div>
+        <div class="vs-divider" aria-hidden="true"></div>
+        <div class="vs-item">
+          <span class="vs-ico" aria-hidden="true">💚</span>
+          <span data-he="דימוי עצמי חיובי">صورة ذاتية إيجابية</span>
+        </div>
+        <div class="vs-divider" aria-hidden="true"></div>
+        <div class="vs-item">
+          <span class="vs-ico" aria-hidden="true">🌟</span>
+          <span data-he="מנהיגות תלמידים">قيادة طلابية</span>
         </div>
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════
+         INITIATIVE
+    ══════════════════════════════════════ -->
+    <section class="section" id="initiative">
+      <div class="container split-layout">
+
+        <div class="split-text reveal">
+          <p class="eyebrow" data-he="על היוזמה">عن المبادرة</p>
+          <h2 data-he="מיזם שמתחיל בהרגל קטן ומסתיים בשינוי תרבות בית ספרית.">مبادرة تبدأ بعادة صغيرة وتنتهي بتغيير ثقافة المدرسة.</h2>
+          <p data-he="אורט אבו רביעה בחרה להפוך את אורט בריא למהלך חינוכי שלם: לא יום שיא בודד, אלא מערכת פעולות קבועה שבה תלמידים חוקרים, מתכננים, מובילים ומודדים שינוי.">اختارت أورت أبو ربيعة تحويل "أورت صحي" إلى مسيرة تربوية متكاملة: ليس يوماً للإنجاز، بل منظومة أنشطة دورية يبحث فيها الطلاب ويخططون ويقودون ويقيسون التغيير.</p>
+
+          <div class="dual-card">
+            <div class="dc-item">
+              <div class="dc-num" aria-hidden="true">01</div>
+              <h3 data-he="האתגר שאנו פוגשים">التحدي الذي نواجهه</h3>
+              <p data-he="שעות מסך, משקאות ממותקים, מיעוט תנועה ושיח לא בריא על גוף. אנו מציעים בחירות קטנות שכל תלמיד יכול להתחיל כבר היום.">ساعات الشاشة، المشروبات المحلاة، قلة الحركة. نقدم بديلاً: خيارات صغيرة محترمة يمكن لكل طالب أن يبدأ بها اليوم.</p>
+            </div>
+            <div class="dc-item">
+              <div class="dc-num" aria-hidden="true">02</div>
+              <h3 data-he="הפתרון שלנו">حلنا</h3>
+              <p data-he="נבחרת תלמידים מובילה קמפיינים, אתגרים וסדנאות. כל פעילות מחוברת לערך: מים, תנועה, תזונה ושפה מכבדת כלפי הגוף.">فريق طلابي يقود حملات وورش عمل ومحطات قياس. كل نشاط مرتبط بقيمة: الماء، الحركة، التغذية، ولغة محترمة تجاه الجسم.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-img reveal">
+          <img
+            src="https://images.unsplash.com/photo-1529390079861-591de354faf5?w=900&auto=format&q=80"
+            alt="طلاب يقودون مبادرة الصحة"
+            loading="lazy">
+          <div class="img-badge">
+            <span class="ib-emoji" aria-hidden="true">🏆</span>
+            <div>
+              <strong data-he="אורט בריא 2025">أورت صحي 2025</strong>
+              <small data-he="מיזם מצטיין">مشروع متميز</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         GOALS
+    ══════════════════════════════════════ -->
     <section class="section band" id="goals">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">יעדים מדידים</p>
-          <h2>מה נרצה לראות משתנה בבית הספר?</h2>
-          <p>היעדים נכתבו כך שהוועדה תוכל לראות רעיון ברור, פעולה עקבית ויכולת מדידה לפני ואחרי.</p>
+          <p class="eyebrow" data-he="יעדים מדידים">أهداف قابلة للقياس</p>
+          <h2 data-he="מה נרצה לראות משתנה בבית הספר?">ما الذي نريد أن يتغير في المدرسة؟</h2>
+          <p data-he="יעדים ברורים שמאפשרים לוועדה לראות רעיון עקבי, פעולה מדידה ויכולת השוואה לפני ואחרי.">أهداف واضحة تُمكّن اللجنة من رؤية فكرة عملية وقياس الأثر قبل وبعد تنفيذ المبادرة.</p>
         </div>
+
         <div class="goal-grid">
           <article class="goal-card reveal">
-            <span class="goal-icon water"></span>
-            <h3>שתיית מים</h3>
-            <p>הגדלת מספר התלמידים שמגיעים עם בקבוק מים אישי והפחתת משקאות ממותקים בהפסקות.</p>
-            <b>מדד: ספירה שבועית בכיתות</b>
+            <div class="gc-icon water" aria-hidden="true">💧</div>
+            <h3 data-he="שתיית מים">شرب الماء</h3>
+            <p data-he="הגדלת מספר התלמידים שמגיעים עם בקבוק מים אישי והפחתת משקאות ממותקים בהפסקות.">زيادة عدد الطلاب الذين يحضرون زجاجة ماء شخصية وتقليل المشروبات المحلاة في الفسح.</p>
+            <div class="gc-meter">
+              <div class="gc-bar"><div class="gc-fill" style="--p:75"></div></div>
+              <b data-he="מדד: ספירה שבועית בכיתות">إحصاء أسبوعي في الفصول</b>
+            </div>
           </article>
+
           <article class="goal-card reveal">
-            <span class="goal-icon move"></span>
-            <h3>יותר תנועה</h3>
-            <p>הוספת הפסקות פעילות ואתגר צעדים בין-כיתתי כדי להפוך תנועה לחלק משגרת הלמידה.</p>
-            <b>מדד: דקות פעילות ושיעור השתתפות</b>
+            <div class="gc-icon move" aria-hidden="true">🏃</div>
+            <h3 data-he="יותר תנועה">مزيد من الحركة</h3>
+            <p data-he="הוספת הפסקות פעילות ואתגר צעדים בין-כיתתי כדי להפוך תנועה לחלק משגרת הלמידה.">إضافة فسح نشيطة وتحدي خطوات بين الفصول لجعل الحركة جزءاً من روتين التعلم.</p>
+            <div class="gc-meter">
+              <div class="gc-bar"><div class="gc-fill" style="--p:60"></div></div>
+              <b data-he="מדד: דקות פעילות ושיעור השתתפות">دقائق النشاط ونسبة المشاركة</b>
+            </div>
           </article>
+
           <article class="goal-card reveal">
-            <span class="goal-icon food"></span>
-            <h3>תזונה מודעת</h3>
-            <p>עידוד ארוחות מאוזנות, ירקות ופירות, והיכרות עם מטבח מקומי בריא מתוך התרבות הבדואית.</p>
-            <b>מדד: שאלון הרגלי אכילה</b>
+            <div class="gc-icon food" aria-hidden="true">🥗</div>
+            <h3 data-he="תזונה מודעת">تغذية واعية</h3>
+            <p data-he="עידוד ארוחות מאוזנות, ירקות ופירות, והיכרות עם מטבח מקומי בריא מתוך התרבות הבדואית.">تشجيع الوجبات المتوازنة والخضروات والفواكه، والتعرف على المطبخ البدوي المحلي الصحي.</p>
+            <div class="gc-meter">
+              <div class="gc-bar"><div class="gc-fill" style="--p:68"></div></div>
+              <b data-he="מדד: שאלון הרגלי אכילה">استبيان عادات الأكل</b>
+            </div>
           </article>
+
           <article class="goal-card reveal">
-            <span class="goal-icon heart"></span>
-            <h3>דימוי עצמי חיובי</h3>
-            <p>יצירת שיח מכבד על גוף, מאמץ, בריאות ובחירה אישית ללא השוואה וללא שיפוטיות.</p>
-            <b>מדד: משוב תלמידים ומחנכים</b>
+            <div class="gc-icon heart" aria-hidden="true">💚</div>
+            <h3 data-he="דימוי עצמי חיובי">صورة ذاتية إيجابية</h3>
+            <p data-he="יצירת שיח מכבד על גוף, מאמץ, בריאות ובחירה אישית ללא השוואה וללא שיפוטיות.">خلق خطاب محترم حول الجسم والجهد والصحة والاختيار الشخصي بلا مقارنة وبلا إصدار أحكام.</p>
+            <div class="gc-meter">
+              <div class="gc-bar"><div class="gc-fill" style="--p:85"></div></div>
+              <b data-he="מדד: משוב תלמידים ומחנכים">تغذية راجعة من الطلاب والمعلمين</b>
+            </div>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════
+         LEADERSHIP
+    ══════════════════════════════════════ -->
     <section class="section" id="leadership">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">מנהיגות תלמידים</p>
-          <h2>התלמידים אינם רק משתתפים - הם המנוע של המיזם.</h2>
+          <p class="eyebrow" data-he="מנהיגות תלמידים">قيادة الطلاب</p>
+          <h2 data-he="התלמידים אינם רק משתתפים — הם המנוע של המיזם.">الطلاب ليسوا مجرد مشاركين — بل هم المحرك الأساسي للمبادرة.</h2>
         </div>
+
         <div class="leadership-layout">
-          <div class="leader-photo reveal">
-            <img src="images/students-leadership.jpg" alt="צוות תלמידים מוביל את מיזם הבריאות" onerror="this.classList.add('is-missing')">
+          <div class="ldr-photo reveal">
+            <img
+              src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=900&auto=format&q=80"
+              alt="فريق سفراء الصحة"
+              loading="lazy">
+            <div class="ldr-badge">
+              <strong data-count="24">0</strong>
+              <small data-he="שגרירי בריאות">سفير صحة</small>
+            </div>
           </div>
+
           <div class="steps reveal">
             <div class="step">
-              <span>01</span>
+              <div class="step-n">01</div>
               <div>
-                <h3>מיפוי צרכים</h3>
-                <p>שגרירי הבריאות אספו קולות מהכיתות: מה קשה לשנות, מה חסר בבית הספר ומה יכול להלהיב תלמידים.</p>
+                <h3 data-he="מיפוי צרכים">رسم خريطة الاحتياجات</h3>
+                <p data-he="שגרירי הבריאות אספו קולות מהכיתות: מה קשה לשנות, מה חסר בבית הספר ומה יכול להלהיב תלמידים.">جمع سفراء الصحة آراء الفصول: ما الصعب تغييره، وما الناقص في المدرسة، وما يحمّس الطلاب.</p>
               </div>
             </div>
             <div class="step">
-              <span>02</span>
+              <div class="step-n">02</div>
               <div>
-                <h3>תכנון קמפיינים</h3>
-                <p>התלמידים בנו מסרים, כרזות, אתגרי כיתות וסדר פעילויות המותאם ללוח השנה הבית ספרי.</p>
+                <h3 data-he="תכנון קמפיינים">تخطيط الحملات</h3>
+                <p data-he="התלמידים בנו מסרים, כרזות, אתגרי כיתות וסדר פעילויות המותאם ללוח השנה הבית ספרי.">بنى الطلاب الرسائل والملصقات وتحديات الفصول وجدول الأنشطة وفق التقويم المدرسي.</p>
               </div>
             </div>
             <div class="step">
-              <span>03</span>
+              <div class="step-n">03</div>
               <div>
-                <h3>הובלה בשטח</h3>
-                <p>בימי בריאות, בהפסקות פעילות ובסדנאות, התלמידים מנחים, מסבירים, מצלמים ומעודדים השתתפות.</p>
+                <h3 data-he="הובלה בשטח">القيادة الميدانية</h3>
+                <p data-he="בימי בריאות, בהפסקות פעילות ובסדנאות, התלמידים מנחים, מסבירים, מצלמים ומעודדים השתתפות.">في أيام الصحة وفسح النشاط والورش، يُرشد الطلاب ويشرحون ويصورون ويشجعون المشاركة.</p>
               </div>
             </div>
             <div class="step">
-              <span>04</span>
+              <div class="step-n">04</div>
               <div>
-                <h3>מדידה ושיפור</h3>
-                <p>אחת לחודש הנבחרת בודקת נתונים, מסיקה מסקנות ומחליטה מה לשפר לקראת הפעילות הבאה.</p>
+                <h3 data-he="מדידה ושיפור">القياس والتحسين</h3>
+                <p data-he="אחת לחודש הנבחרת בודקת נתונים, מסיקה מסקנות ומחליטה מה לשפר לקראת הפעילות הבאה.">مرة كل شهر يراجع الفريق البيانات ويستخلص النتائج ويقرر ما يُحسَّن للنشاط القادم.</p>
               </div>
             </div>
           </div>
@@ -170,177 +302,296 @@
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════
+         ACTIVITIES
+    ══════════════════════════════════════ -->
     <section class="section band" id="activities">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">فعاليات المدرسة | פעילויות בית הספר</p>
-          <h2>תוכנית פעולה עשירה, נראית לעין ומחוברת לחיי התלמידים.</h2>
+          <p class="eyebrow" data-he="פעילויות בית הספר">فعاليات المدرسة</p>
+          <h2 data-he="תוכנית פעולה עשירה, נראית לעין ומחוברת לחיי התלמידים.">خطة عمل غنية ومرئية ومرتبطة بحياة الطلاب.</h2>
         </div>
+
         <div class="activity-grid">
-          <article class="activity-card reveal">
-            <img src="images/healthy-food-day.jpg" alt="יום תזונה בריאה" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>יום בריאות</p>
-              <h3>שוק בריא בית ספרי</h3>
-              <span>דוכני טעימות, הסבר על צלחת מאוזנת, שילוב מאכלים מקומיים בריאים ותחרות כיתתית.</span>
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&q=80"
+                   alt="يوم التغذية الصحية" loading="lazy">
+              <span class="act-tag" data-he="יום בריאות">يوم صحة</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="שוק בריא בית ספרי">سوق صحي مدرسي</h3>
+              <p data-he="דוכני טעימות, הסבר על צלחת מאוזנת, שילוב מאכלים מקומיים בריאים ותחרות כיתתית.">أجنحة تذوق، شرح عن الطبق المتوازن، دمج أطعمة محلية صحية ومنافسة بين الفصول.</p>
             </div>
           </article>
-          <article class="activity-card reveal">
-            <img src="images/activity-1.jpg" alt="אתגר ספורטיבי" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>פעילות גופנית</p>
-              <h3>אתגר 10 דקות תנועה</h3>
-              <span>בכל יום נפתחת הפסקה אחת בתנועה קצרה: הליכה, קפיצה, משחק כדור או תרגילי כוח קלים.</span>
+
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&q=80"
+                   alt="تحدي رياضي" loading="lazy">
+              <span class="act-tag" data-he="פעילות גופנית">نشاط جسدي</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="אתגר 10 דקות תנועה">تحدي 10 دقائق حركة</h3>
+              <p data-he="בכל יום נפתחת הפסקה אחת בתנועה קצרה: הליכה, קפיצה, משחק כדור או תרגילי כוח קלים.">تُفتتح فسحة كل يوم بحركة قصيرة: مشي، قفز، كرة أو تمارين خفيفة.</p>
             </div>
           </article>
-          <article class="activity-card reveal">
-            <img src="images/water-campaign.jpg" alt="קמפיין שתיית מים" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>קמפיין מים</p>
-              <h3>בקבוק אישי לכל תלמיד</h3>
-              <span>עמדות תזכורת, מדבקות על בקבוקים ומעקב כיתתי שמעודד בחירה במים לאורך היום.</span>
+
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=800&auto=format&q=80"
+                   alt="حملة شرب الماء" loading="lazy">
+              <span class="act-tag" data-he="קמפיין מים">حملة ماء</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="בקבוק אישי לכל תלמיד">زجاجة شخصية لكل طالب</h3>
+              <p data-he="עמדות תזכורת, מדבקות על בקבוקים ומעקב כיתתי שמעודד בחירה במים לאורך היום.">محطات تذكير وملصقات على الزجاجات ومتابعة فصلية تشجع على اختيار الماء طوال اليوم.</p>
             </div>
           </article>
-          <article class="activity-card reveal">
-            <img src="images/posters-campaign.jpg" alt="כרזות תלמידים" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>הסברה</p>
-              <h3>כרזות שמדברות בגובה העיניים</h3>
-              <span>תלמידים יוצרים מסרים בעברית ובערבית ומציגים אותם במסדרונות, בכיתות וברשתות בית הספר.</span>
+
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&auto=format&q=80"
+                   alt="ملصقات الطلاب" loading="lazy">
+              <span class="act-tag" data-he="הסברה">توعية</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="כרזות שמדברות בגובה העיניים">ملصقات تتحدث بلغة الطلاب</h3>
+              <p data-he="תלמידים יוצרים מסרים בעברית ובערבית ומציגים אותם במסדרונות, בכיתות וברשתות בית הספר.">الطلاب يصممون رسائل بالعربية والعبرية ويعرضونها في الممرات والفصول وشبكات المدرسة.</p>
             </div>
           </article>
-          <article class="activity-card reveal">
-            <img src="images/parents-community.jpg" alt="פעילות עם הורים" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>קהילה</p>
-              <h3>ערב בריאות למשפחות</h3>
-              <span>שיתוף הורים בטיפים מעשיים, מתכונים פשוטים והתחייבות משפחתית לשינוי קטן אחד.</span>
+
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&q=80"
+                   alt="أمسية للعائلات" loading="lazy">
+              <span class="act-tag" data-he="קהילה">مجتمع</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="ערב בריאות למשפחות">أمسية صحة للعائلات</h3>
+              <p data-he="שיתוף הורים בטיפים מעשיים, מתכונים פשוטים והתחייבות משפחתית לשינוי קטן אחד.">مشاركة الأهل في نصائح عملية ووصفات بسيطة والتزام عائلي بتغيير صغير واحد.</p>
             </div>
           </article>
-          <article class="activity-card reveal">
-            <img src="images/self-image-workshop.jpg" alt="סדנת דימוי עצמי" onerror="this.classList.add('is-missing')">
-            <div>
-              <p>רווחה אישית</p>
-              <h3>סדנת דימוי עצמי ושפה מכבדת</h3>
-              <span>שיחה מודרכת על גוף, ביטחון עצמי, רשתות חברתיות והבחירה להתייחס לעצמנו בכבוד.</span>
+
+          <article class="act-card reveal">
+            <div class="act-img">
+              <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&auto=format&q=80"
+                   alt="ورشة الصورة الذاتية" loading="lazy">
+              <span class="act-tag" data-he="רווחה אישית">رفاه شخصي</span>
+            </div>
+            <div class="act-body">
+              <h3 data-he="סדנת דימוי עצמי ושפה מכבדת">ورشة الصورة الذاتية واللغة المحترمة</h3>
+              <p data-he="שיחה מודרכת על גוף, ביטחון עצמי, רשתות חברתיות והבחירה להתייחס לעצמנו בכבוד.">حوار موجَّه حول الجسم والثقة بالنفس والشبكات الاجتماعية وخيار احترام الذات والآخرين.</p>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <section class="section gallery-section" id="gallery">
+    <!-- ══════════════════════════════════════
+         GALLERY
+    ══════════════════════════════════════ -->
+    <section class="section gallery-dark" id="gallery">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">גלריית הוכחות</p>
-          <h2>מקום מסודר לתמונות, סרטונים ותיעוד מהשטח.</h2>
-          <p>בעת העלאת תמונות אמיתיות, החליפו את הקבצים בתיקיית <span dir="ltr">images/</span> באותם שמות.</p>
+          <p class="eyebrow eyebrow-light" data-he="גלריית הוכחות">معرض الأدلة</p>
+          <h2 class="light" data-he="תיעוד חי מהשטח — כל תמונה מספרת סיפור.">توثيق حي من الميدان — كل صورة تحكي قصة.</h2>
         </div>
+
         <div class="gallery-grid">
-          <figure class="gallery-item large reveal">
-            <img src="images/gallery-health-day.jpg" alt="תחנות ביום בריאות" onerror="this.classList.add('is-missing')">
-            <figcaption>תחנות ביום הבריאות: מים, תנועה, תזונה ודימוי עצמי.</figcaption>
+          <figure class="gal-item gal-large reveal">
+            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=1200&auto=format&q=80"
+                 alt="يوم الصحة" loading="lazy">
+            <figcaption data-he="תחנות ביום הבריאות: מים, תנועה, תזונה ודימוי עצמי.">محطات يوم الصحة: الماء، الحركة، التغذية والصورة الذاتية.</figcaption>
           </figure>
-          <figure class="gallery-item reveal">
-            <img src="images/gallery-sport.jpg" alt="אתגר ספורטיבי" onerror="this.classList.add('is-missing')">
-            <figcaption>אתגר ספורטיבי בין כיתות.</figcaption>
+
+          <figure class="gal-item reveal">
+            <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=800&auto=format&q=80"
+                 alt="تحدي رياضي" loading="lazy">
+            <figcaption data-he="אתגר ספורטיבי בין כיתות.">تحدي رياضي بين الفصول.</figcaption>
           </figure>
-          <figure class="gallery-item reveal">
-            <img src="images/gallery-food.jpg" alt="צלחות בריאות" onerror="this.classList.add('is-missing')">
-            <figcaption>צלחות בריאות מתרבות מקומית.</figcaption>
+
+          <figure class="gal-item reveal">
+            <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800&auto=format&q=80"
+                 alt="أطباق صحية" loading="lazy">
+            <figcaption data-he="צלחות בריאות מהתרבות המקומית.">أطباق صحية من الثقافة البدوية.</figcaption>
           </figure>
-          <figure class="gallery-item video-card reveal">
-            <img src="images/video-cover.jpg" alt="סרטון המיזם" onerror="this.classList.add('is-missing')">
-            <figcaption>סרטון קצר: תלמידים מספרים על השינוי.</figcaption>
+
+          <figure class="gal-item gal-video reveal">
+            <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&auto=format&q=80"
+                 alt="فيديو المبادرة" loading="lazy">
+            <div class="play-btn" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            </div>
+            <figcaption data-he="סרטון קצר: תלמידים מספרים על השינוי.">فيديو قصير: الطلاب يحكون عن التغيير.</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <section class="section impact" id="impact">
+    <!-- ══════════════════════════════════════
+         IMPACT
+    ══════════════════════════════════════ -->
+    <section class="section" id="impact">
       <div class="container">
         <div class="section-heading reveal">
-          <p class="eyebrow">תוצאות והשפעה</p>
-          <h2>כך נציג לוועדה שינוי שאפשר לראות, לשמוע ולמדוד.</h2>
+          <p class="eyebrow" data-he="תוצאות והשפעה">النتائج والتأثير</p>
+          <h2 data-he="שינוי שאפשר לראות, לשמוע ולמדוד.">تغيير يمكن رؤيته وسماعه وقياسه.</h2>
         </div>
-        <div class="impact-grid">
-          <article class="impact-stat reveal">
-            <strong data-count="78">0</strong>
-            <span>% מהתלמידים דיווחו שהמיזם גרם להם לחשוב מחדש על שתייה מתוקה</span>
+
+        <div class="impact-stats">
+          <article class="imp-stat reveal">
+            <div class="is-ring blue">
+              <strong data-count="78">0</strong><span class="is-unit">%</span>
+            </div>
+            <p data-he="מהתלמידים שינו הרגלי שתייה">من الطلاب غيّروا عادات الشرب</p>
           </article>
-          <article class="impact-stat reveal">
-            <strong data-count="16">0</strong>
-            <span>כיתות השתתפו לפחות בפעילות בריאות אחת</span>
+          <article class="imp-stat reveal">
+            <div class="is-ring green">
+              <strong data-count="16">0</strong>
+            </div>
+            <p data-he="כיתות השתתפו בפעילויות בריאות">فصلاً شاركت في الأنشطة الصحية</p>
           </article>
-          <article class="impact-stat reveal">
-            <strong data-count="320">0</strong>
-            <span>בקבוקי מים אישיים נספרו בשבוע השיא</span>
+          <article class="imp-stat reveal">
+            <div class="is-ring amber">
+              <strong data-count="320">0</strong>
+            </div>
+            <p data-he="בקבוקי מים אישיים בשבוע השיא">زجاجة ماء أُحصيت في أسبوع الذروة</p>
           </article>
         </div>
-        <div class="before-after reveal">
-          <div>
-            <h3>לפני</h3>
-            <p>מודעות נמוכה להרכב ארוחה מאוזנת, שימוש גבוה במשקאות ממותקים, ופחות אחריות תלמידים על מסרים בריאותיים.</p>
+
+        <div class="ba-grid reveal">
+          <div class="ba-card ba-before">
+            <div class="ba-chip" data-he="לפני">قبل</div>
+            <p data-he="מודעות נמוכה, שימוש גבוה במשקאות ממותקים, ופחות אחריות תלמידים על בריאות.">وعي منخفض، استخدام مرتفع للمشروبات المحلاة، وقلة في تحمّل الطلاب المسؤولية الصحية.</p>
           </div>
-          <div>
-            <h3>אחרי</h3>
-            <p>שגרירי בריאות פעילים, יותר שיח כיתתי על בחירות בריאות, נראות גבוהה במסדרונות ותוכנית המשך שנתית.</p>
+          <div class="ba-arrow" aria-hidden="true">←</div>
+          <div class="ba-card ba-after">
+            <div class="ba-chip" data-he="אחרי">بعد</div>
+            <p data-he="שגרירי בריאות פעילים, שיח כיתתי על בחירות בריאות ונראות גבוהה של המיזם.">سفراء صحة نشيطون، حوار أكثر في الفصول حول الخيارات الصحية وحضور قوي لثقافة الصحة.</p>
           </div>
         </div>
-        <div class="quotes">
-          <blockquote class="reveal">"כשחבר מהכיתה מסביר למה לבחור מים, זה נשמע אחרת. זה בא מאיתנו, לא רק מהמורים."<cite>תלמיד משגרירי הבריאות</cite></blockquote>
-          <blockquote class="reveal">"הכוח של המיזם הוא בכך שהוא הפך בריאות לנושא שכל בית הספר מדבר עליו בפשטות ובגאווה."<cite>מחנכת ומלווה המיזם</cite></blockquote>
+
+        <div class="quotes-grid">
+          <blockquote class="q-card reveal">
+            <div class="q-icon" aria-hidden="true">"</div>
+            <span data-he='כשחבר מהכיתה מסביר למה לבחור מים, זה נשמע אחרת. זה בא מאיתנו, לא רק מהמורים.'>عندما يشرح زميل من الفصل سبب اختيار الماء، يبدو الأمر مختلفاً. إنه يأتي منا، ليس من المعلمين فقط.</span>
+            <cite data-he="תלמיד משגרירי הבריאות">طالب من سفراء الصحة</cite>
+          </blockquote>
+          <blockquote class="q-card reveal">
+            <div class="q-icon" aria-hidden="true">"</div>
+            <span data-he='הכוח של המיזם הוא בכך שהוא הפך בריאות לנושא שכל בית הספר מדבר עליו בפשטות ובגאווה.'>قوة المبادرة تكمن في أنها جعلت الصحة موضوعاً تتحدث عنه المدرسة بأكملها ببساطة وفخر.</span>
+            <cite data-he="מחנכת ומלווה המיזם">معلمة ومرافقة المبادرة</cite>
+          </blockquote>
         </div>
       </div>
     </section>
 
+    <!-- ══════════════════════════════════════
+         SUSTAINABILITY
+    ══════════════════════════════════════ -->
     <section class="section band" id="sustainability">
-      <div class="container split">
-        <div class="section-heading align-start reveal">
-          <p class="eyebrow">המשכיות</p>
-          <h2>לא מסיימים עם התחרות. מתחילים תרבות בית ספרית חדשה.</h2>
-          <p>היוזמה נבנתה כך שתישאר גם אחרי ההצגה לוועדה: עם בעלי תפקידים, לוח פעילות, מדידה ושפה משותפת.</p>
-          <a class="btn btn-primary" href="assets/ort-bari-summary.pdf" download>להורדת תקציר הפרויקט PDF</a>
+      <div class="container split-layout">
+
+        <div class="split-text reveal">
+          <p class="eyebrow" data-he="המשכיות">الاستمرارية</p>
+          <h2 data-he="לא מסיימים עם התחרות. מתחילים תרבות בית ספרית חדשה.">لا ننتهي مع المسابقة. نبدأ ثقافة مدرسية جديدة.</h2>
+          <p data-he="המיזם נבנה להישאר גם אחרי ההצגה לוועדה: עם בעלי תפקידים, לוח פעילות, מדידה ושפה בריאות משותפת.">بُنيت المبادرة لتبقى حتى بعد العرض على اللجنة: مع أصحاب مهام وجدول نشاط وقياس ولغة صحية مشتركة.</p>
+          <a class="btn btn-primary" href="assets/ort-bari-summary.pdf" download
+             data-he="להורדת תקציר הפרויקט PDF">تحميل ملخص المشروع PDF ↓</a>
         </div>
+
         <div class="timeline reveal">
-          <div><b>בכל חודש</b><span>יום בריאות קצר או הפסקה פעילה בהובלת תלמידים.</span></div>
-          <div><b>בכל שבוע</b><span>אתגר מים, צעדים או ירק בפרסום כיתתי.</span></div>
-          <div><b>בכל מחצית</b><span>שאלון לפני/אחרי והצגת תוצאות ללמידה משותפת.</span></div>
-          <div><b>בכל שנה</b><span>הכשרת נבחרת חדשה של שגרירי בריאות.</span></div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <b data-he="בכל חודש">كل شهر</b>
+              <span data-he="יום בריאות קצר או הפסקה פעילה בהובלת תלמידים.">يوم صحة قصير أو فسحة نشيطة بقيادة الطلاب.</span>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <b data-he="בכל שבוע">كل أسبوع</b>
+              <span data-he="אתגר מים, צעדים או ירק בפרסום כיתתי.">تحدي ماء، خطوات أو خضار في إعلان فصلي.</span>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <b data-he="בכל מחצית">كل نصف عام</b>
+              <span data-he="שאלון לפני/אחרי והצגת תוצאות ללמידה משותפת.">استبيان قبل/بعد وعرض النتائج للتعلم المشترك.</span>
+            </div>
+          </div>
+          <div class="tl-row">
+            <div class="tl-dot"></div>
+            <div class="tl-content">
+              <b data-he="בכל שנה">كل عام</b>
+              <span data-he="הכשרת נבחרת חדשה של שגרירי בריאות.">تدريب فريق جديد من سفراء الصحة.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         PLEDGE
+    ══════════════════════════════════════ -->
+    <section class="pledge-wrap">
+      <div class="container">
+        <div class="pledge reveal">
+          <div class="pledge-text">
+            <p class="eyebrow pledge-ey" data-he="אמנת תלמידים">ميثاق الطلاب</p>
+            <h2 data-he="התחייבות בריאות קטנה, השפעה גדולה.">التزام صغير بالصحة، تأثير كبير.</h2>
+            <p data-he="אני בוחר/ת לכבד את הגוף שלי, לשתות יותר מים, לזוז בכל יום, לדבר לעצמי ולאחרים בשפה טובה, ולעזור לחבר/ה לבחור בריא.">أختار أن أحترم جسدي، أشرب ماءً أكثر، أتحرك كل يوم، أتحدث إلى نفسي وللآخرين بلغة طيبة، وأساعد صديقي على الاختيار الصحي.</p>
+          </div>
+          <div class="pledge-qr" aria-label="رمز QR للمبادرة">
+            <div class="qr-box">
+              <span class="qr-label">QR</span>
+            </div>
+            <small data-he="קישור לשאלון / סרטון">رابط للاستبيان / الفيديو</small>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section pledge-section">
-      <div class="container pledge reveal">
-        <div>
-          <p class="eyebrow">אמנת תלמידים</p>
-          <h2>התחייבות בריאות קטנה, השפעה גדולה.</h2>
-          <p>אני בוחר/ת לכבד את הגוף שלי, לשתות יותר מים, לזוז בכל יום, לדבר לעצמי ולאחרים בשפה טובה, ולעזור לחבר/ה לבחור בריא.</p>
-        </div>
-        <div class="qr-placeholder" aria-label="מקום ל-QR Code">
-          <span>QR</span>
-          <small>קישור לשאלון / סרטון</small>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer" id="partners">
-    <div class="container footer-grid">
-      <div>
-        <h2>תודה לשותפים</h2>
-        <p>הנהלת בית הספר, צוות המחנכים, תלמידי נבחרת הבריאות, ההורים, קהילת אורט אבו רביעה, רשת אורט ואורטוב.</p>
+  <!-- ══════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════ -->
+  <footer class="site-footer" id="partners">
+    <div class="container footer-main">
+      <div class="ft-brand">
+        <div class="ft-logo">
+          <svg viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <rect width="36" height="36" rx="8" fill="url(#fg)"/>
+            <circle cx="18" cy="14" r="3.5" fill="white" opacity=".9"/>
+            <path d="M10 26c0-4.418 3.582-8 8-8s8 3.582 8 8" stroke="white" stroke-width="2" stroke-linecap="round"/>
+            <defs><linearGradient id="fg" x1="0" y1="0" x2="36" y2="36"><stop stop-color="#0e7c66"/><stop offset="1" stop-color="#1c7ed6"/></linearGradient></defs>
+          </svg>
+          <span data-he="אורט בריא">أورت صحي</span>
+        </div>
+        <p data-he="מובילי בריאות בנגב | אורט אבו רביעה">قادة الصحة في النقب | أورت أبو ربيعة</p>
       </div>
-      <div class="footer-links">
-        <a href="https://www.ort.org.il/" target="_blank" rel="noopener">רשת אורט ישראל</a>
-        <a href="https://www.ort.org.il/ortbari/" target="_blank" rel="noopener">אורט בריא</a>
-        <a href="#top">חזרה לראש העמוד</a>
+
+      <div class="ft-partners">
+        <h3 data-he="תודה לשותפים">شكراً للشركاء</h3>
+        <p data-he="הנהלת בית הספר, צוות המחנכים, תלמידי נבחרת הבריאות, ההורים, קהילת אורט אבו רביעה, רשת אורט ואורטוב.">إدارة المدرسة، طاقم المعلمين، طلاب فريق الصحة، الأهل، مجتمع أورت أبو ربيعة، شبكة أورت وأورتوف.</p>
       </div>
+
+      <nav class="ft-links" aria-label="روابط سريعة">
+        <a href="https://www.ort.org.il/" target="_blank" rel="noopener" data-he="רשת אורט ישראל">شبكة أورت إسرائيل ↗</a>
+        <a href="https://www.ort.org.il/ortbari/" target="_blank" rel="noopener" data-he="אורט בריא">أورت صحي ↗</a>
+        <a href="articles/food.html" data-he="מאמרי בריאות">مقالات الصحة</a>
+        <a href="#top" data-he="חזרה לראש העמוד">عودة للأعلى ↑</a>
+      </nav>
     </div>
+
     <div class="container footer-bottom">
-      <span>© <span id="year"></span> אורט אבו רביעה בנגב</span>
-      <span>מיזם "מובילי בריאות בנגב" במסגרת אורט בריא</span>
+      <span>©&nbsp;<span id="year"></span>&nbsp;<span data-he="אורט אבו רביעה בנגב">أورت أبو ربيعة في النقب</span></span>
+      <span data-he='מיזם "מובילי בריאות בנגב" במסגרת אורט בריא'>مشروع "قادة الصحة في النقب" في إطار أورت صحي</span>
     </div>
   </footer>
 
