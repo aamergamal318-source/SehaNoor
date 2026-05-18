@@ -1,4 +1,10 @@
-/* pledge.js — Pledge form logic (language, signature pad, localStorage) */
+/* pledge.js — Pledge form logic (language, signature pad, localStorage + Google Sheets) */
+
+// ══════════════════════════════════════════════════════════
+//  ⬇️  PASTE YOUR GOOGLE APPS SCRIPT URL HERE AFTER SETUP
+// ══════════════════════════════════════════════════════════
+const GAS_URL = '';
+// ══════════════════════════════════════════════════════════
 
 // ── Language ──────────────────────────────────────────────
 const LANG_KEY = 'ortbari_lang';
@@ -165,14 +171,17 @@ document.getElementById('pledgeForm')?.addEventListener('submit', e => {
   }
   nameErr.hidden = true;
 
-  saveSignatory({
+  const entry = {
     id:        Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
     name,
     classroom: document.getElementById('pledgeClass').value.trim(),
     contact:   document.getElementById('pledgeContact').value.trim(),
     signature: paths.length ? canvas.toDataURL('image/png') : null,
     date:      new Date().toISOString()
-  });
+  };
+
+  saveSignatory(entry);
+  postToSheets(entry);   // fire-and-forget to Google Sheets
 
   document.getElementById('pledgeFormState').hidden   = true;
   document.getElementById('pledgeSuccessState').hidden = false;
@@ -189,6 +198,17 @@ document.getElementById('pledgeAgainBtn')?.addEventListener('click', () => {
   if (sigWrap) sigWrap.classList.remove('active');
   updateHeaderCount();
 });
+
+// ── Google Sheets sync ────────────────────────────────────
+function postToSheets(entry) {
+  if (!GAS_URL) return;
+  // Send without awaiting — page shows success immediately, sync happens in background
+  fetch(GAS_URL, {
+    method: 'POST',
+    body: JSON.stringify(entry),
+    headers: { 'Content-Type': 'text/plain' }, // avoid CORS preflight
+  }).catch(() => {}); // silent fail — data is already in localStorage
+}
 
 // ── Share Toast ────────────────────────────────────────────
 function showToast() {

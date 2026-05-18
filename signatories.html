@@ -101,6 +101,12 @@
   <div class="share-toast" id="shareToast" data-he="הקישור הועתק!">تم نسخ الرابط!</div>
 
 <script>
+/* ══════════════════════════════════════════════════════════
+   ⬇️  PASTE YOUR GOOGLE APPS SCRIPT URL HERE AFTER SETUP
+   ══════════════════════════════════════════════════════════ */
+const GAS_URL = '';
+/* ══════════════════════════════════════════════════════════ */
+
 /* ── Language ── */
 const LANG_KEY = 'ortbari_lang';
 let lang = localStorage.getItem(LANG_KEY) || 'ar';
@@ -232,11 +238,30 @@ function render(list) {
   masonry.innerHTML = list.map((s, i) => buildCard(s, i)).join('');
 }
 
-function load() {
-  allSigs = getSignatories().slice().reverse(); // newest first
-  const countEl = document.getElementById('bigCount');
-  animateCount(countEl, allSigs.length);
+async function load() {
+  // 1. Show local data immediately (fast)
+  const local = getSignatories().slice().reverse();
+  allSigs = local;
+  animateCount(document.getElementById('bigCount'), allSigs.length);
   render(allSigs);
+
+  // 2. Fetch from Google Sheets (shared across all devices)
+  if (!GAS_URL) return;
+  try {
+    const resp = await fetch(GAS_URL);
+    const json = await resp.json();
+    if (!json.success || !Array.isArray(json.signatories)) return;
+
+    // Merge: remote is authoritative; keep any local entries not yet synced
+    const remoteIds = new Set(json.signatories.map(s => s.id));
+    const localOnly = local.filter(s => !remoteIds.has(s.id));
+    allSigs = [...json.signatories, ...localOnly]; // remote newest-first already
+
+    animateCount(document.getElementById('bigCount'), allSigs.length);
+    render(allSigs);
+  } catch (_) {
+    // No connection or error — local data already shown, nothing to do
+  }
 }
 
 load();
