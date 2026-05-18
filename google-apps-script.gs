@@ -1,98 +1,99 @@
 /**
- * SEHANOOR — Google Apps Script Backend
- * ─────────────────────────────────────
- * هذا الكود يُنسخ كاملاً في محرر Apps Script
- * Copy this entire file into your Google Apps Script editor
- *
- * SETUP:
- * 1. Go to: https://script.google.com
- * 2. Click "New project"
- * 3. Delete all existing code, paste this file
- * 4. Click Deploy > New deployment > Web App
- *    - Execute as: Me
- *    - Who has access: Anyone
- * 5. Click Deploy, copy the URL
- * 6. Paste the URL into pledge.js and signatories.html where it says GAS_URL = ''
+ * SEHANOOR — Google Apps Script Backend (النسخة النهائية)
+ * ─────────────────────────────────────────────────────────
+ * كل شيء يعمل عبر GET لتجنب مشكلة CORS
+ * Everything works via GET to avoid CORS issues
  */
 
 var SHEET_NAME = 'Pledges';
+var FILE_NAME  = 'SehaNoor — توقيعات الميثاق';
 
-// ── Receive a new pledge (POST) ──────────────────────────────────────────
-function doPost(e) {
+// ── نقطة الدخول الوحيدة (GET) ────────────────────────────
+function doGet(e) {
+  var action = (e.parameter && e.parameter.action) ? e.parameter.action : 'list';
+
+  if (action === 'save') {
+    return handleSave(e.parameter);
+  } else {
+    return handleList();
+  }
+}
+
+// ── حفظ توقيع جديد ───────────────────────────────────────
+function handleSave(p) {
   try {
-    var data = JSON.parse(e.postData.contents);
-    var sheet = getOrCreateSheet();
-
-    // Signatures are base64 — truncate if over 49 000 chars to fit cell limit
-    var sig = (data.signature || '').toString();
-    if (sig.length > 49000) sig = sig.substring(0, 49000);
-
+    var sheet = getSheet();
     sheet.appendRow([
-      new Date().toISOString(),   // A: date
-      data.name      || '',       // B: full name
-      data.classroom || '',       // C: class
-      data.contact   || '',       // D: email / phone
-      sig,                        // E: base64 signature image
-      data.id        || ''        // F: unique id
+      new Date().toISOString(),
+      p.name      || '',
+      p.classroom || '',
+      p.contact   || '',
+      p.id        || ''
     ]);
-
     return jsonOut({ success: true });
   } catch (err) {
     return jsonOut({ success: false, error: err.toString() });
   }
 }
 
-// ── Return all pledges (GET) ─────────────────────────────────────────────
-function doGet(e) {
+// ── إرجاع كل التوقيعات ───────────────────────────────────
+function handleList() {
   try {
-    var sheet = getOrCreateSheet();
+    var sheet = getSheet();
     var rows  = sheet.getDataRange().getValues();
 
-    var signatories = [];
-    for (var i = 1; i < rows.length; i++) {   // skip header row (row 0)
+    var list = [];
+    for (var i = 1; i < rows.length; i++) {
       var r = rows[i];
-      if (!r[1]) continue;                     // skip empty rows
-      signatories.push({
+      if (!r[1]) continue;
+      list.push({
         date:      r[0],
         name:      r[1],
         classroom: r[2],
         contact:   r[3],
-        signature: r[4],
-        id:        r[5] || String(i)
+        id:        r[4] || String(i)
       });
     }
 
-    // Return newest first
-    signatories.reverse();
+    list.reverse(); // أحدث أولاً
 
-    return jsonOut({ success: true, signatories: signatories });
+    return jsonOut({ success: true, signatories: list });
   } catch (err) {
     return jsonOut({ success: false, error: err.toString() });
   }
 }
 
-// ── Helpers ──────────────────────────────────────────────────────────────
-function getOrCreateSheet() {
-  var ss    = SpreadsheetApp.getActiveSpreadsheet();
+// ── مساعد: احصل على الورقة أو أنشئها ─────────────────────
+function getSheet() {
+  var props = PropertiesService.getScriptProperties();
+  var ssId  = props.getProperty('SS_ID');
+  var ss;
+
+  if (ssId) {
+    try { ss = SpreadsheetApp.openById(ssId); } catch (e) { ss = null; }
+  }
+
+  if (!ss) {
+    ss = SpreadsheetApp.create(FILE_NAME);
+    props.setProperty('SS_ID', ss.getId());
+    Logger.log('Sheet URL: ' + ss.getUrl());
+  }
+
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
-    sheet = ss.insertSheet(SHEET_NAME);
-    // Add header row
-    sheet.appendRow(['التاريخ', 'الاسم الكامل', 'الصف', 'التواصل', 'التوقيع (base64)', 'المعرف']);
+    sheet = ss.getActiveSheet();
+    sheet.setName(SHEET_NAME);
+    sheet.appendRow(['التاريخ', 'الاسم الكامل', 'الصف', 'التواصل', 'المعرف']);
     sheet.setFrozenRows(1);
-    // Widen columns for readability
-    sheet.setColumnWidth(1, 180);
-    sheet.setColumnWidth(2, 160);
-    sheet.setColumnWidth(3, 100);
-    sheet.setColumnWidth(4, 160);
-    sheet.setColumnWidth(5, 60);
-    sheet.setColumnWidth(6, 120);
+    sheet.setColumnWidths(1, 5, 180);
   }
+
   return sheet;
 }
 
+// ── مساعد: إرجاع JSON ─────────────────────────────────────
 function jsonOut(data) {
-  var output = ContentService.createTextOutput(JSON.stringify(data));
-  output.setMimeType(ContentService.MimeType.JSON);
-  return output;
+  var out = ContentService.createTextOutput(JSON.stringify(data));
+  out.setMimeType(ContentService.MimeType.JSON);
+  return out;
 }

@@ -202,12 +202,16 @@ document.getElementById('pledgeAgainBtn')?.addEventListener('click', () => {
 // ── Google Sheets sync ────────────────────────────────────
 function postToSheets(entry) {
   if (!GAS_URL) return;
-  // Send without awaiting — page shows success immediately, sync happens in background
-  fetch(GAS_URL, {
-    method: 'POST',
-    body: JSON.stringify(entry),
-    headers: { 'Content-Type': 'text/plain' }, // avoid CORS preflight
-  }).catch(() => {}); // silent fail — data is already in localStorage
+  // Use GET + URL params — avoids CORS preflight entirely
+  const p = new URLSearchParams({
+    action:    'save',
+    name:      entry.name,
+    classroom: entry.classroom || '',
+    contact:   entry.contact   || '',
+    id:        entry.id,
+    date:      entry.date,
+  });
+  fetch(GAS_URL + '?' + p.toString()).catch(() => {});
 }
 
 // ── Share Toast ────────────────────────────────────────────
