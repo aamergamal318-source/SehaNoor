@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ميثاق الصحة | أورط أبو ربيعة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pledge.css">
+</head>
+<body class="pledge-page-body">
+
+  <!-- ── Header ── -->
+  <header class="pledge-hdr">
+    <div class="pledge-hdr-inner">
+      <a href="index.html" class="pledge-brand-link">
+        <div class="pledge-brand-gem">🌿</div>
+        <span data-he="מובילי בריאות בנגב">قادة الصحة في النقب</span>
+      </a>
+      <div class="pledge-hdr-right">
+        <a href="signatories.html" class="pledge-sigs-pill" id="sigsPill">
+          <span class="p-sig-count" id="hdrSigCount">0</span>
+          <span data-he="חתומים">موقّعون</span>
+        </a>
+        <button class="pledge-lang-pill" id="pLangBtn">🌐 <span id="pLangLabel">עברית</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="pledge-hero">
+    <div class="p-orb p-orb-1"></div>
+    <div class="p-orb p-orb-2"></div>
+    <div class="container">
+      <div class="pledge-eyebrow" data-he="אמנת תלמידים">ميثاق الطلاب</div>
+      <h1 class="pledge-hero-title" data-he="הצטרפו לקהילת הבריאות">انضم إلى مجتمع الصحة</h1>
+      <p class="pledge-hero-sub"
+         data-he="חתמו, השאירו את חותמכם ותהיו חלק ממהפכת הבריאות של אורט אבו רביעה.">
+        وقّع الميثاق، اترك بصمتك، وكن جزءاً من ثورة الصحة في أورط أبو ربيعة.
+      </p>
+      <div class="pledge-oath-box">
+        <p class="pledge-oath-text"
+           data-he='אני בוחר/ת לכבד את הגוף שלי, לשתות יותר מים, לזוז בכל יום, לדבר לעצמי ולאחרים בשפה טובה, ולעזור לחבר/ה לבחור בריא.'>
+          أختار أن أحترم جسدي، أشرب ماءً أكثر، أتحرك كل يوم، أتحدث إلى نفسي وللآخرين بلغة طيبة، وأساعد صديقي على الاختيار الصحي.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Main: Form or Success ── -->
+  <main class="pledge-main">
+
+    <!-- Form state -->
+    <div id="pledgeFormState">
+      <div class="pledge-form-card">
+
+        <div class="form-card-head">
+          <span class="form-card-head-label" data-he="השאירו את חותמכם">اتركوا بصمتكم</span>
+          <span class="form-card-head-title" data-he="מלאו את הפרטים וחתמו">أدخلوا البيانات ووقّعوا</span>
+        </div>
+
+        <form class="pledge-form" id="pledgeForm" novalidate>
+
+          <!-- Name (required) -->
+          <div class="p-field">
+            <label for="pledgeName" data-he="שם מלא *">الاسم الكامل *</label>
+            <input type="text" id="pledgeName" autocomplete="name"
+                   data-placeholder-he="הכניסו שם מלא"
+                   placeholder="ادخل اسمك الكامل" required>
+            <span class="p-field-err" id="nameErr" hidden
+                  data-he="נא להזין שם מלא">يرجى إدخال الاسم الكامل</span>
+          </div>
+
+          <!-- Class (optional) -->
+          <div class="p-field">
+            <label for="pledgeClass"
+                   data-he='כיתה (אופציונלי)'>الصف (اختياري)</label>
+            <input type="text" id="pledgeClass"
+                   data-placeholder-he='כיתה, למשל י"א 2'
+                   placeholder="مثال: الحادي عشر 2">
+          </div>
+
+          <!-- Contact (optional) -->
+          <div class="p-field">
+            <label for="pledgeContact"
+                   data-he="אימייל או טלפון (אופציונלי)">البريد الإلكتروني أو الهاتف (اختياري)</label>
+            <input type="text" id="pledgeContact" inputmode="email"
+                   data-placeholder-he="אופציונלי"
+                   placeholder="اختياري">
+          </div>
+
+          <!-- Signature pad -->
+          <div class="p-field">
+            <label data-he="חתימה אישית">التوقيع الشخصي</label>
+            <div class="sig-wrap" id="sigWrap">
+              <canvas id="sigCanvas"></canvas>
+              <span class="sig-hint-label" id="sigHint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                  <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/>
+                </svg>
+                <span data-he="חתמו כאן עם האצבע או העכבר">وقّع هنا بإصبعك أو الماوس</span>
+              </span>
+            </div>
+            <div class="sig-btns">
+              <button type="button" class="sig-action-btn" id="sigUndo">
+                ↩ <span data-he="בטל">تراجع</span>
+              </button>
+              <button type="button" class="sig-action-btn" id="sigClear">
+                ✕ <span data-he="נקה">مسح</span>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="pledge-submit-btn">
+            <span>✍️</span>
+            <span data-he="חתמו על הميثאق">وقّع الميثاق الآن</span>
+          </button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- Success state (hidden by default) -->
+    <div id="pledgeSuccessState" hidden>
+      <div class="pledge-success-wrap">
+        <div class="success-glow-ring">✓</div>
+        <h2 class="success-title" data-he="!תודה על חתימתכם">شكراً على توقيعك!</h2>
+        <p class="success-sub"
+           data-he="הצטרפתם לקהילת מובילי הבריאות של אורט אבו רביעה. יחד נשנה את התרבות הבריאותית של בית הספר.">
+          انضممت إلى مجتمع قادة الصحة في أورط أبو ربيعة.
+          معاً نصنع التغيير الصحي في مدرستنا.
+        </p>
+        <div class="success-actions">
+          <a href="signatories.html" class="btn-success-primary">
+            <span>🏆</span>
+            <span data-he="צפו בלוח הכבוד">شاهد لوحة الشرف</span>
+          </a>
+          <button type="button" class="btn-success-ghost" id="pledgeAgainBtn">
+            <span>↩</span>
+            <span data-he="חתמו שוב">وقّع مجدداً</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="pledge-footer">
+    <div class="pledge-footer-inner">
+      <span data-he="אורט אבו רביעה | אורט בריא">أورط أبو ربيعة | أورط صحي</span>
+      <div style="display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;">
+        <a href="signatories.html" class="pledge-footer-link"
+           data-he="לוח הכבוד ←">لوحة الشرف →</a>
+        <a href="index.html" class="pledge-footer-link"
+           data-he="→ חזרה לאתר">← العودة للموقع</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="share-toast" id="shareToast"
+       data-he="הקישור הועתק!">تم نسخ الرابط!</div>
+
+  <script src="pledge.js"></script>
+</body>
+</html>

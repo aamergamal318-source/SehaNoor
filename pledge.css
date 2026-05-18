@@ -1,0 +1,846 @@
+/* ═══════════════════════════════════════════════════════════
+   PLEDGE.CSS — Pledge Form & Signatories Wall
+   Shared styles for pledge.html and signatories.html
+═══════════════════════════════════════════════════════════ */
+
+/* ── Base reset for these pages ── */
+.pledge-page-body,
+.sigs-page-body {
+  background: #060d1a;
+  color: #f1f5f9;
+  min-height: 100vh;
+  font-family: 'Heebo', 'Noto Naskh Arabic', sans-serif;
+}
+
+/* ════════════════════════════════════════════
+   PLEDGE PAGE
+════════════════════════════════════════════ */
+
+/* ── Sticky Header ── */
+.pledge-hdr {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(6, 13, 26, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: .9rem 0;
+}
+.pledge-hdr-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.pledge-brand-link {
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: .95rem;
+  transition: opacity .2s;
+}
+.pledge-brand-link:hover { opacity: .85; }
+.pledge-brand-gem {
+  width: 36px; height: 36px;
+  background: linear-gradient(135deg, #0a7c5c, #1a72d8);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.pledge-hdr-right {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.pledge-sigs-pill {
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  background: rgba(74, 222, 128, .12);
+  border: 1px solid rgba(74, 222, 128, .3);
+  color: #4ade80;
+  padding: .35rem 1rem;
+  border-radius: 50px;
+  font-size: .82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background .2s, transform .2s;
+}
+.pledge-sigs-pill:hover {
+  background: rgba(74, 222, 128, .22);
+  transform: translateY(-1px);
+}
+.p-sig-count { font-size: 1rem; font-weight: 800; }
+.pledge-lang-pill {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.14);
+  color: #fff;
+  padding: .35rem .9rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: .82rem;
+  font-family: inherit;
+  transition: background .2s;
+}
+.pledge-lang-pill:hover { background: rgba(255,255,255,.16); }
+
+/* ── Hero ── */
+.pledge-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 5.5rem 0 4rem;
+  text-align: center;
+}
+.pledge-hero .container {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+.p-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+}
+.p-orb-1 {
+  width: 520px; height: 520px;
+  background: radial-gradient(circle, rgba(10,124,92,.38), transparent);
+  top: -140px; right: -120px;
+}
+.p-orb-2 {
+  width: 440px; height: 440px;
+  background: radial-gradient(circle, rgba(26,114,216,.35), transparent);
+  bottom: -100px; left: -100px;
+}
+.pledge-eyebrow {
+  display: inline-block;
+  background: rgba(74, 222, 128, .14);
+  border: 1px solid rgba(74, 222, 128, .35);
+  color: #4ade80;
+  padding: .35rem 1.2rem;
+  border-radius: 50px;
+  font-size: .8rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.pledge-hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.6rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  background: linear-gradient(140deg, #fff 40%, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.pledge-hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.65);
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.75;
+}
+.pledge-oath-box {
+  max-width: 680px;
+  margin: 0 auto;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 24px;
+  padding: 2.25rem 2.75rem;
+  position: relative;
+}
+.pledge-oath-box::before {
+  content: '"';
+  position: absolute;
+  top: -1.1rem;
+  font-size: 5.5rem;
+  color: #4ade80;
+  opacity: .35;
+  line-height: 1;
+  font-family: Georgia, serif;
+  inset-inline-start: 2.5rem;
+}
+.pledge-oath-text {
+  font-size: 1.12rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,.88);
+  margin: 0;
+  font-style: italic;
+}
+
+/* ── Main area ── */
+.pledge-main {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 3rem 24px 5.5rem;
+}
+
+/* ── Form Card ── */
+.pledge-form-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 40px 100px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
+  overflow: hidden;
+}
+.form-card-head {
+  background: linear-gradient(135deg, #0a7c5c 0%, #0fad7f 60%, #1a72d8 100%);
+  padding: 1.75rem 2rem;
+  text-align: center;
+}
+.form-card-head-label {
+  display: block;
+  color: rgba(255,255,255,.75);
+  font-size: .78rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .25rem;
+}
+.form-card-head-title {
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+.pledge-form {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.p-field {
+  display: flex;
+  flex-direction: column;
+  gap: .45rem;
+}
+.p-field label {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #1e3655;
+  letter-spacing: .015em;
+}
+.p-field input[type="text"],
+.p-field input[type="email"],
+.p-field input[type="tel"] {
+  padding: .9rem 1.1rem;
+  border: 2px solid #e2ecf4;
+  border-radius: 12px;
+  font-size: .97rem;
+  font-family: inherit;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: border-color .2s, box-shadow .2s, background .2s;
+  outline: none;
+}
+.p-field input:focus {
+  border-color: #0a7c5c;
+  box-shadow: 0 0 0 3px rgba(10,124,92,.13);
+  background: #fff;
+}
+.p-field-err {
+  color: #e53e3e;
+  font-size: .78rem;
+  font-weight: 600;
+}
+
+/* ── Signature Pad ── */
+.sig-wrap {
+  border: 2px solid #e2ecf4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  transition: border-color .2s, box-shadow .2s;
+  cursor: crosshair;
+  position: relative;
+}
+.sig-wrap.active {
+  border-color: #0a7c5c;
+  box-shadow: 0 0 0 3px rgba(10,124,92,.13);
+}
+#sigCanvas {
+  display: block;
+  width: 100%;
+  height: 170px;
+  touch-action: none;
+  user-select: none;
+}
+.sig-hint-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #b0bec5;
+  font-size: .85rem;
+  pointer-events: none;
+  transition: opacity .25s;
+  gap: .4rem;
+}
+.sig-hint-label.hidden { opacity: 0; }
+.sig-hint-label svg { opacity: .5; }
+.sig-btns {
+  display: flex;
+  gap: .6rem;
+  justify-content: flex-end;
+  margin-top: .5rem;
+}
+.sig-action-btn {
+  padding: .3rem .9rem;
+  border: 1.5px solid #e2ecf4;
+  border-radius: 8px;
+  background: #fff;
+  color: #607d9b;
+  font-size: .78rem;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.sig-action-btn:hover { border-color: #0a7c5c; color: #0a7c5c; }
+
+/* ── Submit Button ── */
+.pledge-submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+  padding: 1.05rem 2rem;
+  background: linear-gradient(135deg, #0a7c5c, #0fad7f);
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: inherit;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(10,124,92,.4);
+  transition: transform .2s, box-shadow .2s;
+  letter-spacing: .02em;
+  margin-top: .25rem;
+}
+.pledge-submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgba(10,124,92,.52);
+}
+.pledge-submit-btn:active { transform: translateY(0); }
+
+/* ── Success State ── */
+.pledge-success-wrap {
+  max-width: 540px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.5rem 1rem 3rem;
+}
+.success-glow-ring {
+  width: 110px; height: 110px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #0a7c5c, #0fad7f);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 2rem;
+  font-size: 2.8rem;
+  box-shadow: 0 0 50px rgba(10,124,92,.55), 0 0 100px rgba(10,124,92,.22);
+  animation: successPulse 2.5s ease-in-out infinite;
+}
+@keyframes successPulse {
+  0%, 100% { box-shadow: 0 0 50px rgba(10,124,92,.55), 0 0 100px rgba(10,124,92,.22); }
+  50%       { box-shadow: 0 0 70px rgba(10,124,92,.75), 0 0 140px rgba(10,124,92,.35); }
+}
+.success-title {
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-weight: 900;
+  margin-bottom: .75rem;
+  background: linear-gradient(135deg, #fff, #4ade80);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.success-sub {
+  color: rgba(255,255,255,.65);
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 2.25rem;
+}
+.success-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn-success-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .85rem 2rem;
+  background: linear-gradient(135deg, #0a7c5c, #0fad7f);
+  color: #fff;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 12px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: .97rem;
+  box-shadow: 0 4px 20px rgba(10,124,92,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.btn-success-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(10,124,92,.55); }
+.btn-success-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .85rem 2rem;
+  background: rgba(255,255,255,.08);
+  border: 1.5px solid rgba(255,255,255,.2);
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  font-size: .97rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background .2s;
+}
+.btn-success-ghost:hover { background: rgba(255,255,255,.15); }
+
+/* ── Pledge Footer ── */
+.pledge-footer {
+  background: rgba(255,255,255,.025);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 1.4rem 0;
+  color: rgba(255,255,255,.45);
+  font-size: .82rem;
+}
+.pledge-footer-inner {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.pledge-footer-link {
+  color: rgba(255,255,255,.6);
+  text-decoration: none;
+  transition: color .2s;
+}
+.pledge-footer-link:hover { color: #4ade80; }
+
+
+/* ════════════════════════════════════════════
+   SIGNATORIES PAGE
+════════════════════════════════════════════ */
+
+/* ── Animated background ── */
+.sigs-page-body {
+  background: #060d1a;
+}
+.sigs-bg-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.sigs-hdr {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: rgba(6, 13, 26, .92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding: 1rem 0;
+}
+.sigs-hdr-inner {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.sigs-back-link {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: .88rem;
+  transition: color .2s, gap .2s;
+}
+.sigs-back-link:hover { color: #4ade80; gap: .6rem; }
+.sigs-hdr-actions {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+.sigs-pledge-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem 1.2rem;
+  background: linear-gradient(135deg, #0a7c5c, #0fad7f);
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform .2s, box-shadow .2s;
+  box-shadow: 0 3px 12px rgba(10,124,92,.4);
+}
+.sigs-pledge-cta:hover { transform: translateY(-1px); box-shadow: 0 5px 18px rgba(10,124,92,.55); }
+
+/* ── Hero ── */
+.sigs-hero {
+  position: relative;
+  z-index: 1;
+  padding: 5rem 0 4rem;
+  text-align: center;
+  overflow: hidden;
+}
+.sigs-hero-glow {
+  position: absolute;
+  width: 800px; height: 500px;
+  top: -150px; left: 50%;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse, rgba(10,124,92,.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.sigs-hero .container {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+}
+.sigs-eyebrow {
+  display: inline-block;
+  background: rgba(74,222,128,.13);
+  border: 1px solid rgba(74,222,128,.3);
+  color: #4ade80;
+  padding: .35rem 1.2rem;
+  border-radius: 50px;
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.sigs-hero-h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  font-weight: 900;
+  line-height: 1.08;
+  margin-bottom: 1.5rem;
+}
+.sigs-h1-white { color: #fff; }
+.sigs-h1-grad {
+  background: linear-gradient(135deg, #4ade80, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Big Counter ── */
+.sigs-counter-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 24px;
+  padding: 1.5rem 3rem;
+  margin-bottom: 1.5rem;
+}
+.sigs-big-num {
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(135deg, #4ade80, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  min-width: 3ch;
+  text-align: center;
+}
+.sigs-big-label {
+  font-size: 1rem;
+  color: rgba(255,255,255,.55);
+  line-height: 1.5;
+  text-align: start;
+}
+.sigs-big-label strong {
+  display: block;
+  font-size: 1.15rem;
+  color: rgba(255,255,255,.85);
+  font-weight: 700;
+}
+
+/* ── Controls ── */
+.sigs-controls {
+  position: relative;
+  z-index: 1;
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px 2rem;
+}
+.sigs-search-box {
+  position: relative;
+  max-width: 480px;
+}
+.sigs-search-box svg {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  inset-inline-start: 1rem;
+  color: rgba(255,255,255,.35);
+  pointer-events: none;
+  width: 16px; height: 16px;
+}
+.sigs-search-input {
+  width: 100%;
+  padding: .9rem 1rem .9rem 3rem;
+  background: rgba(255,255,255,.07);
+  border: 1.5px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  color: #fff;
+  font-size: .95rem;
+  font-family: inherit;
+  transition: border-color .2s, background .2s;
+  outline: none;
+}
+.sigs-search-input::placeholder { color: rgba(255,255,255,.32); }
+.sigs-search-input:focus {
+  border-color: #4ade80;
+  background: rgba(255,255,255,.1);
+}
+[dir="rtl"] .sigs-search-box svg { left: auto; right: 1rem; }
+[dir="rtl"] .sigs-search-input { padding: .9rem 3rem .9rem 1rem; }
+
+/* ── Masonry Wall ── */
+.pledge-wall {
+  position: relative;
+  z-index: 1;
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px 6rem;
+}
+.wall-section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,.4);
+  font-size: .78rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.wall-section-label::before,
+.wall-section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,.08);
+}
+.sig-masonry {
+  columns: 4;
+  column-gap: 1.25rem;
+}
+@media (max-width: 1100px) { .sig-masonry { columns: 3; } }
+@media (max-width: 720px)  { .sig-masonry { columns: 2; } }
+@media (max-width: 440px)  { .sig-masonry { columns: 1; } }
+
+/* ── Signatory Card ── */
+.sig-card {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.08);
+  transform: rotate(var(--tilt, 0deg));
+  transition: transform .35s cubic-bezier(.34,1.56,.64,1), box-shadow .3s, border-color .3s;
+  animation: cardIn .55s cubic-bezier(.34,1.2,.64,1) both;
+  animation-delay: var(--card-delay, 0ms);
+  will-change: transform;
+}
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(28px) scale(.9) rotate(var(--tilt, 0deg)); }
+  to   { opacity: 1; transform: translateY(0) scale(1) rotate(var(--tilt, 0deg)); }
+}
+.sig-card:hover {
+  transform: translateY(-8px) scale(1.025) rotate(0deg) !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.14);
+  border-color: rgba(255,255,255,.18);
+}
+.sig-card-ribbon {
+  height: 5px;
+  background: var(--ribbon, linear-gradient(90deg, #4ade80, #22d3ee));
+}
+.sig-card-body { padding: 1.25rem; }
+.sig-card-name {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: .2rem;
+}
+.sig-card-meta {
+  font-size: .75rem;
+  color: rgba(255,255,255,.4);
+  margin-bottom: .9rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.sig-card-class-badge {
+  background: rgba(255,255,255,.08);
+  padding: .1rem .55rem;
+  border-radius: 50px;
+  font-size: .72rem;
+}
+.sig-card-sig-wrap {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: .75rem;
+  line-height: 0;
+}
+.sig-card-sig-wrap img {
+  width: 100%;
+  height: 70px;
+  object-fit: contain;
+  display: block;
+}
+.sig-no-sig-placeholder {
+  height: 54px;
+  background: rgba(255,255,255,.04);
+  border-radius: 10px;
+  margin-bottom: .75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  opacity: .25;
+}
+.sig-card-date {
+  font-size: .68rem;
+  color: rgba(255,255,255,.25);
+  direction: ltr;
+  display: block;
+  text-align: end;
+}
+
+/* ── Empty state ── */
+.sigs-empty {
+  text-align: center;
+  padding: 6rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.sigs-empty-icon {
+  font-size: 4.5rem;
+  display: block;
+  margin-bottom: 1.25rem;
+  opacity: .7;
+}
+.sigs-empty h3 {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: rgba(255,255,255,.75);
+  margin-bottom: .75rem;
+}
+.sigs-empty p {
+  color: rgba(255,255,255,.45);
+  font-size: .97rem;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+.sigs-empty-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .95rem 2.25rem;
+  background: linear-gradient(135deg, #0a7c5c, #0fad7f);
+  color: #fff;
+  font-weight: 700;
+  font-family: inherit;
+  font-size: 1rem;
+  border: none;
+  border-radius: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 5px 22px rgba(10,124,92,.45);
+  transition: transform .2s, box-shadow .2s;
+}
+.sigs-empty-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(10,124,92,.6); }
+
+/* ── Signatories Footer ── */
+.sigs-footer {
+  position: relative;
+  z-index: 1;
+  background: rgba(255,255,255,.02);
+  border-top: 1px solid rgba(255,255,255,.05);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: rgba(255,255,255,.38);
+  font-size: .82rem;
+}
+.sigs-footer a {
+  color: #4ade80;
+  text-decoration: none;
+  margin: 0 .75rem;
+  transition: opacity .2s;
+}
+.sigs-footer a:hover { opacity: .75; }
+
+/* ── Share toast ── */
+.share-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #0a7c5c;
+  color: #fff;
+  padding: .65rem 1.5rem;
+  border-radius: 50px;
+  font-size: .85rem;
+  font-weight: 600;
+  box-shadow: 0 6px 24px rgba(10,124,92,.5);
+  opacity: 0;
+  transition: opacity .3s, transform .3s;
+  pointer-events: none;
+  z-index: 999;
+  white-space: nowrap;
+}
+.share-toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Responsive ── */
+@media (max-width: 680px) {
+  .pledge-oath-box { padding: 1.5rem 1.75rem; }
+  .pledge-form { padding: 1.5rem; }
+  .pledge-footer-inner { flex-direction: column; text-align: center; }
+  .success-actions { flex-direction: column; align-items: center; }
+  .sigs-counter-wrap { padding: 1.25rem 2rem; gap: 1rem; }
+  .pledge-hdr-inner,
+  .sigs-hdr-inner { padding: 0 16px; }
+  .pledge-main,
+  .sigs-controls,
+  .pledge-wall { padding-inline: 16px; }
+}

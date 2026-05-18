@@ -678,14 +678,35 @@
                 <label for="bmiWeight" data-he='משקל (ק"ג)'>الوزن (كغ)</label>
                 <input type="number" id="bmiWeight" min="20" max="300" placeholder="65" inputmode="numeric">
               </div>
+              <div class="bmi-field">
+                <label for="bmiAge" data-he="גיל (שנים)">العمر (سنوات)</label>
+                <input type="number" id="bmiAge" min="10" max="100" placeholder="16" inputmode="numeric">
+              </div>
+              <div class="bmi-field">
+                <label data-he="מין">الجنس</label>
+                <div class="bmi-gender-btns">
+                  <label class="bmi-gender-opt">
+                    <input type="radio" name="bmiGender" value="m" checked>
+                    <span data-he="זכר">ذكر</span>
+                  </label>
+                  <label class="bmi-gender-opt">
+                    <input type="radio" name="bmiGender" value="f">
+                    <span data-he="נקבה">أنثى</span>
+                  </label>
+                </div>
+              </div>
             </div>
-            <button class="btn btn-primary bmi-calc-btn" id="bmiCalcBtn" data-he="חשב BMI">احسب مؤشر كتلة الجسم</button>
+            <p class="bmi-err" id="bmiErr" hidden data-he="נא למלא את כל השדות">يرجى ملء جميع الحقول</p>
+            <button class="btn btn-primary bmi-calc-btn" id="bmiCalcBtn" data-he="חשב BMI מותאם אישית">احسب المؤشر المخصص لك</button>
           </div>
 
           <div class="bmi-result" id="bmiResult" hidden>
             <div class="bmi-gauge">
               <div class="bmi-number" id="bmiNumber">--</div>
-              <div class="bmi-cat-badge" id="bmiCatBadge"></div>
+              <div>
+                <div class="bmi-cat-badge" id="bmiCatBadge"></div>
+                <div class="bmi-personal-tag" id="bmiPersonalTag"></div>
+              </div>
             </div>
             <div class="bmi-scale-wrap">
               <div class="bmi-scale-bar">
@@ -705,6 +726,7 @@
                 <span data-he="שמנות"  style="color:#EF5350">سمنة</span>
               </div>
             </div>
+            <div class="bmi-teen-note" id="bmiTeenNote" hidden></div>
             <div class="bmi-advice-box" id="bmiAdviceBox"></div>
             <button class="bmi-reset-btn" id="bmiResetBtn" data-he="חשב שוב">احسب مجدداً</button>
           </div>
@@ -770,7 +792,14 @@
             <p class="eyebrow pledge-ey" data-he="אמנת תלמידים">ميثاق الطلاب</p>
             <h2 data-he="התחייבות בריאות קטנה, השפעה גדולה.">التزام صغير بالصحة، تأثير كبير.</h2>
             <p data-he="אני בוחר/ת לכבד את הגוף שלי, לשתות יותר מים, לזוז בכל יום, לדבר לעצמי ולאחרים בשפה טובה, ולעזור לחבר/ה לבחור בריא.">أختار أن أحترم جسدي، أشرب ماءً أكثر، أتحرك كل يوم، أتحدث إلى نفسي وللآخرين بلغة طيبة، وأساعد صديقي على الاختيار الصحي.</p>
-            <a class="btn btn-pledge" href="assets/ort-bari-summary.pdf" download data-he="שתפו את האמנה">مشاركة الميثاق</a>
+            <div class="pledge-btns-row">
+              <a class="btn btn-pledge" href="pledge.html" data-he="חתמו על האמנה">وقّع الميثاق ✍️</a>
+              <a class="btn btn-pledge-wall" href="signatories.html" id="pledgeWallBtn"
+                 data-he="לוח הכבוד">
+                🏆 <span data-he="לוח הכבוד">لوحة الشرف</span>
+                <span class="pledge-wall-count" id="pledgeWallCount"></span>
+              </a>
+            </div>
           </div>
           <div class="pledge-qr" aria-label="رمز QR للمبادرة">
             <div class="qr-box">

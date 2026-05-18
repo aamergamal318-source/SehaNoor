@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الشرف | أورط أبو ربيعة</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pledge.css">
+</head>
+<body class="sigs-page-body">
+
+  <canvas class="sigs-bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+
+  <!-- ── Header ── -->
+  <header class="sigs-hdr">
+    <div class="sigs-hdr-inner">
+      <a href="pledge.html" class="sigs-back-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+          <polyline points="15 18 9 12 15 6"/>
+        </svg>
+        <span data-he="חזרה לחתימה">العودة للتوقيع</span>
+      </a>
+      <div class="sigs-hdr-actions">
+        <a href="pledge.html" class="sigs-pledge-cta">
+          <span>✍️</span>
+          <span data-he="חתמו גם אתם">وقّع الآن</span>
+        </a>
+        <button class="pledge-lang-pill" id="sLangBtn">🌐 <span id="sLangLabel">עברית</span></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="sigs-hero">
+    <div class="sigs-hero-glow"></div>
+    <div class="container">
+      <div class="sigs-eyebrow" data-he="לוח הכבוד">لوحة الشرف</div>
+      <h1 class="sigs-hero-h1">
+        <span class="sigs-h1-white" data-he="קהילת ">مجتمع </span>
+        <span class="sigs-h1-grad" data-he="מובילי הבריאות">قادة الصحة</span>
+      </h1>
+      <div class="sigs-counter-wrap">
+        <div class="sigs-big-num" id="bigCount">0</div>
+        <div class="sigs-big-label">
+          <strong data-he="חתומים">موقّعون</strong>
+          <span data-he="על אמנת הבריאות">على ميثاق الصحة</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Search ── -->
+  <div class="sigs-controls">
+    <div class="container" style="max-width:min(1200px,calc(100% - 48px));margin:0 auto;padding:0 24px;">
+      <div class="sigs-search-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input type="search" class="sigs-search-input" id="sigSearch"
+               data-placeholder-he="חפשו לפי שם..."
+               placeholder="ابحث باسم الشخص...">
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Wall ── -->
+  <section class="pledge-wall">
+    <div class="wall-section-label" data-he="כל החתומים">جميع الموقّعين</div>
+
+    <!-- Populated by JS -->
+    <div class="sig-masonry" id="sigMasonry"></div>
+
+    <!-- Empty state (shown when no signatories) -->
+    <div class="sigs-empty" id="sigsEmpty" hidden>
+      <span class="sigs-empty-icon">🌿</span>
+      <h3 data-he="הדף ריק בינתיים">الصفحة فارغة حتى الآن</h3>
+      <p data-he="היו הראשונים לחתום על אמנת הבריאות של אורט אבו רביעה!">
+        كونوا أول من يوقّع على ميثاق الصحة في أورط أبو ربيعة!
+      </p>
+      <a href="pledge.html" class="sigs-empty-cta">
+        <span>✍️</span>
+        <span data-he="חתמו ראשונים!">وقّع أولاً!</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="sigs-footer">
+    <div>
+      <a href="pledge.html" data-he="חתמו על האמנה">وقّع الميثاق</a>
+      <a href="index.html"  data-he="חזרה לאתר">العودة للموقع</a>
+    </div>
+    <div style="margin-top:.5rem;" data-he="אורט אבו רביעה | אורט בריא">
+      أورط أبو ربيعة | أورط صحي
+    </div>
+  </footer>
+
+  <div class="share-toast" id="shareToast" data-he="הקישור הועתק!">تم نسخ الرابط!</div>
+
+<script>
+/* ── Language ── */
+const LANG_KEY = 'ortbari_lang';
+let lang = localStorage.getItem(LANG_KEY) || 'ar';
+
+function applyLang(l) {
+  lang = l;
+  localStorage.setItem(LANG_KEY, l);
+  document.documentElement.lang = l;
+  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.querySelectorAll('[data-he]').forEach(el => {
+    if (l === 'he') {
+      if (!el.dataset.arSaved) el.dataset.arSaved = el.textContent;
+      el.textContent = el.getAttribute('data-he');
+    } else {
+      if (el.dataset.arSaved) el.textContent = el.dataset.arSaved;
+    }
+  });
+  document.querySelectorAll('[data-placeholder-he]').forEach(el => {
+    if (!el.dataset.placeholderArSaved) el.dataset.placeholderArSaved = el.placeholder;
+    el.placeholder = l === 'he' ? el.getAttribute('data-placeholder-he') : el.dataset.placeholderArSaved;
+  });
+  const lbl = document.getElementById('sLangLabel');
+  if (lbl) lbl.textContent = l === 'ar' ? 'עברית' : 'العربية';
+}
+
+document.getElementById('sLangBtn').addEventListener('click', () => applyLang(lang === 'ar' ? 'he' : 'ar'));
+applyLang(lang);
+
+/* ── Storage ── */
+const STORAGE_KEY = 'sehanoor_pledges';
+function getSignatories() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
+  catch { return []; }
+}
+
+/* ── Accent ribbons ── */
+const RIBBONS = [
+  'linear-gradient(90deg,#4ade80,#22d3ee)',
+  'linear-gradient(90deg,#f472b6,#fb7185)',
+  'linear-gradient(90deg,#fb923c,#fbbf24)',
+  'linear-gradient(90deg,#818cf8,#a78bfa)',
+  'linear-gradient(90deg,#22d3ee,#38bdf8)',
+  'linear-gradient(90deg,#86efac,#4ade80)',
+  'linear-gradient(90deg,#f43f5e,#fb923c)',
+  'linear-gradient(90deg,#c084fc,#818cf8)',
+  'linear-gradient(90deg,#fbbf24,#f59e0b)',
+  'linear-gradient(90deg,#34d399,#059669)',
+];
+
+function getRibbon(id) {
+  const h = [...id].reduce((a, c) => (a + c.charCodeAt(0)) | 0, 0);
+  return RIBBONS[Math.abs(h) % RIBBONS.length];
+}
+
+function getTilt(id) {
+  const h = [...id].reduce((a, c) => (a + c.charCodeAt(0)) | 0, 0);
+  return ((Math.abs(h) % 41) / 10 - 2).toFixed(1);
+}
+
+/* ── Format date ── */
+function fmtDate(iso) {
+  try {
+    return new Date(iso).toLocaleDateString('ar-SA', { year:'numeric', month:'short', day:'numeric' });
+  } catch { return ''; }
+}
+
+/* ── Animate counter ── */
+function animateCount(el, target, duration = 1200) {
+  if (target === 0) { el.textContent = '0'; return; }
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(ease * target);
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+/* ── Build card HTML ── */
+function buildCard(sig, index) {
+  const ribbon = getRibbon(sig.id);
+  const tilt   = getTilt(sig.id);
+  const delay  = Math.min(index * 60, 600);
+
+  const sigImg = sig.signature
+    ? `<div class="sig-card-sig-wrap"><img src="${sig.signature}" alt="" loading="lazy"></div>`
+    : `<div class="sig-no-sig-placeholder"><span>✍</span></div>`;
+
+  const classTag = sig.classroom
+    ? `<span class="sig-card-class-badge">${escHtml(sig.classroom)}</span>`
+    : '';
+
+  return `
+    <article class="sig-card" style="--ribbon:${ribbon};--tilt:${tilt}deg;--card-delay:${delay}ms;">
+      <div class="sig-card-ribbon" style="background:${ribbon}"></div>
+      <div class="sig-card-body">
+        <div class="sig-card-name">${escHtml(sig.name)}</div>
+        <div class="sig-card-meta">
+          ${classTag}
+          <span>${fmtDate(sig.date)}</span>
+        </div>
+        ${sigImg}
+        <span class="sig-card-date" dir="ltr">${new Date(sig.date).toLocaleDateString()}</span>
+      </div>
+    </article>`;
+}
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;');
+}
+
+/* ── Render wall ── */
+let allSigs = [];
+
+function render(list) {
+  const masonry = document.getElementById('sigMasonry');
+  const empty   = document.getElementById('sigsEmpty');
+  if (!list.length) {
+    masonry.innerHTML = '';
+    empty.hidden = false;
+    return;
+  }
+  empty.hidden = true;
+  masonry.innerHTML = list.map((s, i) => buildCard(s, i)).join('');
+}
+
+function load() {
+  allSigs = getSignatories().slice().reverse(); // newest first
+  const countEl = document.getElementById('bigCount');
+  animateCount(countEl, allSigs.length);
+  render(allSigs);
+}
+
+load();
+
+/* ── Search ── */
+document.getElementById('sigSearch').addEventListener('input', function () {
+  const q = this.value.trim().toLowerCase();
+  if (!q) { render(allSigs); return; }
+  render(allSigs.filter(s => s.name.toLowerCase().includes(q) ||
+    (s.classroom || '').toLowerCase().includes(q)));
+});
+
+/* ── Star-field background ── */
+(function initStars() {
+  const cv  = document.getElementById('bgCanvas');
+  const ctx = cv.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    cv.width  = window.innerWidth;
+    cv.height = window.innerHeight;
+    buildStars();
+  }
+
+  function buildStars() {
+    stars = Array.from({ length: 160 }, () => ({
+      x:  Math.random() * cv.width,
+      y:  Math.random() * cv.height,
+      r:  Math.random() * 1.3 + 0.3,
+      a:  Math.random(),
+      da: (Math.random() * 0.004 + 0.001) * (Math.random() > .5 ? 1 : -1),
+    }));
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, cv.width, cv.height);
+    stars.forEach(s => {
+      s.a += s.da;
+      if (s.a > 0.85 || s.a < 0.05) s.da *= -1;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(255,255,255,${s.a.toFixed(2)})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
+</body>
+</html>
