@@ -3,7 +3,7 @@
 // ══════════════════════════════════════════════════════════
 //  ⬇️  PASTE YOUR GOOGLE APPS SCRIPT URL HERE AFTER SETUP
 // ══════════════════════════════════════════════════════════
-const GAS_URL = '';
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbw_VXbAHCyDOdUf0SvgYF-P5r15ktTwq-2MLQrhPl2ZdvE_ovanbkTOvThvCNXgJkkt/exec';
 // ══════════════════════════════════════════════════════════
 
 // ── Language ──────────────────────────────────────────────
