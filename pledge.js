@@ -213,11 +213,12 @@ document.getElementById('pledgeAgainBtn')?.addEventListener('click', () => {
 // ── Google Sheets sync ────────────────────────────────────
 function postToSheets(entry) {
   if (!GAS_URL) return;
-  // POST with no-cors: no preflight, body reaches GAS, signature included
+  // POST with no-cors + text/plain: allowed without preflight, body reaches GAS
   fetch(GAS_URL, {
-    method: 'POST',
-    mode:   'no-cors',
-    body:   JSON.stringify(entry),
+    method:  'POST',
+    mode:    'no-cors',
+    headers: { 'Content-Type': 'text/plain' },
+    body:    JSON.stringify(entry),
   }).catch(() => {});
 }
 

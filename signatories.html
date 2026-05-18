@@ -263,9 +263,19 @@ async function load() {
     const json = await resp.json();
     if (!json.success || !Array.isArray(json.signatories)) return;
 
+    // خريطة التوقيعات المحلية (الصورة لا تُحفظ في Sheets أحياناً)
+    const localSigMap = {};
+    local.forEach(s => { if (s.signature) localSigMap[s.id] = s.signature; });
+
+    // ادمج: استخدم بيانات Sheets + التوقيع المحلي إن كان موجوداً
+    const merged = json.signatories.map(s => ({
+      ...s,
+      signature: s.signature || localSigMap[s.id] || null
+    }));
+
     const remoteIds = new Set(json.signatories.map(s => s.id));
     const localOnly = local.filter(s => !remoteIds.has(s.id));
-    allSigs = [...json.signatories, ...localOnly];
+    allSigs = [...merged, ...localOnly];
 
     animateCount(countEl, allSigs.length);
     render(allSigs);
