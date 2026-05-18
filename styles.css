@@ -2,47 +2,56 @@
    DESIGN TOKENS
 ═══════════════════════════════════════════════════════════ */
 :root {
-  /* Brand */
-  --green:        #0a7c5c;
-  --green-dk:     #065e45;
-  --green-mid:    #0fad7f;
-  --green-lt:     #d0f5e8;
-  --green-xlt:    #f0fdf8;
-  --green-glow:   rgba(10,124,92,.22);
+  /* ── Brand colors (matched to Logo.png & SchoolLogo.png) ── */
 
-  --blue:         #1a72d8;
-  --blue-dk:      #1249a0;
-  --blue-lt:      #dbeeff;
-  --blue-xlt:     #f0f7ff;
+  /* Green — from logo figures */
+  --green:        #2e8b41;
+  --green-dk:     #1c6b2e;
+  --green-mid:    #48b860;
+  --green-lt:     #c8e6c9;
+  --green-xlt:    #f1f8f2;
+  --green-glow:   rgba(46,139,65,.22);
 
+  /* Blue — from logo figures */
+  --blue:         #1565c0;
+  --blue-dk:      #0d47a1;
+  --blue-lt:      #bbdefb;
+  --blue-xlt:     #e8f4fd;
+
+  /* Gold — from school logo "50" */
+  --gold:         #c9a227;
+  --gold-dk:      #a07d14;
+  --gold-lt:      #fff8e1;
+  --gold-xlt:     #fffde7;
+
+  /* Amber / Rose / Teal (kept for articles) */
   --amber:        #f59f00;
   --amber-dk:     #c17d00;
   --amber-lt:     #fff3cc;
-
   --rose:         #e11d48;
   --rose-lt:      #ffe4ec;
-
-  --teal:         #0891b2;
-  --teal-lt:      #e0f7fa;
+  --teal:         #0277bd;
+  --teal-lt:      #e1f5fe;
 
   /* Neutrals */
-  --ink:          #0f172a;
-  --ink-soft:     #1e3655;
-  --muted:        #607d9b;
-  --line:         #e2ecf4;
+  --ink:          #0d1b3e;   /* deep navy matching school logo */
+  --ink-soft:     #1a2b5e;
+  --muted:        #5a708a;
+  --line:         #dde8f0;
   --paper:        #ffffff;
-  --mist:         #f6fafd;
-  --fog:          #eef4f9;
-  --dark-navy:    #080f1e;
+  --mist:         #f5fafd;
+  --fog:          #edf2f7;
+  --dark-navy:    #060e24;
 
   /* Shadows */
-  --shadow-xs:    0 1px 3px rgba(15,23,42,.06);
-  --shadow-sm:    0 4px 18px rgba(15,23,42,.07);
-  --shadow:       0 12px 40px rgba(15,23,42,.10);
-  --shadow-md:    0 20px 54px rgba(15,23,42,.13);
-  --shadow-lg:    0 32px 72px rgba(15,23,42,.18);
-  --glow-green:   0 8px 32px rgba(10,124,92,.28);
-  --glow-blue:    0 8px 32px rgba(26,114,216,.28);
+  --shadow-xs:    0 1px 3px rgba(13,27,62,.07);
+  --shadow-sm:    0 4px 18px rgba(13,27,62,.08);
+  --shadow:       0 12px 40px rgba(13,27,62,.11);
+  --shadow-md:    0 20px 54px rgba(13,27,62,.14);
+  --shadow-lg:    0 32px 72px rgba(13,27,62,.20);
+  --glow-green:   0 8px 32px rgba(46,139,65,.30);
+  --glow-blue:    0 8px 32px rgba(21,101,192,.28);
+  --glow-gold:    0 8px 32px rgba(201,162,39,.35);
   --glow-amber:   0 8px 32px rgba(245,159,0,.32);
 
   /* Radii */
@@ -55,13 +64,14 @@
   --container:    min(1200px, calc(100% - 48px));
   --header-h:     72px;
 
-  /* Gradients */
-  --grad-main:    linear-gradient(135deg, #0a7c5c 0%, #0fad7f 50%, #1a72d8 100%);
-  --grad-green:   linear-gradient(135deg, #0a7c5c, #0fad7f);
-  --grad-blue:    linear-gradient(135deg, #1a72d8, #0891b2);
-  --grad-warm:    linear-gradient(135deg, #f59f00, #e11d48);
-  --grad-hero:    linear-gradient(145deg, rgba(8,15,30,.92) 0%, rgba(6,94,69,.65) 55%, rgba(26,114,216,.45) 100%);
-  --grad-card:    linear-gradient(160deg, rgba(255,255,255,.9), rgba(240,253,248,.6));
+  /* Gradients — matched to logo palette */
+  --grad-main:    linear-gradient(135deg, #2e8b41 0%, #48b860 45%, #1565c0 100%);
+  --grad-green:   linear-gradient(135deg, #2e8b41, #48b860);
+  --grad-blue:    linear-gradient(135deg, #1565c0, #0277bd);
+  --grad-gold:    linear-gradient(135deg, #c9a227, #e8c040);
+  --grad-warm:    linear-gradient(135deg, #c9a227, #e11d48);
+  --grad-hero:    linear-gradient(145deg, rgba(6,14,36,.93) 0%, rgba(28,107,46,.60) 55%, rgba(13,71,161,.48) 100%);
+  --grad-card:    linear-gradient(160deg, rgba(255,255,255,.92), rgba(241,248,242,.65));
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -164,6 +174,7 @@ button { font: inherit; cursor: pointer; }
 .brand:hover { opacity: .85; }
 .brand-gem { width: 42px; height: 42px; flex-shrink: 0; }
 .brand-gem svg { width: 100%; height: 100%; filter: drop-shadow(0 3px 8px rgba(10,124,92,.3)); }
+.brand-logo-img { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(46,139,65,.25)); }
 .brand-text strong {
   display: block;
   font-size: .95rem;
@@ -1800,12 +1811,12 @@ h2.light { color: #fff; }
 .ft-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 900;
-  font-size: 1.08rem;
-  color: #fff;
+  gap: 16px;
+  flex-wrap: wrap;
 }
 .ft-logo svg { width: 32px; height: 32px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(10,124,92,.4)); }
+.ft-brand-logo  { height: 48px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(46,139,65,.30)); }
+.ft-school-logo { height: 54px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 10px rgba(201,162,39,.35)); }
 .ft-brand > p { font-size: .88rem; line-height: 1.7; }
 
 .ft-partners h3 {
