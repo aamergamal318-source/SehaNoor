@@ -1,28 +1,21 @@
 /**
- * SEHANOOR — Google Apps Script Backend (النسخة النهائية)
- * ─────────────────────────────────────────────────────────
- * كل شيء يعمل عبر GET لتجنب مشكلة CORS
- * Everything works via GET to avoid CORS issues
+ * SEHANOOR — Google Apps Script (Container-Bound)
+ * ─────────────────────────────────────────────────
+ * يُستخدم هذا الكود من داخل Google Sheets مباشرةً
+ * Extensions > Apps Script > Delete all > Paste this
  */
 
-var SHEET_NAME = 'Pledges';
-var FILE_NAME  = 'SehaNoor — توقيعات الميثاق';
-
-// ── نقطة الدخول الوحيدة (GET) ────────────────────────────
+// ── نقطة الدخول الوحيدة ──────────────────────────────────
 function doGet(e) {
-  var action = (e.parameter && e.parameter.action) ? e.parameter.action : 'list';
-
-  if (action === 'save') {
-    return handleSave(e.parameter);
-  } else {
-    return handleList();
-  }
+  var action = (e && e.parameter && e.parameter.action) ? e.parameter.action : 'list';
+  if (action === 'save') return handleSave(e.parameter);
+  return handleList();
 }
 
 // ── حفظ توقيع جديد ───────────────────────────────────────
 function handleSave(p) {
   try {
-    var sheet = getSheet();
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     sheet.appendRow([
       new Date().toISOString(),
       p.name      || '',
@@ -39,10 +32,10 @@ function handleSave(p) {
 // ── إرجاع كل التوقيعات ───────────────────────────────────
 function handleList() {
   try {
-    var sheet = getSheet();
+    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var rows  = sheet.getDataRange().getValues();
+    var list  = [];
 
-    var list = [];
     for (var i = 1; i < rows.length; i++) {
       var r = rows[i];
       if (!r[1]) continue;
@@ -56,42 +49,13 @@ function handleList() {
     }
 
     list.reverse(); // أحدث أولاً
-
     return jsonOut({ success: true, signatories: list });
   } catch (err) {
     return jsonOut({ success: false, error: err.toString() });
   }
 }
 
-// ── مساعد: احصل على الورقة أو أنشئها ─────────────────────
-function getSheet() {
-  var props = PropertiesService.getScriptProperties();
-  var ssId  = props.getProperty('SS_ID');
-  var ss;
-
-  if (ssId) {
-    try { ss = SpreadsheetApp.openById(ssId); } catch (e) { ss = null; }
-  }
-
-  if (!ss) {
-    ss = SpreadsheetApp.create(FILE_NAME);
-    props.setProperty('SS_ID', ss.getId());
-    Logger.log('Sheet URL: ' + ss.getUrl());
-  }
-
-  var sheet = ss.getSheetByName(SHEET_NAME);
-  if (!sheet) {
-    sheet = ss.getActiveSheet();
-    sheet.setName(SHEET_NAME);
-    sheet.appendRow(['التاريخ', 'الاسم الكامل', 'الصف', 'التواصل', 'المعرف']);
-    sheet.setFrozenRows(1);
-    sheet.setColumnWidths(1, 5, 180);
-  }
-
-  return sheet;
-}
-
-// ── مساعد: إرجاع JSON ─────────────────────────────────────
+// ── مساعد ─────────────────────────────────────────────────
 function jsonOut(data) {
   var out = ContentService.createTextOutput(JSON.stringify(data));
   out.setMimeType(ContentService.MimeType.JSON);
