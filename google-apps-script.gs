@@ -8,20 +8,23 @@
 // ── POST: حفظ توقيع جديد ─────────────────────────────────
 function doPost(e) {
   try {
-    var data  = JSON.parse(e.postData.contents);
+    // البيانات تأتي في حقل payload كـ JSON string من form submission
+    var raw  = (e.parameter && e.parameter.payload) ? e.parameter.payload
+             : (e.postData  && e.postData.contents)  ? e.postData.contents
+             : '{}';
+    var data = JSON.parse(raw);
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
 
-    // الصورة base64 — نقطع إذا تجاوزت حد الخلية (49000 حرف)
     var sig = String(data.signature || '');
     if (sig.length > 49000) sig = sig.substring(0, 49000);
 
     sheet.appendRow([
-      new Date().toISOString(),  // A: التاريخ
-      data.name      || '',      // B: الاسم
-      data.classroom || '',      // C: الصف
-      data.contact   || '',      // D: التواصل
-      data.id        || '',      // E: المعرف
-      sig                        // F: التوقيع (base64)
+      data.date      || new Date().toISOString(),
+      data.name      || '',
+      data.classroom || '',
+      data.contact   || '',
+      data.id        || '',
+      sig
     ]);
 
     return jsonOut({ success: true });

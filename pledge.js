@@ -213,13 +213,33 @@ document.getElementById('pledgeAgainBtn')?.addEventListener('click', () => {
 // ── Google Sheets sync ────────────────────────────────────
 function postToSheets(entry) {
   if (!GAS_URL) return;
-  // POST with no-cors + text/plain: allowed without preflight, body reaches GAS
-  fetch(GAS_URL, {
-    method:  'POST',
-    mode:    'no-cors',
-    headers: { 'Content-Type': 'text/plain' },
-    body:    JSON.stringify(entry),
-  }).catch(() => {});
+
+  // إرسال عبر form في iframe مخفي — الطريقة الوحيدة المضمونة مع GAS
+  const FRAME = '_gas_frame';
+  let iframe = document.getElementById(FRAME);
+  if (!iframe) {
+    iframe = document.createElement('iframe');
+    iframe.id = iframe.name = FRAME;
+    iframe.style.cssText = 'display:none;width:0;height:0;border:0;position:absolute;';
+    document.body.appendChild(iframe);
+  }
+
+  const form = document.createElement('form');
+  form.method = 'POST';
+  form.action = GAS_URL;
+  form.target = FRAME;
+  form.style.display = 'none';
+
+  // أرسل كل البيانات في حقل واحد JSON لتجنب مشكلة ترميز base64
+  const inp = document.createElement('input');
+  inp.type  = 'hidden';
+  inp.name  = 'payload';
+  inp.value = JSON.stringify(entry);
+  form.appendChild(inp);
+
+  document.body.appendChild(form);
+  form.submit();
+  setTimeout(() => { try { form.remove(); } catch (_) {} }, 5000);
 }
 
 // ── Share Toast ────────────────────────────────────────────
