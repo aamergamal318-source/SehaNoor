@@ -185,8 +185,8 @@ button { font: inherit; cursor: pointer; }
 .brand:hover { opacity: .85; }
 .brand-gem { width: 42px; height: 42px; flex-shrink: 0; }
 .brand-gem svg { width: 100%; height: 100%; filter: drop-shadow(0 3px 8px rgba(10,124,92,.3)); }
-.brand-logo-img  { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; mix-blend-mode: multiply; }
-.hdr-school-logo { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; mix-blend-mode: multiply; }
+.brand-logo-img  { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 1px 4px rgba(0,0,0,.12)); }
+.hdr-school-logo { height: 44px; width: auto; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 1px 4px rgba(0,0,0,.12)); }
 .brand-text strong {
   display: block;
   font-size: .95rem;
@@ -1824,8 +1824,8 @@ h2.light { color: #fff; }
   flex-wrap: wrap;
 }
 .ft-logo svg { width: 32px; height: 32px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(10,124,92,.4)); }
-.ft-brand-logo  { height: 52px; width: auto; object-fit: contain; background: rgba(255,255,255,.96); border-radius: 10px; padding: 5px 10px; }
-.ft-school-logo { height: 56px; width: auto; object-fit: contain; background: rgba(255,255,255,.96); border-radius: 10px; padding: 5px 10px; }
+.ft-brand-logo  { height: 52px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(255,255,255,.15)); }
+.ft-school-logo { height: 56px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(255,255,255,.15)); }
 .ft-brand > p { font-size: .88rem; line-height: 1.7; }
 
 .ft-partners h3 {
