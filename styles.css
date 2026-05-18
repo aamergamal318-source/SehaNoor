@@ -1789,18 +1789,15 @@ h2.light { color: #fff; }
 }
 .qr-box {
   width: 160px; height: 160px;
-  background:
-    linear-gradient(90deg, rgba(255,255,255,.85) 10px, transparent 10px) 0 0 / 32px 32px,
-    linear-gradient(rgba(255,255,255,.85) 10px, transparent 10px) 0 0 / 32px 32px,
-    rgba(255,255,255,.1);
-  border: 10px solid rgba(255,255,255,.8);
+  background: #fff;
+  border: 8px solid rgba(255,255,255,.9);
   border-radius: 14px;
-  display: grid;
-  place-items: center;
-  font-weight: 900;
-  font-size: 1rem;
-  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+.qr-box canvas, .qr-box img { display: block; border-radius: 6px; }
 .qr-label { color: rgba(255,255,255,.9); font-size: 1.1rem; font-weight: 900; }
 .pledge-qr small { color: rgba(255,255,255,.7); font-size: .76rem; text-align: center; font-weight: 600; }
 
@@ -1961,6 +1958,49 @@ h2.light { color: #fff; }
 }
 
 /* ═══════════════════════════════════════════════════════════
+   TEEN HEALTH TIPS
+═══════════════════════════════════════════════════════════ */
+.teen-tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+.teen-tip {
+  background: var(--paper);
+  border-radius: var(--radius-lg);
+  padding: 26px 22px;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .22s, box-shadow .22s;
+}
+.teen-tip::before {
+  content: '';
+  position: absolute;
+  inset-block-start: 0;
+  inset-inline: 0;
+  height: 3px;
+  background: var(--grad-main);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+.teen-tip:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.ttp-icon { font-size: 2rem; line-height: 1; }
+.teen-tip h3 { font-size: var(--fs-lg); font-weight: 800; color: var(--ink); margin: 0; }
+.ttp-list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  flex: 1;
+}
+.ttp-list li { font-size: var(--fs-sm); color: var(--muted); line-height: 1.65; }
+
+/* ═══════════════════════════════════════════════════════════
    RESPONSIVE — TABLET (≤1050px)
 ═══════════════════════════════════════════════════════════ */
 @media (max-width: 1050px) {
@@ -1978,6 +2018,7 @@ h2.light { color: #fff; }
   .split-img img { min-height: 360px; }
 
   .goal-grid { grid-template-columns: repeat(2, 1fr); }
+  .teen-tips-grid { grid-template-columns: repeat(2, 1fr); }
   .leadership-layout { grid-template-columns: 1fr; }
   .ldr-photo { min-height: 360px; max-width: 500px; }
   .ldr-photo img { min-height: 360px; }
@@ -2038,6 +2079,7 @@ h2.light { color: #fff; }
 
   /* Cards */
   .goal-grid { grid-template-columns: 1fr; }
+  .teen-tips-grid { grid-template-columns: 1fr; }
   .activity-grid { grid-template-columns: 1fr; }
   .blog-grid { grid-template-columns: 1fr; }
   .bl-featured { grid-column: span 1; }

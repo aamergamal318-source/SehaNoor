@@ -14,7 +14,7 @@ function applyLang(l) {
   lang = l;
   localStorage.setItem(LANG_KEY, l);
   document.documentElement.lang = l;
-  document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+  document.documentElement.dir = 'rtl'; // Both Arabic and Hebrew are RTL
 
   document.querySelectorAll('[data-he]').forEach(el => {
     if (l === 'he') {

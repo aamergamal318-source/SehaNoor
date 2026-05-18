@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ملخص مشروع قادة الصحة | أورط أبو ربيعة</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic:wght@400;600;700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Naskh Arabic', serif;
+      background: #fff;
+      color: #0d1b3e;
+      direction: rtl;
+      font-size: 13pt;
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 40px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #2e8b41;
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 14px; }
+    .logo-wrap img { height: 64px; }
+    .hdr-text h1 { font-size: 1.35rem; font-weight: 700; color: #0d1b3e; }
+    .hdr-text p { font-size: .9rem; color: #2e8b41; }
+    .badge {
+      background: linear-gradient(135deg, #2e8b41, #1565c0);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #2e8b41;
+      border-right: 4px solid #2e8b41;
+      padding-right: 10px;
+      margin: 24px 0 12px;
+    }
+    p { margin-bottom: 10px; }
+    ul { padding-right: 1.4rem; margin-bottom: 12px; }
+    li { margin-bottom: 5px; }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 20px 0;
+    }
+    .stat-box {
+      background: #f1f8f2;
+      border-radius: 10px;
+      padding: 14px;
+      text-align: center;
+    }
+    .stat-num { font-size: 2rem; font-weight: 900; color: #2e8b41; line-height: 1; }
+    .stat-label { font-size: .78rem; color: #5a708a; margin-top: 4px; }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin: 14px 0;
+    }
+    .goal-box {
+      background: #f8fbff;
+      border: 1px solid #dde8f0;
+      border-radius: 8px;
+      padding: 14px;
+    }
+    .goal-box h3 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+
+    .timeline { margin: 14px 0; }
+    .tl-row { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; }
+    .tl-dot { width: 10px; height: 10px; background: #2e8b41; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+    .tl-row b { color: #1565c0; }
+
+    .cert-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fffde7;
+      border: 1px solid #c9a227;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin: 16px 0;
+    }
+    .cert-row .stars { font-size: 1.5rem; }
+    .cert-row p { font-size: .9rem; margin: 0; }
+
+    footer {
+      border-top: 2px solid #dde8f0;
+      margin-top: 32px;
+      padding-top: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: .8rem;
+      color: #5a708a;
+    }
+
+    @media print {
+      body { font-size: 11pt; }
+      .page { padding: 20px 28px; }
+      header { padding-bottom: 14px; margin-bottom: 18px; }
+      .no-print { display: none; }
+    }
+    .print-btn {
+      background: #2e8b41;
+      color: white;
+      border: none;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-bottom: 24px;
+      font-family: inherit;
+    }
+    .print-btn:hover { background: #1c6b2e; }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <button class="print-btn no-print" onclick="window.print()">🖨️ طباعة / حفظ PDF</button>
+
+  <header>
+    <div class="logo-wrap">
+      <img src="../Logo/Logo.png" alt="قادة الصحة">
+      <div class="hdr-text">
+        <h1>مشروع قادة الصحة في النقب</h1>
+        <p>أورط أبو ربيعة — أورط صحي 2025-2026</p>
+      </div>
+    </div>
+    <div class="badge">⭐⭐⭐<br>مدرسة معزِّزة للصحة</div>
+  </header>
+
+  <h2>نظرة عامة</h2>
+  <p>
+    مشروع مدرسي مستمر تنفذه مدرسة أورط أبو ربيعة الشاملة في كسيفة ضمن برنامج أورط صحي،
+    يقوده طلاب سفراء الصحة من الصفوف المختلفة. يرتكز المشروع على خمسة محاور صحية:
+    شرب الماء، التغذية الصحيحة، النشاط البدني، الصورة الذاتية الإيجابية، والقيادة الطلابية.
+  </p>
+
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-num">850</div>
+      <div class="stat-label">طالب في المدرسة</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">24</div>
+      <div class="stat-label">سفير صحة</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">6</div>
+      <div class="stat-label">محطات عمل</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">72%</div>
+      <div class="stat-label">وعي أكبر بالصحة</div>
+    </div>
+  </div>
+
+  <div class="cert-row">
+    <span class="stars">⭐⭐⭐</span>
+    <p>
+      <strong>شهادة "مدرسة معزِّزة للصحة" — 3 نجوم</strong><br>
+      تُثبت أن الصحة في أورط أبو ربيعة ليست نشاطاً عابراً، بل جزء من ثقافة مدرسية مستمرة.
+    </p>
+  </div>
+
+  <h2>الأهداف القابلة للقياس</h2>
+  <div class="goals-grid">
+    <div class="goal-box">
+      <h3>💧 شرب الماء</h3>
+      <p>زيادة عدد الطلاب الحاملين زجاجة ماء شخصية وتقليل المشروبات المحلاة في الفسح.</p>
+    </div>
+    <div class="goal-box">
+      <h3>🏃 الحركة</h3>
+      <p>إضافة فسح نشيطة وتحدي خطوات بين الصفوف لجعل الحركة جزءاً من روتين التعلم.</p>
+    </div>
+    <div class="goal-box">
+      <h3>🥗 التغذية الواعية</h3>
+      <p>تشجيع الوجبات المتوازنة والتعرف على المطبخ البدوي المحلي الصحي.</p>
+    </div>
+    <div class="goal-box">
+      <h3>💚 الصورة الذاتية</h3>
+      <p>خلق خطاب محترم حول الجسم والصحة والاختيار الشخصي بلا مقارنة أو إصدار أحكام.</p>
+    </div>
+  </div>
+
+  <h2>الأنشطة المنفَّذة</h2>
+  <ul>
+    <li><strong>سوق صحي مدرسي:</strong> أجنحة تذوق، الطبق المتوازن، أطعمة محلية صحية.</li>
+    <li><strong>تحدي 10 دقائق حركة:</strong> فسحة يومية تُفتتح بحركة قصيرة في كل صف.</li>
+    <li><strong>حملة الزجاجة الشخصية:</strong> محطات تذكير وملصقات لتشجيع شرب الماء.</li>
+    <li><strong>ملصقات الطلاب:</strong> تصميم رسائل بالعربية والعبرية في الممرات والصفوف.</li>
+    <li><strong>أمسية صحة للعائلات:</strong> نصائح عملية والتزام عائلي بتغيير صغير.</li>
+    <li><strong>ورشة الصورة الذاتية:</strong> حوار حول الجسم والثقة بالنفس ووسائل التواصل.</li>
+    <li><strong>محطة السكري:</strong> قياس مستوى السكر وتوعية بالوقاية.</li>
+  </ul>
+
+  <h2>التأثير المقاس</h2>
+  <ul>
+    <li>72% من الطلاب أبلغوا بوعي أكبر بعادات الشرب.</li>
+    <li>18 صفاً شاركت في الأنشطة الصحية.</li>
+    <li>340 زجاجة ماء أُحصيت في أسبوع الذروة.</li>
+    <li>حوار أكثر في الصفوف حول الخيارات الصحية.</li>
+  </ul>
+
+  <h2>خطة الاستمرارية</h2>
+  <div class="timeline">
+    <div class="tl-row"><div class="tl-dot"></div><div><b>كل شهر:</b> يوم صحة قصير أو فسحة نشيطة بقيادة الطلاب.</div></div>
+    <div class="tl-row"><div class="tl-dot"></div><div><b>كل أسبوع:</b> تحدي ماء، خطوات أو خضار في إعلان صفي.</div></div>
+    <div class="tl-row"><div class="tl-dot"></div><div><b>كل نصف عام:</b> استبيان قبل/بعد وعرض النتائج للتعلم المشترك.</div></div>
+    <div class="tl-row"><div class="tl-dot"></div><div><b>كل عام:</b> تدريب فريق جديد من سفراء الصحة.</div></div>
+  </div>
+
+  <footer>
+    <span>أورط أبو ربيعة — كسيفة، النقب</span>
+    <span>أورط صحي 2025-2026 | <a href="https://aamergamal318-source.github.io/SehaNoor" style="color:#2e8b41;">الموقع الإلكتروني</a></span>
+    <span>© <script>document.write(new Date().getFullYear())</script> جميع الحقوق محفوظة</span>
+  </footer>
+
+</div>
+</body>
+</html>
