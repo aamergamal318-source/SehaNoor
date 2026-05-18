@@ -202,16 +202,12 @@ document.getElementById('pledgeAgainBtn')?.addEventListener('click', () => {
 // ── Google Sheets sync ────────────────────────────────────
 function postToSheets(entry) {
   if (!GAS_URL) return;
-  // Use GET + URL params — avoids CORS preflight entirely
-  const p = new URLSearchParams({
-    action:    'save',
-    name:      entry.name,
-    classroom: entry.classroom || '',
-    contact:   entry.contact   || '',
-    id:        entry.id,
-    date:      entry.date,
-  });
-  fetch(GAS_URL + '?' + p.toString()).catch(() => {});
+  // POST with no-cors: no preflight, body reaches GAS, signature included
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode:   'no-cors',
+    body:   JSON.stringify(entry),
+  }).catch(() => {});
 }
 
 // ── Share Toast ────────────────────────────────────────────
