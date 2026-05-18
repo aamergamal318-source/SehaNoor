@@ -239,29 +239,37 @@ function render(list) {
 }
 
 async function load() {
-  // 1. Show local data immediately (fast)
+  const countEl = document.getElementById('bigCount');
+
+  // 1. اعرض البيانات المحلية فوراً
   const local = getSignatories().slice().reverse();
   allSigs = local;
-  animateCount(document.getElementById('bigCount'), allSigs.length);
+  animateCount(countEl, allSigs.length);
   render(allSigs);
 
-  // 2. Fetch from Google Sheets (shared across all devices)
+  // 2. اجلب العدد الحقيقي أولاً (سريع)
+  if (GAS_URL) {
+    try {
+      const cr = await fetch(GAS_URL + '?action=count');
+      const cj = await cr.json();
+      if (cj.success) animateCount(countEl, cj.count);
+    } catch (_) {}
+  }
+
+  // 3. اجلب القائمة الكاملة من Sheets
   if (!GAS_URL) return;
   try {
     const resp = await fetch(GAS_URL);
     const json = await resp.json();
     if (!json.success || !Array.isArray(json.signatories)) return;
 
-    // Merge: remote is authoritative; keep any local entries not yet synced
     const remoteIds = new Set(json.signatories.map(s => s.id));
     const localOnly = local.filter(s => !remoteIds.has(s.id));
-    allSigs = [...json.signatories, ...localOnly]; // remote newest-first already
+    allSigs = [...json.signatories, ...localOnly];
 
-    animateCount(document.getElementById('bigCount'), allSigs.length);
+    animateCount(countEl, allSigs.length);
     render(allSigs);
-  } catch (_) {
-    // No connection or error — local data already shown, nothing to do
-  }
+  } catch (_) {}
 }
 
 load();

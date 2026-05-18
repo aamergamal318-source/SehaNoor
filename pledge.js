@@ -54,9 +54,20 @@ function saveSignatory(data) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
 }
 
-function updateHeaderCount() {
+async function updateHeaderCount() {
   const el = document.getElementById('hdrSigCount');
-  if (el) el.textContent = getSignatories().length;
+  if (!el) return;
+
+  // 1. محلي أولاً
+  el.textContent = getSignatories().length;
+
+  // 2. الرقم الحقيقي من Sheets
+  if (!GAS_URL) return;
+  try {
+    const r = await fetch(GAS_URL + '?action=count');
+    const j = await r.json();
+    if (j.success) el.textContent = j.count;
+  } catch (_) {}
 }
 
 updateHeaderCount();

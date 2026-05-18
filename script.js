@@ -428,15 +428,25 @@ langToggleBtn.addEventListener("click", () => {
 });
 
 /* ══════════════════════════════════════
-   PLEDGE WALL COUNT (from localStorage)
+   PLEDGE WALL COUNT (Google Sheets)
 ══════════════════════════════════════ */
-(function updatePledgeCount() {
+(async function updatePledgeCount() {
+  const badge = document.getElementById("pledgeWallCount");
+  if (!badge) return;
+
+  // 1. اعرض العدد المحلي فوراً
   try {
-    const sigs = JSON.parse(localStorage.getItem("sehanoor_pledges") || "[]");
-    if (!sigs.length) return;
-    const badge = document.getElementById("pledgeWallCount");
-    if (badge) {
-      badge.textContent = sigs.length;
+    const local = JSON.parse(localStorage.getItem("sehanoor_pledges") || "[]");
+    if (local.length) { badge.textContent = local.length; badge.classList.add("visible"); }
+  } catch (_) {}
+
+  // 2. اجلب العدد الحقيقي من Google Sheets
+  const GAS = "https://script.google.com/macros/s/AKfycbw3sf6B9CsXjD8K3_MqO1_Yid4x4T-I84zTUwwMYmTUz2tXzK314D-eNd-TN6NB41iq/exec";
+  try {
+    const r = await fetch(GAS + "?action=count");
+    const j = await r.json();
+    if (j.success && j.count > 0) {
+      badge.textContent = j.count;
       badge.classList.add("visible");
     }
   } catch (_) {}
