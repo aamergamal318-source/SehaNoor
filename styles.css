@@ -1377,6 +1377,9 @@ h2.light { color: #fff; }
 .cat-orange { background: rgba(255,237,213,.9); color: #9a3412; }
 .cat-amber  { background: rgba(255,243,204,.9); color: #78350f; }
 .cat-yellow { background: rgba(254,249,195,.9); color: #92400e; }
+.cat-purple { background: rgba(237,231,246,.9); color: #4527a0; }
+.cat-teal   { background: rgba(224,242,241,.9); color: #00695c; }
+.cat-rose   { background: rgba(252,228,236,.9); color: #880e4f; }
 
 .bl-body {
   padding: 22px;

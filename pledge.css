@@ -839,6 +839,21 @@
   transform: translateX(-50%) translateY(0);
 }
 
+.pledge-footer-links {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.sigs-controls-inner {
+  max-width: min(1200px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.sigs-footer-brand { margin-top: .5rem; }
+
 /* ── Responsive ── */
 @media (max-width: 680px) {
   .pledge-oath-box { padding: 1.5rem 1.75rem; }
