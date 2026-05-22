@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="عرض شرائح احترافي ثنائي اللغة لمشروع قادة الصحة - מנהיגי בריאות في مدرسة أورط أبو ربيعة ضمن أورط صحي.">
+  <meta name="description" content="عرض شرائح احترافي ثنائي اللغة لمشروع قادة الصحة – מנהיגי בריאות في مدرسة أورط أبو ربيعة ضمن برنامج אורט בריא.">
   <meta name="theme-color" content="#0f766e">
   <meta property="og:title" content="قادة الصحة | מנהיגי בריאות">
-  <meta property="og:description" content="مشروع مدرسي يحوّل الصحة إلى ثقافة يومية يقودها الطلاب في أورط أبو ربيعة ضمن أورط صحي.">
+  <meta property="og:description" content="مشروع مدرسي يحوّل الصحة إلى ثقافة يومية يقودها الطلاب في أورط أبو ربيعة ضمن אורט בריא.">
   <meta property="og:image" content="https://aamergamal318-source.github.io/SehaNoor/images/certificate.jpeg">
   <title>قادة الصحة | מנהיגי בריאות</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,7 @@
 <body>
   <a class="skip-link" href="#slideTitle">تخطي إلى العرض</a>
 
+  <!-- ══ TOP BAR ══ -->
   <header class="deck-topbar" aria-label="شريط التحكم في عرض الشرائح">
     <a class="deck-brand" href="index.html" aria-label="العودة إلى الموقع الرئيسي">
       <img src="logo/logo.png" alt="شعار قادة الصحة">
@@ -41,267 +42,535 @@
   <main class="deck-shell" id="deckShell">
     <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
 
-    <section class="slide hero-slide is-active" data-label="افتتاح">
+    <!-- ══════════════════════════════════════════
+         01 — افتتاح  |  פתיחה
+    ══════════════════════════════════════════ -->
+    <section class="slide hero-slide is-active" data-label="افتتاح" aria-label="شريحة الافتتاح">
+      <span class="slide-badge slide-badge--light" aria-hidden="true">01</span>
       <div class="hero-photo">
-        <img src="images/certificate.jpeg" alt="طلاب ومشروع قادة الصحة في مدرسة أورط أبو ربيعة" loading="eager" fetchpriority="high">
+        <img
+          src="images/certificate.jpeg"
+          alt="طلاب مدرسة أورط أبو ربيعة يقودون مشروع قادة الصحة"
+          loading="eager"
+          fetchpriority="high">
       </div>
       <div class="hero-glass">
-        <p class="eyebrow">أورط أبو ربيعة | אורט אבו רביעה</p>
+        <div class="hero-tags">
+          <span class="hero-tag">أورط أبو ربيعة</span>
+          <span class="hero-tag" lang="he" dir="rtl">אורט אבו רביעה</span>
+          <span class="hero-tag accent" lang="he" dir="rtl">אורט בריא</span>
+        </div>
+
         <h1 id="slideTitle">
           قادة الصحة
           <span lang="he" dir="rtl">מנהיגי בריאות</span>
         </h1>
+
         <p class="thesis">
-          الصحة ليست يوماً خاصاً — إنها عادة يقودها الطلاب كل يوم.
+          الصحة ليست يوماً خاصاً — إنها ثقافة يومية يقودها الطلاب.
           <span lang="he" dir="rtl">בריאות אינה יום שיא — היא תרבות יומיומית בהובלת תלמידים.</span>
         </p>
-        <div class="hero-meta">
-          <span>ضمن أورط صحي</span>
-          <span lang="he" dir="rtl">במסגרת אורט בריא</span>
+
+        <div class="hero-logos">
+          <img src="logo/logo.png"        alt="شعار مبادرة قادة الصحة">
+          <img src="logo/school-logo.png" alt="شعار مدرسة أورط أبو ربيعة">
         </div>
       </div>
     </section>
 
-    <section class="slide" data-label="الفكرة">
+    <!-- ══════════════════════════════════════════
+         02 — الفكرة  |  הרעיון
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الفكرة" aria-label="شريحة الفكرة الأساسية">
+      <span class="slide-badge" aria-hidden="true">02</span>
       <div class="slide-layout split">
+
         <div class="text-stack">
           <p class="eyebrow">الفكرة في جملة | הרעיון במשפט</p>
-          <h2>من معرفة صحية إلى سلوك يومي</h2>
+          <h2>من معرفة صحية<br>إلى سلوك يومي</h2>
           <h3 lang="he" dir="rtl">ממידע בריאותי להתנהגות יומיומית</h3>
-          <p class="statement">المشروع لا يكتفي بشرح الصحة؛ إنه يحوّلها إلى قرارات صغيرة داخل اليوم المدرسي.</p>
-          <p class="statement" lang="he" dir="rtl">המיזם לא רק מסביר בריאות; הוא הופך אותה להחלטות קטנות בתוך יום הלימודים.</p>
+          <p class="statement">
+            المشروع لا يكتفي بشرح الصحة؛ بل يحوّلها إلى قرارات صغيرة حقيقية
+            داخل اليوم المدرسي.
+          </p>
+          <p class="statement" lang="he" dir="rtl">
+            המיזם לא רק מסביר בריאות; הוא הופך אותה להחלטות קטנות ממשיות
+            בתוך יום הלימודים.
+          </p>
           <ul class="clean-list">
-            <li>اختيار صحي في الفسحة.</li>
-            <li>رسائل قصيرة بلغة الطلاب.</li>
-            <li>تجربة قابلة للتكرار والاستمرار.</li>
+            <li>اختيار صحي في وقت الفسحة</li>
+            <li>رسائل قصيرة بلغة الطلاب أنفسهم</li>
+            <li>تجربة قابلة للتكرار والاستمرار</li>
           </ul>
         </div>
-        <div class="visual-card behavior-card" aria-label="من شعار إلى عادة">
-          <span class="big-icon">💧</span>
-          <strong>شعار → عادة → ثقافة</strong>
-          <small lang="he" dir="rtl">סיסמה → הרגל → תרבות</small>
+
+        <div class="transform-card visual-card" aria-label="مسار التحوّل من شعار إلى ثقافة">
+          <div class="transform-step">
+            <span>💬</span>
+            <strong>شعار</strong>
+            <small lang="he">סיסמה</small>
+          </div>
+          <div class="transform-arrow" aria-hidden="true">↓</div>
+          <div class="transform-step active">
+            <span>💧</span>
+            <strong>عادة</strong>
+            <small lang="he">הרגל</small>
+          </div>
+          <div class="transform-arrow" aria-hidden="true">↓</div>
+          <div class="transform-step highlight">
+            <span>🌿</span>
+            <strong>ثقافة</strong>
+            <small lang="he">תרבות</small>
+          </div>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="الحاجة">
+    <!-- ══════════════════════════════════════════
+         03 — لماذا نحتاج المشروع؟  |  למה צריך את המיזם?
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الحاجة" aria-label="شريحة لماذا نحتاج المشروع">
+      <span class="slide-badge" aria-hidden="true">03</span>
       <div class="slide-layout">
+
         <div class="section-head center">
           <p class="eyebrow">فرصة للتغيير | הזדמנות לשינוי</p>
-          <h2>لماذا نحتاج المشروع؟</h2>
-          <h3 lang="he" dir="rtl">למה צריך את המיזם?</h3>
+          <h2>لماذا نحتاج هذا المشروع؟</h2>
+          <h3 lang="he" dir="rtl">למה צריך את המיזם הזה?</h3>
         </div>
+
         <div class="challenge-grid">
-          <article>
-            <span>🥤</span>
-            <h4>مشروبات محلاة</h4>
+          <article class="challenge-card ch-sweet">
+            <span class="ch-icon">🥤</span>
+            <h4>مشروبات محلّاة</h4>
             <p lang="he" dir="rtl">משקאות ממותקים</p>
+            <p class="ch-note">بديلها: الماء وشاي الأعشاب الصحي</p>
           </article>
-          <article>
-            <span>🪑</span>
-            <h4>قلة حركة</h4>
-            <p lang="he" dir="rtl">פחות תנועה</p>
+          <article class="challenge-card ch-move">
+            <span class="ch-icon">🪑</span>
+            <h4>قلة الحركة</h4>
+            <p lang="he" dir="rtl">חוסר פעילות גופנית</p>
+            <p class="ch-note">بديلها: فسحة حركة يومية قصيرة</p>
           </article>
-          <article>
-            <span>📱</span>
-            <h4>ساعات شاشة</h4>
-            <p lang="he" dir="rtl">שעות מסך</p>
+          <article class="challenge-card ch-screen">
+            <span class="ch-icon">📱</span>
+            <h4>ساعات الشاشة</h4>
+            <p lang="he" dir="rtl">שעות מסך רבות</p>
+            <p class="ch-note">بديلها: نشاط وتواصل حقيقي</p>
           </article>
-          <article>
-            <span>💚</span>
-            <h4>خطاب إيجابي للجسد</h4>
-            <p lang="he" dir="rtl">שיח חיובי על הגוף</p>
+          <article class="challenge-card ch-body">
+            <span class="ch-icon">💚</span>
+            <h4>صورة ذاتية إيجابية</h4>
+            <p lang="he" dir="rtl">דימוי עצמי חיובי</p>
+            <p class="ch-note">نحتاج خطاباً إيجابياً كل يوم</p>
           </article>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="أورط صحي">
+    <!-- ══════════════════════════════════════════
+         04 — أورط صحي  |  אורט בריא
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="أورط صحي" aria-label="شريحة ارتباطنا ببرنامج אורט בריא">
+      <span class="slide-badge" aria-hidden="true">04</span>
       <div class="slide-layout">
+
         <div class="section-head">
           <p class="eyebrow">אורט בריא | أورط صحي</p>
-          <h2>نربط مشروعنا بمحاور البرنامج الرسمية</h2>
-          <h3 lang="he" dir="rtl">מחברים את המיזם לצירי התוכנית</h3>
+          <h2>مشروعنا ينبثق من المحاور الرسمية</h2>
+          <h3 lang="he" dir="rtl">המיזם שלנו נובע מצירי התוכנית הרשמיים</h3>
         </div>
+
         <div class="ortbari-grid">
-          <article>
+          <article class="pillar-green">
             <span class="axis-icon">🏃</span>
             <strong lang="he" dir="rtl">להתעמל</strong>
             <h4>نتحرك بذكاء</h4>
-            <p>نشاط بدني ممتع وقابل للتنفيذ داخل المدرسة.</p>
+            <p>نشاط بدني ممتع وقابل للتنفيذ داخل المدرسة يومياً — فسحة حركة، رياضة مبسّطة، وتنشيط جسدي حقيقي.</p>
           </article>
-          <article>
+          <article class="pillar-orange">
             <span class="axis-icon">🍎</span>
             <strong lang="he" dir="rtl">לאכול</strong>
             <h4>نأكل بوعي</h4>
-            <p>اختيار غذائي ناقد وواعٍ بدل قرارات عشوائية.</p>
+            <p>اختيار غذائي ناقد وواعٍ بدلاً من قرارات عشوائية — طبق صحي، فاكهة الموسم، وقراءة التسمية الغذائية.</p>
           </article>
-          <article>
+          <article class="pillar-pink">
             <span class="axis-icon">💚</span>
             <strong lang="he" dir="rtl">לאהוב</strong>
-            <h4>نحترم الجسد</h4>
-            <p>صورة ذاتية إيجابية ولغة صحية حول الجسم.</p>
+            <h4>نحترم الجسد ونحبّه</h4>
+            <p>صورة ذاتية إيجابية ولغة صحية حول الجسم والهوية — بدون مقارنة، ومع احترام كامل للتنوع.</p>
           </article>
         </div>
-        <a class="source-link" href="https://www.ort.org.il/ortbari/" target="_blank" rel="noreferrer">مصدر محاور אורט בריא</a>
+
+        <a class="source-link" href="https://www.ort.org.il/ortbari/" target="_blank" rel="noreferrer noopener">
+          ← للمزيد حول أورط صحي: ort.org.il/ortbari — לתוכנית אורט בריא הרשמית
+        </a>
       </div>
     </section>
 
-    <section class="slide" data-label="الحل">
-      <div class="slide-layout split">
-        <div class="text-stack">
+    <!-- ══════════════════════════════════════════
+         05 — الحل  |  הפתרון
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الحل" aria-label="شريحة الحل والفريق الطلابي">
+      <span class="slide-badge" aria-hidden="true">05</span>
+      <div class="slide-layout">
+
+        <div class="section-head center">
           <p class="eyebrow">الحل | הפתרון</p>
           <h2>فريق طلابي يقود الصحة</h2>
           <h3 lang="he" dir="rtl">צוות תלמידים שמוביל בריאות</h3>
-          <p class="statement">الطلاب ليسوا جمهوراً يتلقى التعليمات؛ هم من يشخّص، يخطط، ينفذ، ويقيس الأثر.</p>
-          <p class="statement" lang="he" dir="rtl">התלמידים אינם רק קהל יעד; הם מזהים צורך, מתכננים, מבצעים ומודדים השפעה.</p>
+          <p class="statement" style="text-align:center; max-width:820px; margin-inline:auto;">
+            الطلاب ليسوا جمهوراً يتلقى التعليمات؛ هم من يشخّص الاحتياج، يخطط النشاطات، ينفّذ الحملات، ويقيس الأثر.
+          </p>
         </div>
-        <div class="process-line" aria-label="مسار العمل">
-          <article><b>1</b><span>تشخيص<br><small lang="he">מיפוי</small></span></article>
-          <article><b>2</b><span>تخطيط<br><small lang="he">תכנון</small></span></article>
-          <article><b>3</b><span>قيادة<br><small lang="he">הובלה</small></span></article>
-          <article><b>4</b><span>قياس<br><small lang="he">מדידה</small></span></article>
+
+        <div class="process-flow" aria-label="مسار العمل الطلابي">
+          <article class="pf-step">
+            <div class="pf-num">١</div>
+            <div class="pf-text">
+              <strong>تشخيص</strong>
+              <small lang="he" dir="rtl">מיפוי צרכים</small>
+            </div>
+          </article>
+          <div class="pf-arrow" aria-hidden="true">←</div>
+          <article class="pf-step">
+            <div class="pf-num">٢</div>
+            <div class="pf-text">
+              <strong>تخطيط</strong>
+              <small lang="he" dir="rtl">תכנון פעילות</small>
+            </div>
+          </article>
+          <div class="pf-arrow" aria-hidden="true">←</div>
+          <article class="pf-step">
+            <div class="pf-num">٣</div>
+            <div class="pf-text">
+              <strong>قيادة وتنفيذ</strong>
+              <small lang="he" dir="rtl">הובלה וביצוע</small>
+            </div>
+          </article>
+          <div class="pf-arrow" aria-hidden="true">←</div>
+          <article class="pf-step">
+            <div class="pf-num">٤</div>
+            <div class="pf-text">
+              <strong>قياس الأثر</strong>
+              <small lang="he" dir="rtl">מדידת השפעה</small>
+            </div>
+          </article>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="المحاور">
+    <!-- ══════════════════════════════════════════
+         06 — محاور العمل  |  צירי פעולה
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="المحاور" aria-label="شريحة محاور العمل الأربعة">
+      <span class="slide-badge" aria-hidden="true">06</span>
       <div class="slide-layout">
+
         <div class="section-head center">
           <p class="eyebrow">محاور العمل | צירי פעולה</p>
           <h2>أربع عادات تصنع ثقافة صحية</h2>
           <h3 lang="he" dir="rtl">ארבעה הרגלים שבונים תרבות בריאה</h3>
         </div>
+
         <div class="habit-grid">
-          <article><span>💧</span><h4>شرب الماء</h4><p lang="he" dir="rtl">שתיית מים</p></article>
-          <article><span>🥗</span><h4>تغذية سليمة</h4><p lang="he" dir="rtl">תזונה נכונה</p></article>
-          <article><span>🏃</span><h4>حركة يومية</h4><p lang="he" dir="rtl">תנועה יומיומית</p></article>
-          <article><span>💚</span><h4>صورة ذاتية إيجابية</h4><p lang="he" dir="rtl">דימוי עצמי חיובי</p></article>
+          <article class="habit-water">
+            <span class="habit-icon">💧</span>
+            <h4>شرب الماء</h4>
+            <p lang="he" dir="rtl">שתיית מים</p>
+          </article>
+          <article class="habit-food">
+            <span class="habit-icon">🥗</span>
+            <h4>تغذية سليمة</h4>
+            <p lang="he" dir="rtl">תזונה נכונה</p>
+          </article>
+          <article class="habit-move">
+            <span class="habit-icon">🏃</span>
+            <h4>حركة يومية</h4>
+            <p lang="he" dir="rtl">תנועה יומיומית</p>
+          </article>
+          <article class="habit-self">
+            <span class="habit-icon">💚</span>
+            <h4>صورة ذاتية إيجابية</h4>
+            <p lang="he" dir="rtl">דימוי עצמי חיובי</p>
+          </article>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="القيادة">
+    <!-- ══════════════════════════════════════════
+         07 — القيادة الطلابية  |  מנהיגות תלמידים
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="القيادة" aria-label="شريحة القيادة الطلابية">
+      <span class="slide-badge" aria-hidden="true">07</span>
       <div class="slide-layout split">
-        <div class="mentor-panel">
-          <div class="mentor-avatar">ن</div>
-          <h4>المعلمة نور جمل</h4>
-          <p lang="he" dir="rtl">המורה נור ג'מל</p>
-          <span>مرافقة تربوية وتنظيمية للمشروع</span>
-        </div>
+
         <div class="text-stack">
           <p class="eyebrow">قيادة الطلاب | מנהיגות תלמידים</p>
           <h2>الطلاب محرّك المبادرة</h2>
           <h3 lang="he" dir="rtl">התלמידים הם מנוע היוזמה</h3>
           <ul class="clean-list feature">
-            <li>سفراء صحة داخل الصفوف.</li>
-            <li>رسائل بلغة الطلاب وتجربتهم.</li>
-            <li>محطات توعية يقودها الطلاب للطلاب.</li>
+            <li>
+              سفراء الصحة داخل كل صف
+              <small lang="he" dir="rtl"> — שגרירי בריאות בכל כיתה</small>
+            </li>
+            <li>
+              رسائل بلغة الطلاب وتجربتهم الحقيقية
+              <small lang="he" dir="rtl"> — מסרים בשפת התלמידים</small>
+            </li>
+            <li>
+              محطات توعية يقودها طلاب للطلاب
+              <small lang="he" dir="rtl"> — עמדות מודעות בהובלת תלמידים</small>
+            </li>
           </ul>
         </div>
+
+        <div class="roles-panel visual-card">
+          <h4 class="roles-title">أدوار سفراء الصحة</h4>
+          <p class="roles-sub" lang="he" dir="rtl">תפקידי שגרירי הבריאות</p>
+          <ul class="roles-list">
+            <li><span>📋</span><span>تشخيص احتياجات الصف والمدرسة</span></li>
+            <li><span>📣</span><span>قيادة حملات توعية صحية</span></li>
+            <li><span>🎯</span><span>تنظيم محطات ونشاطات صحية</span></li>
+            <li><span>📊</span><span>متابعة وقياس أثر المبادرة</span></li>
+          </ul>
+          <div class="mentor-note">
+            <span class="mentor-icon" aria-hidden="true">ن</span>
+            <div>
+              <strong>المعلمة نور جمال</strong>
+              <small lang="he" dir="rtl">המורה נור ג'מל — ליווי חינוכי ותנאי</small>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="الميدان">
+    <!-- ══════════════════════════════════════════
+         08 — من الميدان  |  מהשטח
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الميدان" aria-label="شريحة أنشطة من الميدان">
+      <span class="slide-badge" aria-hidden="true">08</span>
       <div class="slide-layout">
+
         <div class="section-head">
           <p class="eyebrow">من الميدان | מהשטח</p>
-          <h2>الأنشطة تظهر الصحة كفعل</h2>
-          <h3 lang="he" dir="rtl">הפעילויות הופכות בריאות לעשייה</h3>
+          <h2>الأنشطة تجعل الصحة فعلاً لا كلاماً</h2>
+          <h3 lang="he" dir="rtl">הפעילויות הופכות בריאות לעשייה ולא לדיבור</h3>
         </div>
+
         <div class="field-gallery">
-          <figure><img src="images/tea-station.jpeg" alt="محطة الشاي الصحي" loading="lazy"><figcaption>شاي صحي | תה בריא</figcaption></figure>
-          <figure><img src="images/food-platter.jpeg" alt="طبق خضار وفواكه صحي" loading="lazy"><figcaption>طبق صحي | צלחת בריאה</figcaption></figure>
-          <figure><img src="images/diabetes-station.jpeg" alt="محطة السكري والوقاية" loading="lazy"><figcaption>وقاية | מניעה</figcaption></figure>
-          <figure><img src="images/exercise-equipment.jpeg" alt="معدات نشاط بدني" loading="lazy"><figcaption>حركة | תנועה</figcaption></figure>
+          <figure>
+            <img src="images/tea-station.jpeg" alt="محطة الشاي الصحي يقودها طلاب مدرسة أورط أبو ربيعة" loading="lazy">
+            <figcaption>شاي صحي | תה בריא</figcaption>
+          </figure>
+          <figure>
+            <img src="images/food-platter.jpeg" alt="طبق خضار وفواكه صحية من إعداد الطلاب" loading="lazy">
+            <figcaption>طبق صحي | צלחת בריאה</figcaption>
+          </figure>
+          <figure>
+            <img src="images/diabetes-station.jpeg" alt="محطة التوعية بمرض السكري والوقاية منه" loading="lazy">
+            <figcaption>توعية بالسكري | מניעת סוכרת</figcaption>
+          </figure>
+          <figure>
+            <img src="images/exercise-equipment.jpeg" alt="أنشطة النشاط البدني في المدرسة" loading="lazy">
+            <figcaption>نشاط بدني | פעילות גופנית</figcaption>
+          </figure>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="الموقع">
+    <!-- ══════════════════════════════════════════
+         09 — الموقع الرقمي  |  האתר הדיגיטלי
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الموقع" aria-label="شريحة الموقع الإلكتروني كذاكرة رقمية">
+      <span class="slide-badge" aria-hidden="true">09</span>
       <div class="slide-layout split">
+
         <div class="text-stack">
-          <p class="eyebrow">ذاكرة رقمية | זיכרון דיגיטלי</p>
-          <h2>الموقع يوثّق المشروع ويشاركه</h2>
-          <h3 lang="he" dir="rtl">האתר מתעד ומשתף את המיזם</h3>
+          <p class="eyebrow">ذاكرة رقمية حية | זיכרון דיגיטלי חי</p>
+          <h2>الموقع يوثّق ويشارك ويُلهم</h2>
+          <h3 lang="he" dir="rtl">האתר מתעד, משתף ומעורר השראה</h3>
           <ul class="clean-list">
-            <li>صور وأنشطة من الميدان.</li>
-            <li>مقالات صحية وتعهد رقمي.</li>
-            <li>رابط واضح للأهل والضيوف واللجنة.</li>
+            <li>📸 صور ونشاطات توثيقية من الميدان</li>
+            <li>📝 مقالات صحية وتعهد طلابي رقمي</li>
+            <li>🔗 رابط مفتوح للأهل والضيوف واللجنة</li>
           </ul>
-          <a class="site-url" href="https://aamergamal318-source.github.io/SehaNoor/">aamergamal318-source.github.io/SehaNoor</a>
+          <a class="site-url" href="https://aamergamal318-source.github.io/SehaNoor/" target="_blank" rel="noreferrer">
+            aamergamal318-source.github.io/SehaNoor
+          </a>
         </div>
+
         <div class="qr-card">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=14&data=https%3A%2F%2Faamergamal318-source.github.io%2FSehaNoor%2F" alt="QR لرابط موقع قادة الصحة">
-          <strong>افتحوا الموقع</strong>
-          <span lang="he" dir="rtl">פתחו את האתר</span>
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=14&data=https%3A%2F%2Faamergamal318-source.github.io%2FSehaNoor%2F"
+            alt="رمز QR للوصول إلى موقع قادة الصحة">
+          <strong>امسحوا لفتح الموقع</strong>
+          <span lang="he" dir="rtl">סרקו לפתיחת האתר</span>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="الأثر">
+    <!-- ══════════════════════════════════════════
+         10 — قياس الأثر  |  מדידת השפעה
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الأثر" aria-label="شريحة قياس الأثر والمؤشرات">
+      <span class="slide-badge" aria-hidden="true">10</span>
       <div class="slide-layout">
+
         <div class="section-head center">
           <p class="eyebrow">قياس الأثر | מדידת השפעה</p>
           <h2>مؤشرات نملؤها بالبيانات الحقيقية</h2>
           <h3 lang="he" dir="rtl">מדדים שנמלא בנתונים אמיתיים</h3>
         </div>
+
         <div class="metrics-grid">
-          <article><b>[ ]</b><span>عدد المشاركين<br><small lang="he">מספר משתתפים</small></span></article>
-          <article><b>[ ]</b><span>سفراء الصحة<br><small lang="he">שגרירי בריאות</small></span></article>
-          <article><b>[ ]</b><span>فصول مشاركة<br><small lang="he">כיתות משתתפות</small></span></article>
-          <article><b>[ ]</b><span>زيارات الموقع<br><small lang="he">כניסות לאתר</small></span></article>
-          <article><b>[ ]</b><span>إحضار الماء<br><small lang="he">הבאת מים</small></span></article>
-          <article><b>[ ]</b><span>استبيان قبل/بعد<br><small lang="he">שאלון לפני/אחרי</small></span></article>
+          <article>
+            <div class="metric-num" title="أدخل العدد الحقيقي هنا">?</div>
+            <div class="metric-label">
+              <strong>المشاركون</strong>
+              <small lang="he" dir="rtl">משתתפים</small>
+            </div>
+          </article>
+          <article>
+            <div class="metric-num" title="أدخل العدد الحقيقي هنا">?</div>
+            <div class="metric-label">
+              <strong>سفراء الصحة</strong>
+              <small lang="he" dir="rtl">שגרירי בריאות</small>
+            </div>
+          </article>
+          <article>
+            <div class="metric-num" title="أدخل العدد الحقيقي هنا">?</div>
+            <div class="metric-label">
+              <strong>فصول مشاركة</strong>
+              <small lang="he" dir="rtl">כיתות משתתפות</small>
+            </div>
+          </article>
+          <article>
+            <div class="metric-num" title="أدخل العدد الحقيقي هنا">?</div>
+            <div class="metric-label">
+              <strong>زيارات الموقع</strong>
+              <small lang="he" dir="rtl">כניסות לאתר</small>
+            </div>
+          </article>
+          <article>
+            <div class="metric-num" title="أدخل العدد الحقيقي هنا">?</div>
+            <div class="metric-label">
+              <strong>إحضار زجاجة ماء</strong>
+              <small lang="he" dir="rtl">הבאת בקבוק מים</small>
+            </div>
+          </article>
+          <article>
+            <div class="metric-num">📊</div>
+            <div class="metric-label">
+              <strong>استبيان قبل / بعد</strong>
+              <small lang="he" dir="rtl">שאלון לפני / אחרי</small>
+            </div>
+          </article>
         </div>
+
       </div>
     </section>
 
-    <section class="slide" data-label="الاستمرارية">
+    <!-- ══════════════════════════════════════════
+         11 — الاستمرارية  |  המשכיות
+    ══════════════════════════════════════════ -->
+    <section class="slide" data-label="الاستمرارية" aria-label="شريحة خطة الاستمرارية">
+      <span class="slide-badge" aria-hidden="true">11</span>
       <div class="slide-layout">
+
         <div class="section-head">
           <p class="eyebrow">الاستمرارية | המשכיות</p>
-          <h2>خطة بسيطة تبقي الصحة حاضرة</h2>
+          <h2>خطة بسيطة تبقي الصحة حاضرة كل يوم</h2>
           <h3 lang="he" dir="rtl">תוכנית פשוטה שמשאירה את הבריאות בשגרה</h3>
         </div>
+
         <div class="continuity-track">
-          <article><span>أسبوعي</span><strong>تحدي ماء</strong><small lang="he" dir="rtl">אתגר מים</small></article>
-          <article><span>يومي</span><strong>فسحة حركة</strong><small lang="he" dir="rtl">הפסקת תנועה</small></article>
-          <article><span>شهري</span><strong>نشاط صحي</strong><small lang="he" dir="rtl">פעילות בריאות</small></article>
-          <article><span>مستمر</span><strong>تحديث الموقع</strong><small lang="he" dir="rtl">עדכון האתר</small></article>
-          <article><span>سنوي</span><strong>سفراء جدد</strong><small lang="he" dir="rtl">שגרירים חדשים</small></article>
+          <article>
+            <span class="freq-badge">أسبوعي</span>
+            <strong>تحدي ماء</strong>
+            <small lang="he" dir="rtl">אתגר מים</small>
+          </article>
+          <article>
+            <span class="freq-badge freq-daily">يومي</span>
+            <strong>فسحة حركة</strong>
+            <small lang="he" dir="rtl">הפסקת תנועה</small>
+          </article>
+          <article>
+            <span class="freq-badge freq-monthly">شهري</span>
+            <strong>نشاط صحي</strong>
+            <small lang="he" dir="rtl">פעילות בריאות</small>
+          </article>
+          <article>
+            <span class="freq-badge freq-cont">مستمر</span>
+            <strong>تحديث الموقع</strong>
+            <small lang="he" dir="rtl">עדכון האתר</small>
+          </article>
+          <article>
+            <span class="freq-badge freq-annual">سنوي</span>
+            <strong>سفراء جدد</strong>
+            <small lang="he" dir="rtl">שגרירים חדשים</small>
+          </article>
         </div>
+
       </div>
     </section>
 
-    <section class="slide closing-slide" data-label="الخاتمة">
+    <!-- ══════════════════════════════════════════
+         12 — الخاتمة  |  סיום
+    ══════════════════════════════════════════ -->
+    <section class="slide closing-slide" data-label="الخاتمة" aria-label="شريحة الخاتمة ودعوة اللجنة">
+      <span class="slide-badge slide-badge--light" aria-hidden="true">12</span>
       <div class="closing-bg">
-        <img src="images/food-display.jpeg" alt="طاولة نشاط صحي في المدرسة" loading="lazy">
+        <img src="images/food-display.jpeg" alt="طاولة نشاط صحي في مدرسة أورط أبو ربيعة" loading="lazy">
       </div>
+
       <div class="closing-content">
-        <div>
+
+        <div class="closing-text">
           <p class="eyebrow">دعوة للجنة | קריאה לוועדה</p>
           <h2>
-            عندما يقود الطلاب التغيير، تتحول الصحة إلى ثقافة.
+            عندما يقود الطلاب التغيير،<br>تتحوّل الصحة إلى ثقافة.
             <span lang="he" dir="rtl">כשהתלמידים מובילים שינוי, הבריאות הופכת לתרבות.</span>
           </h2>
-          <p class="thanks">شكراً لإدارة المدرسة، الطلاب، المعلمين، الأهل، شبكة أورط، אורטוב و־אורט בריא.</p>
-          <p class="thanks" lang="he" dir="rtl">תודה להנהלת בית הספר, לתלמידים, למורים, להורים, לרשת אורט, לאורטוב ולאורט בריא.</p>
-          <a class="return-link" href="index.html">العودة إلى الموقع الرئيسي</a>
+          <p class="thanks">
+            شكراً لإدارة المدرسة، الطلاب، المعلمين، الأهل، شبكة أورط،
+            אורטוב ولـ אורט בריא.
+          </p>
+          <p class="thanks" lang="he" dir="rtl">
+            תודה להנהלת בית הספר, לתלמידים, למורים, להורים,
+            לרשת אורט, לאורטוב ולאורט בריא.
+          </p>
+          <a class="return-link" href="index.html">← العودة إلى الموقع الرئيسي</a>
         </div>
+
         <div class="final-qr">
-          <img src="https://api.qrserver.com/v1/create-qr-code/?size=520x520&margin=18&data=https%3A%2F%2Faamergamal318-source.github.io%2FSehaNoor%2F" alt="QR كبير لرابط موقع قادة الصحة">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=520x520&margin=18&data=https%3A%2F%2Faamergamal318-source.github.io%2FSehaNoor%2F"
+            alt="رمز QR كبير للوصول إلى موقع قادة الصحة">
           <strong>امسحوا لفتح الموقع</strong>
           <span lang="he" dir="rtl">סרקו לפתיחת האתר</span>
-          <a href="https://aamergamal318-source.github.io/SehaNoor/">https://aamergamal318-source.github.io/SehaNoor/</a>
+          <a href="https://aamergamal318-source.github.io/SehaNoor/" dir="ltr">
+            aamergamal318-source.github.io/SehaNoor
+          </a>
         </div>
+
       </div>
     </section>
 
+    <!-- ══ Navigation ══ -->
     <button class="nav-arrow prev" id="prevBtn" type="button" aria-label="الشريحة السابقة">‹</button>
     <button class="nav-arrow next" id="nextBtn" type="button" aria-label="الشريحة التالية">›</button>
-    <nav class="dots" id="dots" aria-label="اختيار الشريحة"></nav>
-    <p class="hint">استخدم الأسهم للتنقل، F لملء الشاشة، Home/End للبداية والنهاية</p>
+    <nav class="dots" id="dots" aria-label="اختيار الشريحة مباشرةً"></nav>
+    <p class="hint" aria-hidden="true">
+      أسهم لوحة المفاتيح للتنقل &nbsp;·&nbsp; F لملء الشاشة &nbsp;·&nbsp; Home / End للبداية والنهاية
+    </p>
   </main>
 
   <script src="presentation.js"></script>
