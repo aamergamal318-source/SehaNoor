@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="مبادرة طلابية مستمرة في أورط أبو ربيعة ضمن أورط صحي، تعزز شرب الماء، التغذية السليمة، النشاط البدني، الصورة الذاتية الإيجابية وقيادة الطلاب.">
-  <meta name="theme-color" content="#0e7c66">
+  <meta name="theme-color" content="#2e8b41">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ar_AR">
   <meta property="og:title" content="قادة الصحة في النقب | أورط أبو ربيعة - אורט בריא">
@@ -15,6 +15,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -52,7 +53,7 @@
         <a href="#teens"         data-he="בריאות מתבגרים">صحة الثانوي</a>
         <a href="#bmi"           data-he="מחשבון BMI">حاسبة BMI</a>
         <a href="#sustainability" data-he="המשכיות">الاستمرارية</a>
-        <a href="presentation.html" data-he="מצגת">عرض الشرائح</a>
+        <a href="presentation.html" class="nav-cta-link" data-he="מצגת">⬡ عرض الشرائح</a>
       </nav>
 
       <img src="logo/school-logo.png" class="hdr-school-logo" alt="المدرسة الشاملة أورط أبو ربيعة">
@@ -76,26 +77,34 @@
       <div class="hero-overlay"></div>
 
       <div class="container hero-body">
-        <div class="hero-badge">
-          <span class="badge-pulse" aria-hidden="true"></span>
-          <span data-he="תחרות אורט בריא 2025-2026">مسابقة أورط صحي 2025-2026</span>
+        <!-- شعارات البرنامج والمدرسة -->
+        <div class="hero-logos-row" aria-label="شعارات المشروع">
+          <img src="logo/logo.png" alt="شعار قادة الصحة" class="hero-logo-img">
+          <img src="logo/school-logo.png" alt="شعار مدرسة أورط أبو ربيعة" class="hero-logo-img hero-logo-school">
         </div>
 
-        <h1 id="heroTitle" data-he="בבית הספר שלנו בריאות היא לא סיסמה — היא דרך חיים שמובילים התלמידים בעצמם.">
-          في مدرستنا، الصحة ليست شعاراً —<br class="hero-br"> إنها نهج حياة يقوده الطلاب بأنفسهم.
+        <div class="hero-badge">
+          <span class="badge-pulse" aria-hidden="true"></span>
+          <span data-he="תחרות אורט בריא 2025-2026">مسابقة אורט בריא 2025-2026</span>
+        </div>
+
+        <h1 id="heroTitle">
+          <span class="hero-title-ar" data-he="מנהיגי בריאות">قادة الصحة</span>
+          <span class="hero-title-he" lang="he">מנהיגי בריאות</span>
         </h1>
 
-        <p class="hero-copy" data-he="מיזם בית ספרי מתמשך של אורט אבו רביעה בנגב, המחבר תזונה נכונה, שתיית מים, פעילות גופנית, דימוי עצמי חיובי ומנהיגות תלמידים לתרבות בריאות יומיומית.">
-          مشروع مدرسي مستمر لأورط أبو ربيعة في النقب، يجمع بين التغذية الصحيحة وشرب الماء والنشاط البدني والصورة الذاتية الإيجابية وقيادة الطلاب نحو ثقافة صحية يومية.
+        <p class="hero-copy" data-he="בריאות אינה יום שיא — היא תרבות יומיומית בהובלת תלמידים. אורט אבו רביעה בנגב.">
+          الصحة ليست يوماً خاصاً — إنها ثقافة يومية يقودها الطلاب.
+          <span class="hero-copy-he" lang="he">בריאות אינה יום שיא — היא תרבות יומיומית בהובלת תלמידים.</span>
         </p>
         <p class="hero-subbadge" data-he="מיזם בית ספרי במסגרת אורט בריא | מנהיגות תלמידים, השפעה בריאותית והמשכיות">
-          مبادرة مدرسية ضمن أورط صحي | قيادة طلابية، أثر صحي، واستمرارية
+          مبادرة مدرسية ضمن أورט صحي | قيادة طلابية، أثر صحي، واستمرارية
         </p>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#initiative" data-he="הכירו את המיזם">تعرفوا على المبادرة</a>
-          <a class="btn btn-ghost"   href="#gallery"    data-he="צפו בהוכחות">مشاهدة الأدلة</a>
-          <a class="btn btn-soft" href="#impact" data-he="ראו את ההשפעה">شاهدوا التأثير</a>
+          <a class="btn btn-ghost"   href="presentation.html" data-he="צפו במצגת">عرض الشرائح</a>
+          <a class="btn btn-soft"    href="pledge.html" data-he="חתמו על האמנה">وقّع الميثاق</a>
         </div>
       </div>
 
@@ -879,9 +888,11 @@
   </main>
 
   <div class="quick-actions" aria-label="تنقل سريع">
-    <a href="#gallery" data-he="הוכחות">الأدلة</a>
-    <a href="#impact" data-he="השפעה">التأثير</a>
-    <a href="#articles" data-he="מאמרים">المقالات</a>
+    <a href="#gallery"          data-he="הוכחות">الأدلة</a>
+    <a href="#impact"           data-he="השפעה">التأثير</a>
+    <a href="#articles"         data-he="מאמרים">المقالات</a>
+    <a href="presentation.html" data-he="מצגת" class="qa-highlight">العرض</a>
+    <a href="pledge.html"       data-he="אמנה"  class="qa-highlight">الميثاق</a>
   </div>
 
   <!-- ══════════════════════════════════════

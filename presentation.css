@@ -3,25 +3,28 @@
    أورط أبو ربيعة | אורט אבו רביעה — אורט בריא
    ═══════════════════════════════════════════════════════════════ */
 
+/* ── Tokens موروثة من shared.css (يُحمَّل قبل هذا الملف) ── */
+/* ── هنا فقط قيم خاصة بالعرض أو aliases لأسماء مختلفة ── */
 :root {
-  --green:      #15803d;
-  --green-2:    #0f766e;
-  --green-3:    #059669;
-  --mint:       #ecfdf5;
-  --mint-2:     #d1fae5;
-  --cyan:       #cffafe;
-  --blue:       #2563eb;
-  --blue-light: #dbeafe;
-  --navy:       #0d1b3e;
-  --ink:        #102033;
-  --muted:      #64748b;
-  --gold:       #d97706;
-  --gold-light: #fef3c7;
-  --orange:     #f59e0b;
-  --pink:       #ec4899;
-  --pink-light: #fdf2f8;
+  /* توحيد مع shared.css */
+  --green:      #2e8b41;   /* = shared --green */
+  --green-2:    #48b860;   /* = shared --green-mid */
+  --green-3:    #1c6b2e;   /* = shared --green-dk */
+  --mint:       #f1f8f2;   /* = shared --green-xlt */
+  --mint-2:     #c8e6c9;   /* = shared --green-lt */
+  --cyan:       #e8f4fd;   /* = shared --blue-xlt */
+  --blue:       #1565c0;   /* = shared --blue */
+  --blue-light: #bbdefb;   /* = shared --blue-lt */
+  --navy:       #0d1b3e;   /* = shared --ink */
+  --ink:        #0d1b3e;   /* = shared --ink */
+  --muted:      #5a708a;   /* = shared --muted */
+  --gold:       #c9a227;   /* = shared --gold */
+  --gold-light: #fff8e1;   /* = shared --gold-lt */
+  --orange:     #f59f00;   /* = shared --amber */
+  --pink:       #e11d48;   /* = shared --rose */
+  --pink-light: #ffe4ec;   /* = shared --rose-lt */
   --paper:      #ffffff;
-  --line:       rgba(16, 32, 51, .10);
+  --line:       rgba(13, 27, 62, .10);
   --glass:      rgba(255, 255, 255, .88);
   --shadow-sm:  0 4px 16px rgba(13, 27, 62, .08);
   --shadow:     0 20px 60px rgba(13, 27, 62, .14);
@@ -1161,6 +1164,15 @@ body.overview .nav-arrow { display: none; }
   .dots { bottom: 14px; }
 }
 
+@media (max-width: 768px) {
+  .deck-shell { padding-top: 170px; }
+  .deck-topbar { inset: 8px; gap: 8px; padding: 8px 12px; }
+  .deck-brand img { width: 38px; height: 38px; }
+  .deck-brand strong { font-size: .88rem; }
+  .deck-brand small  { font-size: .78rem; }
+  .deck-status { min-width: 120px; padding: 5px 10px; }
+}
+
 @media (max-width: 620px) {
   h1 { font-size: 2.8rem; }
   h2 { font-size: 2rem; }
@@ -1169,6 +1181,87 @@ body.overview .nav-arrow { display: none; }
   .final-qr img { width: min(260px, 100%); }
   .continuity-track { grid-template-columns: repeat(2, 1fr); }
   .metrics-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Small phones ≤ 480px ── */
+@media (max-width: 480px) {
+  /* Top bar: stack brand+status row / actions row */
+  .deck-topbar {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 6px 8px;
+    padding: 8px 10px;
+    border-radius: 16px;
+    min-height: auto;
+  }
+  .deck-brand { grid-column: 1; grid-row: 1; }
+  .deck-status { grid-column: 2; grid-row: 1; }
+  .deck-actions {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Reduce shell top padding to match new bar height */
+  .deck-shell { padding: 148px 8px 16px; }
+
+  /* Slide inner padding tighter */
+  .slide { padding: 24px 0; border-radius: 16px; }
+  .slide-layout, .closing-content { width: calc(100% - 20px); }
+
+  /* Smaller headings */
+  h1 { font-size: 2.2rem; }
+  h2 { font-size: 1.7rem; }
+
+  /* Hero */
+  .hero-glass { padding: 20px 16px; }
+  .hero-photo { min-height: 180px; }
+  .hero-logos img { height: 36px; }
+
+  /* Buttons in top bar */
+  .control-btn, .site-button, .return-link {
+    min-height: 34px;
+    padding: 0 12px;
+    font-size: .82rem;
+  }
+  .control-btn svg { width: 15px; height: 15px; }
+
+  /* Brand text */
+  .deck-brand img  { width: 34px; height: 34px; }
+  .deck-brand strong { font-size: .82rem; }
+  .deck-brand small  { font-size: .72rem; }
+
+  /* Status pill: hide the label row, keep number */
+  .deck-status b { display: none; }
+  .deck-status { min-width: 90px; padding: 4px 10px; }
+
+  /* Grids: single column on very small screens */
+  .continuity-track { grid-template-columns: 1fr; }
+  .metrics-grid     { grid-template-columns: 1fr; }
+  .field-gallery    { grid-template-columns: repeat(2, 1fr); }
+
+  /* QR codes */
+  .final-qr img { width: min(200px, 100%); }
+
+  /* Slide badge */
+  .slide-badge { font-size: .72rem; padding: 4px 10px; }
+  .slide-badge .slide-num { font-size: 1.2rem; }
+}
+
+/* ── Very small phones ≤ 380px ── */
+@media (max-width: 380px) {
+  .deck-shell { padding-top: 136px; }
+  h1 { font-size: 1.9rem; }
+  h2 { font-size: 1.5rem; }
+  .deck-topbar { inset: 6px; }
+  .deck-brand img { width: 30px; height: 30px; }
+  .deck-brand strong { font-size: .78rem; }
+  .deck-brand small  { display: none; }
+  .deck-status { display: none; }
+  .deck-shell { padding-top: 112px; }
+  .slide-layout, .closing-content { width: calc(100% - 16px); }
 }
 
 /* ═══════════════════════════════════════════════
@@ -1203,4 +1296,40 @@ body.overview .nav-arrow { display: none; }
   }
   .slide-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .hero-glass, .closing-bg::after { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
+
+/* ═══════════════════════════════════════════════
+   PLEDGE BUTTON — زر الميثاق في شريط الأدوات
+   ═══════════════════════════════════════════════ */
+.site-button--pledge {
+  background: linear-gradient(135deg, var(--green), var(--green-2)) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+  box-shadow: 0 4px 16px rgba(46,139,65,.28);
+}
+.site-button--pledge:hover,
+.site-button--pledge:focus-visible {
+  background: linear-gradient(135deg, var(--green-3), var(--green)) !important;
+  color: #fff !important;
+  box-shadow: 0 8px 24px rgba(46,139,65,.40) !important;
+}
+
+/* ═══════════════════════════════════════════════
+   HERO LOGOS — شعارات في الشريحة الأولى
+   ═══════════════════════════════════════════════ */
+.hero-logos img {
+  filter: brightness(0) invert(1);
+  opacity: .88;
+  height: 52px;
+}
+
+/* ═══════════════════════════════════════════════
+   IMPROVED PROGRESS BAR — شريط تقدم بالألوان الصحيحة
+   ═══════════════════════════════════════════════ */
+.progress span {
+  background: linear-gradient(90deg,
+    var(--green),
+    var(--green-2),
+    var(--blue),
+    var(--gold)) !important;
 }
