@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="عرض شرائح ويب ثنائي اللغة عن مشروع قادة الصحة في النقب في مدرسة أورط أبو ربيعة.">
+  <meta name="theme-color" content="#2e8b41">
+  <title>عرض شرائح | قادة الصحة في النقب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="presentation.css">
+</head>
+<body>
+  <header class="deck-topbar" aria-label="شريط العرض">
+    <a class="deck-brand" href="index.html" aria-label="العودة إلى الموقع">
+      <img src="logo/logo.png" alt="">
+      <span>
+        <strong>قادة الصحة في النقب</strong>
+        <small lang="he" dir="rtl">מובילי בריאות בנגב</small>
+      </span>
+    </a>
+
+    <div class="deck-actions">
+      <button class="icon-btn" id="prevBtn" type="button" aria-label="الشريحة السابقة">‹</button>
+      <span class="slide-count" id="slideCount" aria-live="polite">1 / 8</span>
+      <button class="icon-btn" id="nextBtn" type="button" aria-label="الشريحة التالية">›</button>
+      <button class="text-btn" id="overviewBtn" type="button">كل الشرائح</button>
+      <button class="text-btn" id="fullscreenBtn" type="button">ملء الشاشة</button>
+    </div>
+  </header>
+
+  <main class="deck-shell" id="deckShell">
+    <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
+
+    <section class="slide is-active cover-slide" data-title="البداية">
+      <div class="slide-media full-bleed">
+        <img src="images/certificate.jpeg" alt="شهادة ومشهد من مشروع الصحة المدرسي">
+      </div>
+      <div class="slide-scrim"></div>
+      <div class="slide-content cover-content">
+        <p class="kicker">عرض تعريفي | מצגת היכרות</p>
+        <h1>
+          قادة الصحة في النقب
+          <span lang="he" dir="rtl">מובילי בריאות בנגב</span>
+        </h1>
+        <p class="lead">
+          مشروع مدرسي في أورط أبو ربيعة ضمن مبادرة أورط صحي، يربط المعرفة الصحية بالفعل اليومي داخل المدرسة.
+        </p>
+        <p class="lead he" lang="he" dir="rtl">
+          מיזם בית ספרי באורט אבו רביעה במסגרת אורט בריא, המחבר ידע בריאותי לעשייה יומיומית בבית הספר.
+        </p>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-grid">
+        <div class="copy-panel">
+          <p class="kicker">عن المدرسة | על בית הספר</p>
+          <h2>مدرسة أورط أبو ربيعة</h2>
+          <p>
+            المدرسة الشاملة أورط أبو ربيعة في النقب تعمل على بناء بيئة تعليمية تربط بين التحصيل، القيم، الانتماء والمسؤولية المجتمعية.
+          </p>
+          <p lang="he" dir="rtl">
+            בית הספר השש-שנתי אורט אבו רביעה בנגב פועל ליצירת סביבה חינוכית המחברת הישגים, ערכים, שייכות ואחריות קהילתית.
+          </p>
+          <ul class="feature-list">
+            <li>تعلم يقود إلى مبادرة وفعل.</li>
+            <li lang="he" dir="rtl">למידה שמובילה ליוזמה ולעשייה.</li>
+            <li>طلاب يشاركون في بناء ثقافة مدرسية صحية.</li>
+            <li lang="he" dir="rtl">תלמידים ששותפים בבניית תרבות בית ספרית בריאה.</li>
+          </ul>
+        </div>
+        <figure class="image-panel">
+          <img src="logo/school-logo.png" alt="شعار المدرسة">
+          <figcaption>أورط أبو ربيعة | אורט אבו רביעה</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-grid reverse">
+        <figure class="image-panel photo">
+          <img src="images/diabetes-station.jpeg" alt="محطة توعية صحية في المدرسة">
+          <figcaption>محطات توعية يقودها الطلاب | תחנות הסברה בהובלת תלמידים</figcaption>
+        </figure>
+        <div class="copy-panel">
+          <p class="kicker">الفكرة | הרעיון</p>
+          <h2>الصحة تصبح عادة مدرسية</h2>
+          <p>
+            المشروع يحول الصحة من شعار عام إلى خطوات بسيطة يقدر الطلاب تنفيذها: شرب الماء، التغذية السليمة، الحركة، النوم الجيد والتعامل الإيجابي مع الجسد.
+          </p>
+          <p lang="he" dir="rtl">
+            המיזם הופך בריאות מסיסמה כללית לצעדים פשוטים שהתלמידים יכולים לבצע: שתיית מים, תזונה נכונה, תנועה, שינה טובה ושיח חיובי על הגוף.
+          </p>
+          <div class="pill-row" aria-label="مجالات المشروع">
+            <span>الماء | מים</span>
+            <span>الحركة | תנועה</span>
+            <span>التغذية | תזונה</span>
+            <span>الصورة الذاتية | דימוי עצמי</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="center-panel">
+        <p class="kicker">أورط صحي | אורט בריא</p>
+        <h2>ارتباط المشروع بشبكة أورط</h2>
+        <div class="two-language">
+          <article>
+            <h3>بالعربية</h3>
+            <p>
+              ضمن إطار أورط صحي، يقدّم المشروع نموذجاً مدرسياً قابلاً للاستمرار: طلاب يقيسون الاحتياج، يخططون نشاطاً، ينفذون، ثم يتابعون الأثر داخل المجتمع المدرسي.
+            </p>
+          </article>
+          <article lang="he" dir="rtl">
+            <h3>בעברית</h3>
+            <p>
+              במסגרת אורט בריא, המיזם מציג מודל בית ספרי מתמשך: תלמידים מזהים צורך, מתכננים פעילות, מבצעים אותה ולאחר מכן בודקים את ההשפעה בקהילת בית הספר.
+            </p>
+          </article>
+        </div>
+        <div class="metric-strip" aria-label="محاور العمل">
+          <span><b>01</b> تشخيص | מיפוי</span>
+          <span><b>02</b> توعية | הסברה</span>
+          <span><b>03</b> تطبيق | יישום</span>
+          <span><b>04</b> استمرار | המשכיות</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="slide-grid">
+        <div class="copy-panel">
+          <p class="kicker">قيادة ومرافقة | הובלה וליווי</p>
+          <h2>المعلمة نور جمل</h2>
+          <p>
+            تتابع المعلمة نور جمل المشروع تربوياً وتنظيمياً: ترافق الطلاب، تساعدهم على صياغة الرسائل الصحية، وتربط بين الفكرة، النشاط، والتأثير داخل المدرسة.
+          </p>
+          <p lang="he" dir="rtl">
+            המורה נור ג'מל מלווה את המיזם מבחינה חינוכית וארגונית: מלווה את התלמידים, מסייעת בניסוח המסרים הבריאותיים ומחברת בין הרעיון, הפעילות וההשפעה בבית הספר.
+          </p>
+          <blockquote>
+            الصحة المدرسية تنجح عندما يشعر الطلاب أنهم شركاء في التغيير.
+            <span lang="he" dir="rtl">בריאות בית ספרית מצליחה כאשר התלמידים מרגישים שותפים לשינוי.</span>
+          </blockquote>
+        </div>
+        <div class="mentor-card" aria-label="بطاقة المعلمة نور جمل">
+          <div class="mentor-mark">ن</div>
+          <h3>نور جمل</h3>
+          <p lang="he" dir="rtl">נור ג'מל</p>
+          <span>متابعة المشروع | מלווה המיזם</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="center-panel">
+        <p class="kicker">نشاطات المشروع | פעילויות המיזם</p>
+        <h2>من الفكرة إلى العمل</h2>
+        <div class="activity-grid">
+          <article>
+            <img src="images/tea-station.jpeg" alt="محطة شاي صحي">
+            <h3>بدائل صحية</h3>
+            <p>محطات تذوق ورسائل حول اختيار مشروبات وأطعمة أفضل.</p>
+            <p lang="he" dir="rtl">תחנות טעימה ומסרים לבחירת שתייה ומזון בריאים יותר.</p>
+          </article>
+          <article>
+            <img src="images/food-display.jpeg" alt="عرض غذاء صحي">
+            <h3>تغذية سليمة</h3>
+            <p>عرض أمثلة عملية لوجبات متوازنة خلال اليوم الدراسي.</p>
+            <p lang="he" dir="rtl">הצגת דוגמאות מעשיות לארוחות מאוזנות במהלך יום הלימודים.</p>
+          </article>
+          <article>
+            <img src="images/exercise-equipment.jpeg" alt="معدات نشاط بدني">
+            <h3>حركة يومية</h3>
+            <p>تشجيع النشاط البدني القصير والمتكرر داخل الروتين المدرسي.</p>
+            <p lang="he" dir="rtl">עידוד פעילות גופנית קצרה וחוזרת בתוך שגרת בית הספר.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="center-panel">
+        <p class="kicker">الأثر | ההשפעה</p>
+        <h2>ماذا نريد أن يتغير؟</h2>
+        <div class="impact-grid">
+          <article>
+            <b>01</b>
+            <h3>وعي صحي</h3>
+            <p>طلاب يفهمون معنى الاختيار الصحي اليومي.</p>
+            <p lang="he" dir="rtl">תלמידים שמבינים מהי בחירה בריאה יומיומית.</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>قيادة طلابية</h3>
+            <p>طلاب يشرحون، يقنعون، ويقودون زملاءهم.</p>
+            <p lang="he" dir="rtl">תלמידים שמסבירים, משכנעים ומובילים את חבריהם.</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>استمرارية</h3>
+            <p>أن تصبح الصحة جزءاً ثابتاً من ثقافة المدرسة.</p>
+            <p lang="he" dir="rtl">שהבריאות תהפוך לחלק קבוע מתרבות בית הספר.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide closing-slide">
+      <div class="slide-media full-bleed">
+        <img src="images/food-platter.jpeg" alt="طبق غذاء صحي">
+      </div>
+      <div class="slide-scrim"></div>
+      <div class="slide-content cover-content">
+        <p class="kicker">الخلاصة | סיכום</p>
+        <h2>
+          صحة اليوم هي قيادة الغد
+          <span lang="he" dir="rtl">בריאות היום היא מנהיגות המחר</span>
+        </h2>
+        <p class="lead">
+          مشروع قادة الصحة في النقب يضع الطالب في المركز: يتعلم، يجرّب، يقود، ويؤثر.
+        </p>
+        <p class="lead he" lang="he" dir="rtl">
+          מיזם מובילי בריאות בנגב מציב את התלמיד במרכז: לומד, מתנסה, מוביל ומשפיע.
+        </p>
+        <div class="share-box">
+          <img
+            src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=10&data=https%3A%2F%2Faamergamal318-source.github.io%2FSehaNoor%2Fpresentation.html"
+            alt="QR code لرابط عرض الشرائح">
+          <div>
+            <strong>رابط العرض المباشر | קישור ישיר למצגת</strong>
+            <a href="https://aamergamal318-source.github.io/SehaNoor/presentation.html">
+              https://aamergamal318-source.github.io/SehaNoor/presentation.html
+            </a>
+            <span>رابط الموقع | קישור לאתר</span>
+            <a href="https://aamergamal318-source.github.io/SehaNoor/">
+              https://aamergamal318-source.github.io/SehaNoor/
+            </a>
+          </div>
+        </div>
+        <a class="return-link" href="index.html">العودة إلى الموقع | חזרה לאתר</a>
+      </div>
+    </section>
+
+    <nav class="dots" id="dots" aria-label="اختيار الشريحة"></nav>
+  </main>
+
+  <script src="presentation.js"></script>
+</body>
+</html>
