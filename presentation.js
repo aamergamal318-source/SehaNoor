@@ -76,10 +76,17 @@ async function toggleFullscreen() {
   }
 }
 
+function setBilingual(el, ar, he, arLabel, heLabel) {
+  el.innerHTML = `${ar} <span lang="he" dir="rtl">| ${he}</span>`;
+  el.setAttribute("aria-label", arLabel || ar);
+}
+
 function updateFullscreenLabel() {
-  const active = Boolean(document.fullscreenElement);
-  fullscreenBtn.textContent = active ? "خروج" : "ملء الشاشة";
-  fullscreenBtn.setAttribute("aria-label", active ? "الخروج من ملء الشاشة" : "ملء الشاشة");
+  if (document.fullscreenElement) {
+    setBilingual(fullscreenBtn, "خروج", "יציאה", "الخروج من ملء الشاشة");
+  } else {
+    setBilingual(fullscreenBtn, "ملء الشاشة", "מסך מלא", "ملء الشاشة");
+  }
 }
 
 /* ── Button events ── */
@@ -88,7 +95,11 @@ nextBtn.addEventListener("click", nextSlide);
 
 overviewBtn.addEventListener("click", () => {
   const on = document.body.classList.toggle("overview");
-  overviewBtn.textContent = on ? "عرض الشرائح" : "كل الشرائح";
+  if (on) {
+    setBilingual(overviewBtn, "عرض الشرائح", "ערוך שקופיות");
+  } else {
+    setBilingual(overviewBtn, "كل الشرائح", "כל השקופיות");
+  }
 });
 
 fullscreenBtn.addEventListener("click", () => toggleFullscreen().catch(() => {}));
@@ -116,7 +127,7 @@ document.addEventListener("keydown", (e) => {
     case "Escape":
       if (document.body.classList.contains("overview")) {
         document.body.classList.remove("overview");
-        overviewBtn.textContent = "كل الشرائح";
+        setBilingual(overviewBtn, "كل الشرائح", "כל השקופיות");
       }
       break;
   }
@@ -141,4 +152,6 @@ document.addEventListener("touchend", (e) => {
 }, { passive: true });
 
 /* ── Init ── */
+setBilingual(overviewBtn, "كل الشرائح", "כל השקופיות");
+setBilingual(fullscreenBtn, "ملء الشاشة", "מסך מלא", "ملء الشاشة");
 setSlide(0);
