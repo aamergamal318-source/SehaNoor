@@ -11,7 +11,7 @@
 (function () {
   "use strict";
 
-  var GAS_URL = "https://script.google.com/macros/s/AKfycbw3sf6B9CsXjD8K3_MqO1_Yid4x4T-I84zTUwwMYmTUz2tXzK314D-eNd-TN6NB41iq/exec";
+  var GAS_URL = "https://script.google.com/macros/s/AKfycbya3AZcHpvrZ1yXHyjUAKNcFvuMjPmfnGV4r5QtZtFrOVOCelLtO8T4KdeyvVTOvAlq/exec";
   var LOCAL_KEY = "sehanoor_pledges";
   var TIMEOUT_MS = 9000;
 
