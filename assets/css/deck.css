@@ -171,7 +171,7 @@ html[data-mode="he"] .s-open__title .t-he { font-size: 1em !important; color: va
 .big-num { display: flex; align-items: center; gap: 2cqi; margin-top: 2.4cqi; }
 .big-num .num { font-size: 9cqi; font-weight: 800; color: var(--leaf-400); line-height: .9; }
 .big-num > span:last-child { font-size: 2cqi; font-weight: 600; }
-.mentor { display: inline-flex; align-items: center; gap: 1.4cqi; margin-top: 2.4cqi; padding: 1cqi 2cqi 1cqi 1cqi; border-radius: 999px; background: rgba(255,255,255,.08); font-size: 1.5cqi; }
+.mentor { display: inline-flex; align-items: center; gap: 1.4cqi; margin-top: 2.4cqi; padding: 1cqi 2.4cqi; border-radius: 999px; background: rgba(255,255,255,.08); font-size: 1.5cqi; }
 .mentor b { width: 4.4cqi; height: 4.4cqi; border-radius: 50%; display: grid; place-items: center; background: var(--leaf-400); color: var(--forest-900); font-family: var(--font-display); font-size: 2cqi; }
 .roles { list-style: none; padding: 0; display: grid; gap: 1.4cqi; }
 .roles li { display: flex; align-items: center; gap: 1.8cqi; padding: 2cqi; border-radius: 1.6cqi; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); font-size: 1.75cqi; font-weight: 500; }
@@ -286,7 +286,7 @@ html[data-mode="he"] .s-open__title .t-he { font-size: 1em !important; color: va
   .habit .icon { width: 40px; height: 40px; }
   .steps3 b { width: 36px; height: 36px; font-size: 1rem; } .steps3 strong { font-size: 1.3rem; }
   .big-num .num { font-size: 4rem; } .big-num > span:last-child { font-size: 1rem; }
-  .mentor { font-size: .9rem; padding: .5rem 1rem .5rem .5rem; } .mentor b { width: 36px; height: 36px; font-size: 1rem; }
+  .mentor { font-size: .9rem; padding: .5rem 1rem; } .mentor b { width: 36px; height: 36px; font-size: 1rem; }
   .photos { max-height: none; } .photos figure { aspect-ratio: 1; }
   .metric .num { font-size: 2.2rem; } .metric--hero { grid-row: auto; grid-column: span 2; } .metric--hero .num { font-size: 3.4rem; }
   .qr img { max-width: 180px; } .qr { font-size: .8rem; padding: 1rem; }
