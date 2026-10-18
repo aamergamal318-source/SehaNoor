@@ -18,12 +18,13 @@
   <script>!function(d){d.documentElement.classList.add("js");try{var m=localStorage.getItem("sehanoor_deck_mode");if(m)d.documentElement.dataset.mode=m}catch(e){}}(document)</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=Rubik:wght@500;600;700;800&family=Amiri&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700;800&family=Rubik:wght@600;800&family=Amiri&display=swap">
   <link rel="preload" as="image" href="assets/img/food-display-1280.webp">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/deck.css">
 </head>
 <body>
+  <a class="deck-skip" href="#deckStage">انتقل إلى الشرائح | דילוג לשקופיות</a>
   <div class="deck" data-deck>
 
     <!-- ===================================================== TOP BAR -->
@@ -44,6 +45,7 @@
         <button class="deck-btn" type="button" data-overview-btn aria-label="كل الشرائح | כל השקופיות" aria-pressed="false">
           <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#grid"/></svg>
         </button>
+        <button class="deck-btn" type="button" data-help-btn aria-label="اختصارات لوحة المفاتيح | קיצורי מקלדת" aria-expanded="false" aria-controls="deckHelp">?</button>
         <button class="deck-btn" type="button" data-fs-btn aria-label="ملء الشاشة | מסך מלא">
           <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#fullscreen"/></svg>
         </button>
@@ -55,7 +57,7 @@
 
     <!-- ===================================================== STAGE -->
     <main class="stage-wrap">
-      <div class="stage" data-stage>
+      <div class="stage" data-stage id="deckStage" tabindex="-1">
 
         <!-- 01 OPENING -->
         <section class="slide s-open" data-title="افتتاح | פתיחה">
@@ -176,7 +178,23 @@
           </div>
         </section>
 
-        <!-- 09 WEBSITE -->
+        <!-- 09 TIMELINE -->
+        <section class="slide" data-title="المسار الزمني | ציר הזמן">
+          <header class="s-head">
+            <p class="eyebrow"><span class="t-ar">المسار الزمني — أحداث لها مصدر</span><span class="t-he" lang="he">ציר הזמן — אירועים עם מקור</span></p>
+            <h2><span class="t-ar">من أساس متين إلى حركة طلابية</span><span class="t-he" lang="he">מבסיס יציב לתנועת תלמידים</span></h2>
+          </header>
+          <ol class="dtl">
+            <li><b lang="he">תשפ"א</b><span class="num">2020–21</span><p><span class="t-ar">شهادة «مدرسة معزِّزة للصحة» ★★★</span><span class="t-he" lang="he">תעודת «בית ספר מקדם בריאות» ★★★</span></p></li>
+            <li><b class="num">2025–26</b><span>&nbsp;</span><p><span class="t-ar">الانضمام إلى مسابقة أورط صحي</span><span class="t-he" lang="he">הצטרפות לתחרות אורט בריא</span></p></li>
+            <li class="is-major"><b><span class="t-ar">أيار</span><span class="t-he" lang="he">מאי</span></b><span class="num">2026</span><p><span class="t-ar">يوم الصحة: التغذية، السكري، الشاي، الحركة</span><span class="t-he" lang="he">יום הבריאות: תזונה, סוכרת, תה, תנועה</span></p></li>
+            <li><b class="num">12.5</b><span class="num">2026</span><p><span class="t-ar">إطلاق الموقع</span><span class="t-he" lang="he">השקת האתר</span></p></li>
+            <li><b class="num">13.5</b><span class="num">2026</span><p><span class="t-ar">ملصقات التوعية، المقالات، حاسبة BMI</span><span class="t-he" lang="he">כרזות הסברה, מאמרים, מחשבון BMI</span></p></li>
+            <li class="is-major"><b class="num">18.5</b><span class="num">2026</span><p><span class="t-ar">الميثاق الرقمي وأولى التوقيعات</span><span class="t-he" lang="he">האמנה הדיגיטלית והחתימות הראשונות</span></p></li>
+          </ol>
+        </section>
+
+        <!-- 10 WEBSITE -->
         <section class="slide s-split" data-title="الموقع | האתר">
           <div class="col">
             <p class="eyebrow"><span class="t-ar">ذاكرة رقمية حية</span><span class="t-he" lang="he">זיכרון דיגיטלי חי</span></p>
@@ -194,7 +212,7 @@
           </div>
         </section>
 
-        <!-- 10 IMPACT -->
+        <!-- 11 IMPACT -->
         <section class="slide s-dark" data-title="الأثر | ההשפעה">
           <header class="s-head s-head--center">
             <p class="eyebrow"><span class="t-ar">قياس الأثر</span><span class="t-he" lang="he">מדידת השפעה</span></p>
@@ -209,18 +227,18 @@
           </div>
         </section>
 
-        <!-- 11 RECOGNITION -->
+        <!-- 12 RECOGNITION -->
         <section class="slide s-split s-cert" data-title="اعتراف | הכרה">
           <div class="col">
             <p class="eyebrow"><span class="t-ar">اعتراف رسمي</span><span class="t-he" lang="he">הכרה רשמית</span></p>
             <h2><span class="t-ar">مدرسة معزِّزة للصحة — ثلاث نجوم</span><span class="t-he" lang="he">בית ספר מקדם בריאות — שלושה כוכבים</span></h2>
             <p class="stars" aria-hidden="true"><svg class="icon"><use href="assets/img/icons.svg#star-fill"/></svg><svg class="icon"><use href="assets/img/icons.svg#star-fill"/></svg><svg class="icon"><use href="assets/img/icons.svg#star-fill"/></svg></p>
-            <p class="lead"><span class="t-ar">تصنيف ثلاث نجوم بتوقيع وزارة التربية ووزارة الصحة: الصحة في مدرستنا ليست نشاطاً عابراً، بل جزء من ثقافتها.</span><span class="t-he" lang="he">דירוג שלושה כוכבים בחתימת משרד החינוך ומשרד הבריאות: בריאות בבית הספר שלנו אינה פעילות חולפת, אלא חלק מהתרבות שלו.</span></p>
+            <p class="lead"><span class="t-ar">تصنيف ثلاث نجوم للسنة الدراسية תשפ"א (2020–2021)، وتحمل الشهادة شعارَي وزارة التربية ووزارة الصحة. مبادرة اليوم بُنيت على هذا الأساس.</span><span class="t-he" lang="he">דירוג שלושה כוכבים לשנת הלימודים תשפ"א (2020–2021), עם הסמלים של משרד החינוך ומשרד הבריאות. היוזמה של היום נבנתה על הבסיס הזה.</span></p>
           </div>
           <div class="col cert"><img src="assets/img/certificate-1280.webp" alt="شهادة مدرسة معزِّزة للصحة | תעודת בית ספר מקדם בריאות" loading="lazy"></div>
         </section>
 
-        <!-- 12 CONTINUITY -->
+        <!-- 13 CONTINUITY -->
         <section class="slide" data-title="الاستمرارية | המשכיות">
           <header class="s-head">
             <p class="eyebrow"><span class="t-ar">الاستمرارية</span><span class="t-he" lang="he">המשכיות</span></p>
@@ -236,7 +254,7 @@
           </ol>
         </section>
 
-        <!-- 13 CLOSING -->
+        <!-- 14 CLOSING -->
         <section class="slide s-close" data-title="الخاتمة | סיום">
           <div class="s-close__bg"><img src="assets/img/food-platter-1280.webp" alt="" loading="lazy"></div>
           <div class="s-close__inner">
@@ -253,6 +271,21 @@
         </section>
 
       </div>
+
+      <!-- keyboard help -->
+      <div class="help" id="deckHelp" data-help hidden role="dialog" aria-label="اختصارات | קיצורים">
+        <dl>
+          <div><dt><kbd>←</kbd> <kbd>Space</kbd></dt><dd><span class="t-ar">التالية</span><span class="t-he" lang="he">הבאה</span></dd></div>
+          <div><dt><kbd>→</kbd></dt><dd><span class="t-ar">السابقة</span><span class="t-he" lang="he">הקודמת</span></dd></div>
+          <div><dt><kbd>1</kbd>–<kbd>9</kbd></dt><dd><span class="t-ar">انتقال إلى شريحة</span><span class="t-he" lang="he">מעבר לשקופית</span></dd></div>
+          <div><dt><kbd>F</kbd></dt><dd><span class="t-ar">ملء الشاشة</span><span class="t-he" lang="he">מסך מלא</span></dd></div>
+          <div><dt><kbd>O</kbd></dt><dd><span class="t-ar">كل الشرائح</span><span class="t-he" lang="he">כל השקופיות</span></dd></div>
+          <div><dt><kbd>L</kbd></dt><dd><span class="t-ar">لغة العرض</span><span class="t-he" lang="he">שפת המצגת</span></dd></div>
+          <div><dt><kbd>B</kbd></dt><dd><span class="t-ar">شاشة سوداء</span><span class="t-he" lang="he">מסך שחור</span></dd></div>
+          <div><dt><kbd>Esc</kbd></dt><dd><span class="t-ar">إغلاق</span><span class="t-he" lang="he">סגירה</span></dd></div>
+        </dl>
+      </div>
+      <div class="blank" data-blank hidden></div>
 
       <!-- overview -->
       <div class="overview" data-overview hidden>

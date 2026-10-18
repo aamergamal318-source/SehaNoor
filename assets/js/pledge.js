@@ -106,29 +106,56 @@
   var form = document.getElementById("pledgeForm");
   var card = document.querySelector(".sign__card");
   var success = document.querySelector("[data-success]");
-  var nameEl = form.name, nameErr = document.getElementById("nameErr");
+  var nameEl = form.elements.name, nameErr = document.getElementById("nameErr");
   var consentEl = form.consent, consentErr = document.getElementById("consentErr");
+
+  var classEl = form.classroom, classErr = document.getElementById("classErr");
+  var rateErr = document.getElementById("rateErr");
+  var openedAt = Date.now();
+
+  function flag(el, err, bad) {
+    err.hidden = !bad;
+    if (bad) el.setAttribute("aria-invalid", "true"); else el.removeAttribute("aria-invalid");
+  }
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var name = nameEl.value.replace(/\s+/g, " ").trim();
-    var ok = true;
-    if (name.length < 2) {
-      ok = false; nameErr.hidden = false; nameEl.setAttribute("aria-invalid", "true");
-    } else { nameErr.hidden = true; nameEl.removeAttribute("aria-invalid"); }
-    if (!consentEl.checked) { ok = false; consentErr.hidden = false; } else consentErr.hidden = true;
-    if (!ok) { (name.length < 2 ? nameEl : consentEl).focus(); return; }
+    var classroom = classEl.value.replace(/\s+/g, " ").trim();
+    var badName = !API.validName(name);
+    var badClass = !API.validClass(classroom);
+    flag(nameEl, nameErr, badName);
+    flag(classEl, classErr, badClass);
+    consentErr.hidden = consentEl.checked;
+    rateErr.hidden = true;
+    if (badName) { nameEl.focus(); return; }
+    if (badClass) { classEl.focus(); return; }
+    if (!consentEl.checked) { consentEl.focus(); return; }
+
+    var rate = API.rateCheck();
+    if (rate !== "ok") {
+      rateErr.textContent = SN.t(rate === "wait"
+        ? { ar: "لحظة من فضلكم — يمكن التوقيع مجدداً بعد بضع ثوانٍ.", he: "רגע בבקשה — אפשר לחתום שוב בעוד כמה שניות." }
+        : { ar: "وصل هذا الجهاز إلى الحد الأقصى من التوقيعات لهذه الساعة.", he: "המכשיר הזה הגיע למספר החתימות המרבי לשעה זו." });
+      rateErr.hidden = false;
+      return;
+    }
 
     var entry = {
       id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6),
       name: name,
-      classroom: form.classroom.value.trim(),
+      classroom: classroom,
       signature: exportSignature(),
       date: new Date().toISOString()
     };
-    API.saveLocal(entry);
-    API.submit(entry);
-    showCount(Math.max(API.local().length, parseInt(String(countEls[0] && countEls[0].textContent).replace(/\D/g, ""), 10) + 1 || 1));
+    /* Bots fill the honeypot or submit instantly: show success, send nothing */
+    var isBot = form.website.value !== "" || Date.now() - openedAt < 3000;
+    if (!isBot) {
+      API.saveLocal(entry);
+      API.submit(entry);
+      API.rateLog();
+      showCount(Math.max(API.local().length, parseInt(String(countEls[0] && countEls[0].textContent).replace(/\D/g, ""), 10) + 1 || 1));
+    }
 
     card.dataset.state = "success";
     form.hidden = true;
@@ -139,6 +166,7 @@
 
   document.querySelector("[data-again]").addEventListener("click", function () {
     form.reset();
+    openedAt = Date.now();
     strokes = []; draw();
     success.hidden = true;
     form.hidden = false;

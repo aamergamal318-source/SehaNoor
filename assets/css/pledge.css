@@ -180,3 +180,6 @@ html[lang="he"] .oath__text p { line-height: 1.6; }
 .wall__empty p { color: rgba(255,255,255,.7); }
 .wall__privacy { display: flex; justify-content: center; align-items: center; gap: .5rem; margin-top: var(--sp-7); font-size: var(--fs-xs); color: rgba(255,255,255,.5); text-align: center; }
 .page-wall .site-footer { background: #06150e; }
+
+/* honeypot */
+.hp { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

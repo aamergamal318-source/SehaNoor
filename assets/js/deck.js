@@ -130,12 +130,36 @@
   if (!document.fullscreenEnabled) fsBtn.hidden = true;
   fsBtn.addEventListener("click", toggleFs);
 
+  /* ---------- help, blank screen, idle cursor ---------- */
+  var help = document.querySelector("[data-help]");
+  var helpBtn = document.querySelector("[data-help-btn]");
+  var blank = document.querySelector("[data-blank]");
+  function toggleHelp(force) {
+    var open = typeof force === "boolean" ? force : help.hidden;
+    help.hidden = !open;
+    helpBtn.setAttribute("aria-expanded", String(open));
+  }
+  helpBtn.addEventListener("click", function () { toggleHelp(); });
+  help.addEventListener("click", function () { toggleHelp(false); });
+  blank.addEventListener("click", function () { blank.hidden = true; });
+  var deckEl = document.querySelector("[data-deck]"), idleT;
+  document.addEventListener("mousemove", function () {
+    deckEl.classList.remove("is-idle");
+    clearTimeout(idleT);
+    if (document.fullscreenElement) idleT = setTimeout(function () { deckEl.classList.add("is-idle"); }, 2500);
+  });
+
   /* ---------- keyboard ---------- */
   document.addEventListener("keydown", function (e) {
     if (e.altKey || e.ctrlKey || e.metaKey) return;
     var tag = (e.target.tagName || "").toLowerCase();
     if (tag === "input" || tag === "textarea") return;
     var k = e.key;
+    if (!blank.hidden) { e.preventDefault(); blank.hidden = true; return; }
+    if (!help.hidden) { if (k === "Escape" || k === "?") { e.preventDefault(); toggleHelp(false); } return; }
+    if (k === "?") { e.preventDefault(); toggleHelp(true); return; }
+    if (k === "b" || k === "B") { e.preventDefault(); blank.hidden = false; return; }
+    if (/^[1-9]$/.test(k) && overview.hidden) { e.preventDefault(); go(parseInt(k, 10) - 1); return; }
     if (!overview.hidden) {
       if (k === "Escape" || k === "o" || k === "O") { e.preventDefault(); toggleOverview(false); }
       return;

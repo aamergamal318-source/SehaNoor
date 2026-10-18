@@ -185,7 +185,7 @@ html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { letter-spacing: -.0
 .btn--light { --btn-bg: #fff; --btn-fg: var(--forest-900); }
 .btn--outline-light { --btn-bg: transparent; --btn-fg: #fff; --btn-bd: rgba(255,255,255,.4); }
 .btn--outline-light:hover { --btn-bd: #fff; --btn-bg: rgba(255,255,255,.08); }
-.btn--sm { min-height: 40px; padding: .5rem 1.1rem; font-size: var(--fs-sm); }
+.btn--sm { min-height: 44px; padding: .5rem 1.1rem; font-size: var(--fs-sm); }
 .btn--block { width: 100%; }
 
 .link-arrow {
@@ -207,7 +207,7 @@ html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { letter-spacing: -.0
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  min-height: 40px;
+  min-height: 44px;
   padding: .4rem 1rem;
   border-radius: var(--r-pill);
   border: 1px solid var(--line-strong);
@@ -290,7 +290,7 @@ html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { letter-spacing: -.0
   display: inline-flex;
   align-items: center;
   gap: .4rem;
-  min-height: 40px;
+  min-height: 44px;
   padding: .35rem .9rem;
   border-radius: var(--r-pill);
   border: 1px solid var(--line-strong);
@@ -682,4 +682,14 @@ html.i18n-pending body { animation: i18n-guard 0s linear .6s forwards; visibilit
   .site-header, .dock, .scroll-progress, .site-footer .footer-dune { display: none !important; }
   .js .reveal { opacity: 1; transform: none; }
   body { background: #fff; }
+}
+
+/* ---------- Rendering performance ----------
+   Sections far below the fold skip layout and paint until they approach
+   the viewport; the browser remembers their real size once rendered. */
+@supports (content-visibility: auto) {
+  .section:not(:first-of-type), .site-footer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
 }

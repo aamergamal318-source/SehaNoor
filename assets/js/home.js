@@ -56,27 +56,30 @@
     r.addEventListener("change", function () { if (r.checked && whyGrid) whyGrid.dataset.view = r.value; });
   });
 
-  /* ---------- Leadership journey (ARIA tabs) ---------- */
-  var journey = document.querySelector("[data-journey]");
-  if (journey) {
-    var tabs = [].slice.call(journey.querySelectorAll('[role="tab"]'));
-    var fill = journey.querySelector(".journey__rail-fill");
-    var select = function (i, focus) {
+  /* ---------- ARIA tab sets: leadership journey + field stories ---------- */
+  function tabset(root, onSelect) {
+    var tabs = [].slice.call(root.querySelectorAll('[role="tab"]'));
+    var select = function (i, focus, initial) {
       tabs.forEach(function (t, k) {
         var on = k === i;
         t.setAttribute("aria-selected", String(on));
         t.tabIndex = on ? 0 : -1;
         document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
       });
-      if (fill) fill.style.height = ((i + 1) / tabs.length * 100) + "%";
+      if (onSelect) onSelect(i, tabs.length);
       if (focus) tabs[i].focus();
-      if (window.innerWidth < 860) tabs[i].scrollIntoView({ block: "nearest", inline: "center", behavior: SN.reduceMotion ? "auto" : "smooth" });
+      var strip = tabs[i].parentNode;
+      if (!initial && strip.scrollWidth > strip.clientWidth) {
+        /* scroll only the tab strip, never the page */
+        var r = tabs[i].getBoundingClientRect(), sr = strip.getBoundingClientRect();
+        strip.scrollBy({ left: (r.left + r.width / 2) - (sr.left + sr.width / 2), behavior: SN.reduceMotion ? "auto" : "smooth" });
+      }
     };
     tabs.forEach(function (t, i) {
       t.addEventListener("click", function () { select(i); });
       t.addEventListener("keydown", function (e) {
         var n = tabs.length, j = null;
-        /* Vertical list on desktop, horizontal (RTL) row on mobile */
+        /* Vertical list on desktop, horizontal RTL row on mobile */
         if (e.key === "ArrowDown" || e.key === "ArrowLeft") j = (i + 1) % n;
         else if (e.key === "ArrowUp" || e.key === "ArrowRight") j = (i - 1 + n) % n;
         else if (e.key === "Home") j = 0;
@@ -84,32 +87,16 @@
         if (j !== null) { e.preventDefault(); select(j, true); }
       });
     });
-    select(0);
+    var start = tabs.map(function (t) { return t.getAttribute("aria-selected"); }).indexOf("true");
+    tabs.length && select(start < 0 ? 0 : start, false, true);
   }
 
-  /* ---------- Evidence filters ---------- */
-  var gallery = document.querySelector("[data-gallery]");
-  var chips = [].slice.call(document.querySelectorAll("[data-filter]"));
-  var emptyMsg = document.querySelector(".gallery__empty");
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      var f = chip.dataset.filter;
-      chips.forEach(function (c) { c.setAttribute("aria-pressed", String(c === chip)); });
-      var shown = 0;
-      [].forEach.call(gallery.querySelectorAll(".gallery__item"), function (li) {
-        var match = f === "all" || li.dataset.cat.split(" ").indexOf(f) > -1;
-        var wasHidden = li.classList.contains("is-hidden");
-        li.classList.toggle("is-hidden", !match);
-        if (match) {
-          shown++;
-          if (wasHidden && !SN.reduceMotion) {
-            li.classList.remove("is-entering"); void li.offsetWidth; li.classList.add("is-entering");
-          }
-        }
-      });
-      if (emptyMsg) emptyMsg.hidden = shown > 0;
-    });
-  });
+  var journey = document.querySelector("[data-journey]");
+  if (journey) {
+    var fill = journey.querySelector(".journey__rail-fill");
+    tabset(journey, function (i, n) { if (fill) fill.style.height = ((i + 1) / n * 100) + "%"; });
+  }
+  [].forEach.call(document.querySelectorAll("[data-tabs]"), function (el) { tabset(el); });
 
   /* ---------- Unit charts (one mark per ambassador / class) ---------- */
   [].forEach.call(document.querySelectorAll("[data-units]"), function (box) {

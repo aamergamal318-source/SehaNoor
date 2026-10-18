@@ -23,7 +23,7 @@
   <script>!function(d){d.documentElement.classList.add("js");try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("ortbari_lang");if(l==="he"){d.documentElement.lang="he";d.documentElement.classList.add("i18n-pending")}}catch(e){}}(document)</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=Rubik:wght@500;600;700;800&family=Amiri&family=Frank+Ruhl+Libre:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700;800&family=Rubik:wght@600;800&display=swap">
   <link rel="preload" as="image" href="assets/img/food-platter-1280.webp" imagesrcset="assets/img/food-platter-640.webp 640w, assets/img/food-platter-1280.webp 1280w" imagesizes="(max-width: 900px) 70vw, 34vw">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
@@ -50,7 +50,7 @@
           <li><a class="main-nav__link" href="#story" data-he="הסיפור">القصة</a></li>
           <li><a class="main-nav__link" href="#leadership" data-he="מנהיגות">القيادة</a></li>
           <li><a class="main-nav__link" href="#field" data-he="מהשטח">من الميدان</a></li>
-          <li><a class="main-nav__link" href="#evidence" data-he="תיעוד">الأدلة</a></li>
+          <li><a class="main-nav__link" href="#timeline" data-he="ציר הזמן">المسار</a></li>
           <li><a class="main-nav__link" href="#impact" data-he="השפעה">الأثر</a></li>
           <li><a class="main-nav__link" href="#continuity" data-he="המשכיות">الاستمرارية</a></li>
           <li><a class="main-nav__link" href="learn.html" data-he="מרכז הידע">مركز المعرفة</a></li>
@@ -64,7 +64,7 @@
           <span data-lang-label lang="he">עברית</span>
         </button>
         <a class="btn btn--primary btn--sm header-cta" href="pledge.html" data-he="חתמו על האמנה">وقّع الميثاق</a>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="فتح القائمة">
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="فتح القائمة" data-he-aria-label="פתיחת התפריט">
           <span class="menu-btn__bars" aria-hidden="true"></span>
         </button>
       </div>
@@ -393,166 +393,283 @@
       </div>
     </section>
 
-    <!-- ================================================================ 05 FIELD -->
-    <section class="section field" id="field" aria-labelledby="fieldTitle">
+    <!-- ================================================================ 05 STORIES -->
+    <section class="section stories-sec" id="field" aria-labelledby="fieldTitle">
       <div class="container">
         <div class="section-head">
-          <p class="eyebrow"><span class="eyebrow__index num">05</span> <span data-he="מהשטח">من الميدان</span></p>
-          <h2 id="fieldTitle" data-he="הפעילויות הופכות בריאות לעשייה, לא לדיבור">الأنشطة تجعل الصحة فعلاً لا كلاماً</h2>
-          <p class="lede" data-he="תוכנית פעולה שנראית לעין ומחוברת לחיי התלמידים. פעילויות המתועדות בתמונות מסומנות בהתאם.">خطة عمل مرئية ومرتبطة بحياة الطلاب. الأنشطة الموثّقة بالصور معلَّمة بذلك.</p>
+          <p class="eyebrow"><span class="eyebrow__index num">05</span> <span data-he="סיפורים מהשטח">قصص من الميدان</span></p>
+          <h2 id="fieldTitle" data-he="חמש תחנות. תמונות אמיתיות. תלמידים מובילים.">خمس محطات. صور حقيقية. طلاب في القيادة.</h2>
+          <p class="lede" data-he="כל סיפור מתועד בתמונות מבית הספר. לכל אחד: המטרה, תפקיד שגרירי הבריאות, המסר, ואיך מודדים.">كل قصة موثّقة بصور من المدرسة. ولكل واحدة: الهدف، دور سفراء الصحة، الرسالة، وكيف نقيس.</p>
         </div>
 
-        <div class="field__grid">
-          <article class="activity activity--photo activity--wide reveal">
-            <img src="assets/img/food-display-1280.webp" srcset="assets/img/food-display-640.webp 640w, assets/img/food-display-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 60vw" width="1280" height="853" loading="lazy" decoding="async"
-                 alt="طاولة التغذية: ميزان نحاسي يحمل طماطم، وطبق خضروات ومكسّرات"
-                 data-he-alt="שולחן התזונה: מאזני נחושת עם עגבניות, מגש ירקות ואגוזים">
-            <div class="activity__body">
-              <span class="tag tag--doc"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg> <span data-he="מתועד">موثَّق</span></span>
-              <h3 data-he="שוק בריא בית ספרי">سوق صحي مدرسي</h3>
-              <p data-he="דוכני טעימות, הסבר על צלחת מאוזנת ושילוב מאכלים מקומיים בריאים.">أجنحة تذوّق، شرح عن الطبق المتوازن، ودمج أطعمة محلية صحية.</p>
-            </div>
-          </article>
-          <article class="activity activity--photo reveal">
-            <img src="assets/img/diabetes-station-640.webp" srcset="assets/img/diabetes-station-640.webp 640w, assets/img/diabetes-station-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                 alt="محطة السكري مزيّنة بالبالونات، مع لافتة توعوية"
-                 data-he-alt="תחנת הסוכרת מעוטרת בבלונים, עם שלט הסברה">
-            <div class="activity__body">
-              <span class="tag tag--doc"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg> <span data-he="מתועד">موثَّق</span></span>
-              <h3 data-he="תחנת סוכרת">محطة السكري</h3>
-              <p data-he="הסברה על מניעה: «מניעה עדיפה על ריפוי».">توعية بالوقاية: «درهم وقاية خير من قنطار علاج».</p>
-            </div>
-          </article>
-          <article class="activity activity--photo reveal">
-            <img src="assets/img/exercise-equipment-640.webp" srcset="assets/img/exercise-equipment-640.webp 640w, assets/img/exercise-equipment-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                 alt="أثقال كيتلبل وحبل مطاطي على أرضية الصالة"
-                 data-he-alt="משקולות קטלבל וגומיית התנגדות על רצפת האולם">
-            <div class="activity__body">
-              <span class="tag tag--doc"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg> <span data-he="מתועד">موثَّق</span></span>
-              <h3 data-he="אתגר 10 דקות תנועה">تحدي 10 دقائق حركة</h3>
-              <p data-he="הפסקה אחת ביום נפתחת בתנועה קצרה: הליכה, קפיצה, משחק כדור או תרגילי כוח קלים.">فسحة كل يوم تُفتتح بحركة قصيرة: مشي، قفز، كرة، أو تمارين قوة خفيفة.</p>
-            </div>
-          </article>
-          <article class="activity activity--photo reveal">
-            <img src="assets/img/tea-station-640.webp" srcset="assets/img/tea-station-640.webp 640w, assets/img/tea-station-1280.webp 1280w" sizes="(max-width: 768px) 100vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                 alt="محطة الشاي الأخضر مع حاسوب يعرض اختباراً تفاعلياً"
-                 data-he-alt="תחנת התה הירוק עם מחשב נייד שמציג חידון אינטראקטיבי">
-            <div class="activity__body">
-              <span class="tag tag--doc"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg> <span data-he="מתועד">موثَّق</span></span>
-              <h3 data-he="תחנת תה ירוק">محطة الشاي الأخضر</h3>
-              <p data-he="פינה אינטראקטיבית למודעות בריאותית, עם חידון וכרטיס «הבריאות שלך – החיים שלך».">ركن تفاعلي للوعي الصحي، مع اختبار قصير وبطاقة «صحتك حياتك».</p>
-            </div>
-          </article>
+        <div class="stories" data-tabs>
+          <div class="stories__tabs" role="tablist" aria-label="قصص النشاطات" data-he-aria-label="סיפורי הפעילויות">
+            <button class="story-tab" role="tab" id="st1" aria-controls="sp1" aria-selected="true" tabindex="0">
+              <img src="assets/img/food-display-640.webp" width="640" height="427" alt="" loading="lazy">
+              <span class="story-tab__text"><span class="story-tab__tag" data-he="יום הבריאות">يوم الصحة</span><span class="story-tab__title" data-he="תחנת התזונה">محطة التغذية</span></span>
+            </button>
+            <button class="story-tab" role="tab" id="st2" aria-controls="sp2" aria-selected="false" tabindex="-1">
+              <img src="assets/img/diabetes-station-640.webp" width="640" height="427" alt="" loading="lazy">
+              <span class="story-tab__text"><span class="story-tab__tag" data-he="יום הבריאות">يوم الصحة</span><span class="story-tab__title" data-he="תחנת הסוכרת">محطة السكري</span></span>
+            </button>
+            <button class="story-tab" role="tab" id="st3" aria-controls="sp3" aria-selected="false" tabindex="-1">
+              <img src="assets/img/tea-card-640.webp" width="640" height="427" alt="" loading="lazy">
+              <span class="story-tab__text"><span class="story-tab__tag" data-he="יום הבריאות">يوم الصحة</span><span class="story-tab__title" data-he="תחנת התה הירוק">محطة الشاي الأخضر</span></span>
+            </button>
+            <button class="story-tab" role="tab" id="st4" aria-controls="sp4" aria-selected="false" tabindex="-1">
+              <img src="assets/img/exercise-equipment-640.webp" width="640" height="427" alt="" loading="lazy">
+              <span class="story-tab__text"><span class="story-tab__tag" data-he="תנועה">حركة</span><span class="story-tab__title" data-he="הפסקת תנועה">فسحة الحركة</span></span>
+            </button>
+            <button class="story-tab" role="tab" id="st5" aria-controls="sp5" aria-selected="false" tabindex="-1">
+              <img src="assets/img/poster-food-pyramid-640.webp" width="640" height="360" alt="" loading="lazy">
+              <span class="story-tab__text"><span class="story-tab__tag" data-he="הסברה">توعية</span><span class="story-tab__title" data-he="כרזות במסדרונות">ملصقات الممرات</span></span>
+            </button>
+          </div>
 
-          <article class="activity activity--text reveal">
-            <svg class="icon activity__icon" aria-hidden="true"><use href="assets/img/icons.svg#bottle"/></svg>
-            <h3 data-he="בקבוק אישי לכל תלמיד">زجاجة شخصية لكل طالب</h3>
-            <p data-he="עמדות תזכורת, מדבקות על בקבוקים ומעקב כיתתי שמעודד לבחור במים לאורך היום.">محطات تذكير، ملصقات على الزجاجات، ومتابعة صفية تشجّع على اختيار الماء طوال اليوم.</p>
-          </article>
-          <article class="activity activity--text reveal">
-            <svg class="icon activity__icon" aria-hidden="true"><use href="assets/img/icons.svg#poster"/></svg>
-            <h3 data-he="כרזות בגובה העיניים">ملصقات بلغة الطلاب</h3>
-            <p data-he="תלמידים יוצרים מסרים בערבית ובעברית ומציגים אותם במסדרונות, בכיתות וברשתות בית הספר.">الطلاب يصمّمون رسائل بالعربية والعبرية ويعرضونها في الممرات والصفوف وشبكات المدرسة.</p>
-          </article>
-          <article class="activity activity--text reveal">
-            <svg class="icon activity__icon" aria-hidden="true"><use href="assets/img/icons.svg#family"/></svg>
-            <h3 data-he="ערב בריאות למשפחות">أمسية صحة للعائلات</h3>
-            <p data-he="שיתוף ההורים בטיפים מעשיים, מתכונים פשוטים והתחייבות משפחתית לשינוי קטן אחד.">إشراك الأهل في نصائح عملية ووصفات بسيطة، والتزام عائلي بتغيير صغير واحد.</p>
-          </article>
-          <article class="activity activity--text reveal">
-            <svg class="icon activity__icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg>
-            <h3 data-he="סדנת דימוי עצמי ושפה מכבדת">ورشة الصورة الذاتية</h3>
-            <p data-he="שיחה מודרכת על גוף, ביטחון עצמי, רשתות חברתיות והבחירה להתייחס לעצמנו ולאחרים בכבוד.">حوار موجَّه حول الجسم والثقة بالنفس والشبكات الاجتماعية، واختيار احترام الذات والآخرين.</p>
-          </article>
+          <div class="stories__panels">
+            <!-- 1 nutrition -->
+            <div class="story" role="tabpanel" id="sp1" aria-labelledby="st1" tabindex="0">
+              <ul class="story__media story__media--2" role="list" data-gallery>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/food-display-1280.webp" srcset="assets/img/food-display-640.webp 640w, assets/img/food-display-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 40vw" width="1280" height="853" loading="lazy" decoding="async" data-full="assets/img/food-display-1920.webp"
+                       alt="طاولة التغذية: ميزان نحاسي يحمل طماطم، طبق خضروات ومكسّرات" data-he-alt="שולחן התזונה: מאזני נחושת עם עגבניות, מגש ירקות ואגוזים">
+                  <span class="gallery__caption" data-he="תחנת התזונה: ירקות, פירות ומאזניים — כי בריאות היא איזון.">محطة التغذية: خضروات وفواكه وميزان — لأن الصحة توازن.</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/food-platter-640.webp" srcset="assets/img/food-platter-640.webp 640w, assets/img/food-platter-1280.webp 1280w" sizes="(max-width: 900px) 50vw, 20vw" width="640" height="427" loading="lazy" decoding="async" data-full="assets/img/food-platter-1920.webp"
+                       alt="طبق خشبي من الخضروات المقطّعة: جزر وخيار وكرفس وفلفل" data-he-alt="מגש עץ עם ירקות חתוכים: גזר, מלפפון, סלרי ופלפל">
+                  <span class="gallery__caption" data-he="מגש ירקות טריים ביום הבריאות.">طبق خضروات طازجة في يوم الصحة.</span>
+                </button></li>
+              </ul>
+              <div class="story__body">
+                <p class="story__meta">
+                  <span class="tag" data-he="יום הבריאות הבית ספרי">يوم الصحة المدرسي</span>
+                  <span class="story__date"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="תועד: מאי 2026">وُثّق: أيار 2026</span></span>
+                </p>
+                <h3 data-he="הצלחת המאוזנת, מהמטבח שלנו">الطبق المتوازن، من مطبخنا</h3>
+                <dl class="story__facts">
+                  <div><dt data-he="המטרה">الهدف</dt><dd data-he="עידוד ארוחות מאוזנות, ירקות ופירות, והיכרות מחודשת עם המטבח הבדואי המקומי.">تشجيع الوجبات المتوازنة والخضروات والفواكه، والتعرّف من جديد على المطبخ البدوي المحلي.</dd></div>
+                  <div><dt data-he="תפקיד השגרירים">دور السفراء</dt><dd data-he="דוכני טעימות והסבר על צלחת מאוזנת — התלמידים מנחים, מסבירים ומעודדים השתתפות.">أجنحة تذوّق وشرح عن الطبق المتوازن — الطلاب يُرشدون ويشرحون ويشجّعون المشاركة.</dd></div>
+                  <div><dt data-he="המסר">الرسالة</dt><dd data-he="«בריאות היא איזון.»">«الصحة توازن.»</dd></div>
+                  <div><dt data-he="איך מודדים">كيف نقيس</dt><dd data-he="שאלון הרגלי אכילה.">استبيان عادات الأكل.</dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 2 diabetes -->
+            <div class="story" role="tabpanel" id="sp2" aria-labelledby="st2" tabindex="0" hidden>
+              <ul class="story__media" role="list" data-gallery>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/diabetes-station-1280.webp" srcset="assets/img/diabetes-station-640.webp 640w, assets/img/diabetes-station-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 40vw" width="1280" height="853" loading="lazy" decoding="async" data-full="assets/img/diabetes-station-1920.webp"
+                       alt="لافتة محطة السكري بين أقواس البالونات: درهم وقاية خير من قنطار علاج" data-he-alt="שלט תחנת הסוכרת בין קשתות בלונים: מניעה עדיפה על ריפוי">
+                  <span class="gallery__caption" data-he="תחנת הסוכרת ביום הבריאות.">محطة السكري في يوم الصحة.</span>
+                </button></li>
+              </ul>
+              <div class="story__body">
+                <p class="story__meta">
+                  <span class="tag" data-he="יום הבריאות הבית ספרי">يوم الصحة المدرسي</span>
+                  <span class="story__date"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="תועד: מאי 2026">وُثّق: أيار 2026</span></span>
+                </p>
+                <h3 data-he="מניעה לפני טיפול">الوقاية قبل العلاج</h3>
+                <dl class="story__facts">
+                  <div><dt data-he="המטרה">الهدف</dt><dd data-he="העלאת המודעות לסוכרת ולמניעתה בקהילה שלנו.">رفع الوعي بمرض السكري والوقاية منه في مجتمعنا.</dd></div>
+                  <div><dt data-he="תפקיד השגרירים">دور السفراء</dt><dd data-he="עמדת הסברה בהובלת תלמידים לתלמידים, כחלק מיום הבריאות.">محطة توعية يقودها طلاب للطلاب، ضمن يوم الصحة.</dd></div>
+                  <div><dt data-he="המסר">الرسالة</dt><dd data-he="«מניעה עדיפה על ריפוי.»">«درهم وقاية خير من قنطار علاج.»</dd></div>
+                  <div><dt data-he="איך מודדים">كيف نقيس</dt><dd data-he="השתתפות התלמידים בתחנות.">مشاركة الطلاب في المحطات.</dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 3 green tea -->
+            <div class="story" role="tabpanel" id="sp3" aria-labelledby="st3" tabindex="0" hidden>
+              <ul class="story__media story__media--2" role="list" data-gallery>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/tea-card-1280.webp" srcset="assets/img/tea-card-640.webp 640w, assets/img/tea-card-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 40vw" width="1280" height="853" loading="lazy" decoding="async" data-full="assets/img/tea-card-1920.webp"
+                       alt="يد تحمل بطاقة «صحتك حياتك» مع كيس شاي أخضر" data-he-alt="יד אוחזת בכרטיס «הבריאות שלך – החיים שלך» עם שקית תה ירוק">
+                  <span class="gallery__caption" data-he="כרטיס «הבריאות שלך – החיים שלך» — יצירה מקורית של התלמידים.">بطاقة «صحتك حياتك» — إبداع أصيل من الطلاب.</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/tea-station-640.webp" srcset="assets/img/tea-station-640.webp 640w, assets/img/tea-station-1280.webp 1280w" sizes="(max-width: 900px) 50vw, 20vw" width="640" height="427" loading="lazy" decoding="async" data-full="assets/img/tea-station-1920.webp"
+                       alt="حاسوب يعرض اختباراً صحياً تفاعلياً بجانب سلال الحلوى" data-he-alt="מחשב נייד שמציג חידון בריאות אינטראקטיבי ליד סלסלות">
+                  <span class="gallery__caption" data-he="פינה אינטראקטיבית עם חידון על המחשב.">ركن تفاعلي مع اختبار على الحاسوب.</span>
+                </button></li>
+              </ul>
+              <div class="story__body">
+                <p class="story__meta">
+                  <span class="tag" data-he="יום הבריאות הבית ספרי">يوم الصحة المدرسي</span>
+                  <span class="story__date"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="תועד: מאי 2026">وُثّق: أيار 2026</span></span>
+                </p>
+                <h3 data-he="חלופה חמה למשקה הממותק">بديل دافئ للمشروب المحلّى</h3>
+                <dl class="story__facts">
+                  <div><dt data-he="המטרה">الهدف</dt><dd data-he="להציע חלופה בריאה למשקאות ממותקים: מים ותה צמחים.">تقديم بديل صحي للمشروبات المحلّاة: الماء وشاي الأعشاب.</dd></div>
+                  <div><dt data-he="תפקיד השגרירים">دور السفراء</dt><dd data-he="כרטיס «הבריאות שלך – החיים שלך» עם שקית תה, וחידון אינטראקטיבי על המחשב.">بطاقة «صحتك حياتك» مع كيس شاي، واختبار تفاعلي على الحاسوب.</dd></div>
+                  <div><dt data-he="המסר">الرسالة</dt><dd data-he="«התחילו את היום באנרגיה!» — מהטקסט על הכרטיס.">«ابدأ يومك بنشاط!» — من نص البطاقة.</dd></div>
+                  <div><dt data-he="איך מודדים">كيف نقيس</dt><dd data-he="ספירה שבועית: בקבוקי מים מול משקאות ממותקים בהפסקות.">إحصاء أسبوعي: زجاجات الماء مقابل المشروبات المحلّاة في الفسح.</dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 4 movement -->
+            <div class="story" role="tabpanel" id="sp4" aria-labelledby="st4" tabindex="0" hidden>
+              <ul class="story__media" role="list" data-gallery>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/exercise-equipment-1280.webp" srcset="assets/img/exercise-equipment-640.webp 640w, assets/img/exercise-equipment-1280.webp 1280w" sizes="(max-width: 900px) 100vw, 40vw" width="1280" height="853" loading="lazy" decoding="async" data-full="assets/img/exercise-equipment-1920.webp"
+                       alt="أثقال كيتلبل بوزن 4 كغ وحبل مقاومة أخضر على أرضية الصالة" data-he-alt="משקולות קטלבל של 4 ק״ג וגומיית התנגדות ירוקה על רצפת האולם">
+                  <span class="gallery__caption" data-he="ציוד לפעילות גופנית.">أدوات النشاط البدني.</span>
+                </button></li>
+              </ul>
+              <div class="story__body">
+                <p class="story__meta">
+                  <span class="tag" data-he="תנועה">حركة</span>
+                  <span class="story__date"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="תועד: מאי 2026">وُثّق: أيار 2026</span></span>
+                </p>
+                <h3 data-he="עשר דקות שפותחות את ההפסקה">عشر دقائق تفتتح الفسحة</h3>
+                <dl class="story__facts">
+                  <div><dt data-he="המטרה">الهدف</dt><dd data-he="שתנועה תהיה חלק משגרת הלמידה, לא רק בשיעור החינוך הגופני.">أن تصبح الحركة جزءاً من روتين التعلّم، لا في حصة الرياضة فقط.</dd></div>
+                  <div><dt data-he="תפקיד השגרירים">دور السفراء</dt><dd data-he="אתגר 10 דקות תנועה והפסקות פעילות בהובלת תלמידים.">تحدي 10 دقائق حركة وفسح نشيطة بقيادة الطلاب.</dd></div>
+                  <div><dt data-he="המסר">الرسالة</dt><dd data-he="«כל צעד חשוב.»">«كل خطوة مهمة.»</dd></div>
+                  <div><dt data-he="איך מודדים">كيف نقيس</dt><dd data-he="דקות פעילות ושיעור השתתפות.">دقائق النشاط ونسبة المشاركة.</dd></div>
+                </dl>
+              </div>
+            </div>
+
+            <!-- 5 posters -->
+            <div class="story" role="tabpanel" id="sp5" aria-labelledby="st5" tabindex="0" hidden>
+              <ul class="story__media story__media--posters" role="list" data-gallery>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-food-pyramid-640.webp" width="640" height="360" loading="lazy" decoding="async" data-full="assets/img/poster-food-pyramid-1280.webp"
+                       alt="ملصق «حافظ على نظام غذائي صحي» مع هرم غذائي" data-he-alt="כרזה «שמרו על תזונה בריאה» עם פירמידת מזון">
+                  <span class="gallery__caption" data-he="«שמרו על תזונה בריאה» — פירמידת המזון.">«حافظ على نظام غذائي صحي» — الهرم الغذائي.</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-smoking-640.webp" width="360" height="640" loading="lazy" decoding="async" data-full="assets/img/poster-smoking-1280.webp"
+                       alt="ملصق «التدخين أخطر وباء عالمي» على جدار المدرسة" data-he-alt="כרזה «העישון — המגפה המסוכנת בעולם» על קיר בית הספר">
+                  <span class="gallery__caption" data-he="כרזה נגד עישון.">ملصق ضد التدخين.</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-memory-640.webp" width="640" height="360" loading="lazy" decoding="async" data-full="assets/img/poster-memory-1280.webp"
+                       alt="ملصق «كيف تستطيع تقوية الذاكرة؟»" data-he-alt="כרזה «איך לחזק את הזיכרון?»">
+                  <span class="gallery__caption" data-he="«איך לחזק את הזיכרון?»">«كيف تستطيع تقوية الذاكرة؟»</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-cigarette-640.webp" width="360" height="640" loading="lazy" decoding="async" data-full="assets/img/poster-cigarette-1280.webp"
+                       alt="ملصق «ما هي مكونات السيجارة؟»" data-he-alt="כרזה «ממה מורכבת סיגריה?»">
+                  <span class="gallery__caption" data-he="«ממה מורכבת סיגריה?»">«ما هي مكونات السيجارة؟»</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-success-steps-640.webp" width="640" height="360" loading="lazy" decoding="async" data-full="assets/img/poster-success-steps-1280.webp"
+                       alt="ملصق «خطوات تساعدك على تحقيق النجاح»" data-he-alt="כרזה «צעדים שיעזרו לך להצליח»">
+                  <span class="gallery__caption" data-he="«צעדים שיעזרו לך להצליח».">«خطوات تساعدك على تحقيق النجاح».</span>
+                </button></li>
+                <li class="gallery__item"><button class="gallery__btn" type="button">
+                  <img src="assets/img/poster-smoker-story-640.webp" width="360" height="640" loading="lazy" decoding="async" data-full="assets/img/poster-smoker-story-1280.webp"
+                       alt="ملصق قصة الحكيم والمدخّن: «وهل ثوبك أغلى من صدرك»" data-he-alt="כרזה עם סיפור החכם והמעשן: «האם הבגד שלך יקר מהחזה שלך?»">
+                  <span class="gallery__caption" data-he="«האם הבגד שלך יקר מהחזה שלך?»">«وهل ثوبك أغلى من صدرك؟»</span>
+                </button></li>
+              </ul>
+              <div class="story__body">
+                <p class="story__meta">
+                  <span class="tag" data-he="הסברה">توعية</span>
+                  <span class="story__date"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="צולם: 13 במאי 2026">صُوّر: 13 أيار 2026</span></span>
+                </p>
+                <h3 data-he="הקירות מדברים בריאות">الجدران تتحدث صحة</h3>
+                <dl class="story__facts">
+                  <div><dt data-he="המטרה">الهدف</dt><dd data-he="מסרים קצרים שתלמידים פוגשים כל יום: תזונה, זיכרון ולמידה, ומניעת עישון.">رسائل قصيرة يراها الطلاب كل يوم: التغذية، الذاكرة والتعلّم، والوقاية من التدخين.</dd></div>
+                  <div><dt data-he="תפקיד השגרירים">دور السفراء</dt><dd data-he="מסרים בשפת התלמידים, מוצגים במסדרונות ובכיתות.">رسائل بلغة الطلاب، معروضة في الممرات والصفوف.</dd></div>
+                  <div><dt data-he="המסר">الرسالة</dt><dd data-he="«העישון — המגפה המסוכנת בעולם.»">«التدخين أخطر وباء عالمي.»</dd></div>
+                  <div><dt data-he="איך מודדים">كيف نقيس</dt><dd data-he="משוב מתלמידים וממחנכים.">تغذية راجعة من الطلاب والمعلمين.</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="more-acts reveal">
+          <h3 class="more-acts__title" data-he="פעילויות נוספות בתוכנית העבודה">أنشطة أخرى في خطة العمل</h3>
+          <ul class="more-acts__list" role="list">
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#bottle"/></svg><span><strong data-he="בקבוק אישי לכל תלמיד">زجاجة شخصية لكل طالب</strong><span data-he="עמדות תזכורת, מדבקות ומעקב כיתתי.">محطات تذكير، ملصقات، ومتابعة صفية.</span></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#family"/></svg><span><strong data-he="ערב בריאות למשפחות">أمسية صحة للعائلات</strong><span data-he="טיפים מעשיים והתחייבות משפחתית לשינוי קטן אחד.">نصائح عملية والتزام عائلي بتغيير صغير واحد.</span></span></li>
+            <li><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#heart"/></svg><span><strong data-he="סדנת דימוי עצמי">ورشة الصورة الذاتية</strong><span data-he="שיחה מודרכת על גוף, ביטחון עצמי ורשתות חברתיות.">حوار موجَّه حول الجسم والثقة بالنفس والشبكات الاجتماعية.</span></span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================ 06 EVIDENCE -->
-    <section class="section section--sand evidence" id="evidence" aria-labelledby="evTitle">
+    <!-- ================================================================ 06 TIMELINE -->
+    <section class="section section--sand timeline-sec" id="timeline" aria-labelledby="tlTitle">
       <div class="container">
-        <div class="evidence__head">
-          <div class="section-head">
-            <p class="eyebrow"><span class="eyebrow__index num">06</span> <span data-he="תיעוד מהשטח">أدلة من الميدان</span></p>
-            <h2 id="evTitle" data-he="התמונות מתעדות מסלול, לא אירוע">الصور توثّق مساراً، لا حدثاً</h2>
-            <p class="lede" data-he="תמונות אמיתיות מימי הבריאות בבית הספר. לחצו על תמונה כדי להגדיל אותה.">صور حقيقية من أيام الصحة في المدرسة. اضغطوا على أي صورة لتكبيرها.</p>
-          </div>
-          <div class="evidence__filters" role="group" aria-label="تصفية الصور" data-he-aria-label="סינון התמונות">
-            <button class="chip" type="button" data-filter="all" aria-pressed="true" data-he="הכול">الكل</button>
-            <button class="chip" type="button" data-filter="food" aria-pressed="false" data-he="תזונה">تغذية</button>
-            <button class="chip" type="button" data-filter="awareness" aria-pressed="false" data-he="הסברה">توعية</button>
-            <button class="chip" type="button" data-filter="move" aria-pressed="false" data-he="תנועה">حركة</button>
-            <button class="chip" type="button" data-filter="recognition" aria-pressed="false" data-he="הכרה">اعتراف</button>
-          </div>
+        <div class="section-head">
+          <p class="eyebrow"><span class="eyebrow__index num">06</span> <span data-he="ציר הזמן">المسار الزمني</span></p>
+          <h2 id="tlTitle" data-he="מה קרה, ומתי">ما الذي حدث، ومتى</h2>
+          <p class="lede" data-he="רק אירועים שיש להם מקור: התעודה עצמה, קובצי התמונות, יומן האתר ויומן החתימות.">فقط أحداث لها مصدر: الشهادة نفسها، ملفات الصور، سجل الموقع، وسجل التوقيعات.</p>
         </div>
 
-        <ul class="gallery" role="list" data-gallery>
-          <li class="gallery__item gallery__item--feature" data-cat="food">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/food-display-1280.webp" srcset="assets/img/food-display-640.webp 640w, assets/img/food-display-1280.webp 1280w, assets/img/food-display-1920.webp 1920w" sizes="(max-width: 768px) 100vw, 60vw" width="1280" height="853" loading="lazy" decoding="async"
-                   data-full="assets/img/food-display-1920.webp"
-                   alt="طاولة التغذية: ميزان نحاسي، خضروات وفواكه ومكسّرات"
-                   data-he-alt="שולחן התזונה: מאזני נחושת, ירקות, פירות ואגוזים">
-              <span class="gallery__caption" data-he="תחנת התזונה: ירקות, פירות ומאזניים — כי בריאות היא איזון.">محطة التغذية: خضروات وفواكه وميزان — لأن الصحة توازن.</span>
-            </button>
+        <ol class="tl" role="list">
+          <li class="tl__item reveal">
+            <span class="tl__when" lang="he">תשפ"א · <span class="num">2020–2021</span></span>
+            <div class="tl__card">
+              <h3 data-he="הבסיס: בית ספר מקדם בריאות">الأساس: مدرسة معزِّزة للصحة</h3>
+              <p data-he="דירוג שלושה כוכבים בתוכנית «בית ספר מקדם בריאות». התרבות הבריאה התחילה לפני היוזמה.">تصنيف ثلاث نجوم في برنامج «مدرسة معزِّزة للصحة». ثقافة الصحة بدأت قبل المبادرة.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg><span data-he="מקור: התעודה">المصدر: الشهادة</span></span>
+            </div>
           </li>
-          <li class="gallery__item gallery__item--tall" data-cat="recognition">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/certificate-1280.webp" srcset="assets/img/certificate-640.webp 360w, assets/img/certificate-1280.webp 720w, assets/img/certificate-1920.webp 1081w" sizes="(max-width: 768px) 50vw, 25vw" width="720" height="1280" loading="lazy" decoding="async"
-                   data-full="assets/img/certificate-1920.webp"
-                   alt="شهادة «مدرسة معزِّزة للصحة» لثانوية أورط أبو ربيعة بتصنيف ثلاث نجوم"
-                   data-he-alt="תעודת «בית ספר מקדם בריאות» לתיכון אורט אבו רביעה בדירוג שלושה כוכבים">
-              <span class="gallery__caption" data-he="תעודת «בית ספר מקדם בריאות» בדירוג שלושה כוכבים — משרד החינוך ומשרד הבריאות.">شهادة «مدرسة معزِّزة للصحة» بتصنيف ثلاث نجوم — وزارة التربية ووزارة الصحة.</span>
-            </button>
+          <li class="tl__item reveal">
+            <span class="tl__when"><span class="num">2025–2026</span></span>
+            <div class="tl__card">
+              <h3 data-he="הצטרפות לתחרות אורט בריא">الانضمام إلى مسابقة أورط صحي</h3>
+              <p data-he="נבחרת שגרירי בריאות מקרב התלמידים מובילה את היוזמה בבית הספר.">فريق سفراء صحة من الطلاب يقود المبادرة في المدرسة.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg><span data-he="מקור: מסמכי המיזם">المصدر: وثائق المشروع</span></span>
+            </div>
           </li>
-          <li class="gallery__item" data-cat="awareness">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/diabetes-station-640.webp" srcset="assets/img/diabetes-station-640.webp 640w, assets/img/diabetes-station-1280.webp 1280w" sizes="(max-width: 768px) 50vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                   data-full="assets/img/diabetes-station-1920.webp"
-                   alt="لافتة محطة السكري بين أقواس البالونات"
-                   data-he-alt="שלט תחנת הסוכרת בין קשתות בלונים">
-              <span class="gallery__caption" data-he="תחנת הסוכרת ביום הבריאות: «מניעה עדיפה על ריפוי».">محطة السكري في يوم الصحة: «درهم وقاية خير من قنطار علاج».</span>
-            </button>
+          <li class="tl__item tl__item--major reveal">
+            <span class="tl__when" data-he="מאי 2026">أيار 2026</span>
+            <div class="tl__card">
+              <h3 data-he="יום הבריאות הבית ספרי">يوم الصحة المدرسي</h3>
+              <p data-he="תחנות תזונה, סוכרת, תה ירוק ותנועה — מתועדות בתמונות שהתקבלו ב-11 במאי 2026.">محطات التغذية والسكري والشاي الأخضر والحركة — موثّقة بصور وصلت في 11 أيار 2026.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="מקור: קובצי התמונות">المصدر: ملفات الصور</span></span>
+            </div>
           </li>
-          <li class="gallery__item" data-cat="food awareness">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/tea-card-640.webp" srcset="assets/img/tea-card-640.webp 640w, assets/img/tea-card-1280.webp 1280w" sizes="(max-width: 768px) 50vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                   data-full="assets/img/tea-card-1920.webp"
-                   alt="يد تحمل بطاقة «صحتك حياتك» مع كيس شاي أخضر"
-                   data-he-alt="יד אוחזת בכרטיס «הבריאות שלך – החיים שלך» עם שקית תה ירוק">
-              <span class="gallery__caption" data-he="כרטיס התה הבריא: «הבריאות שלך – החיים שלך» — יצירה מקורית של התלמידים.">بطاقة الشاي الصحي: «صحتك حياتك» — إبداع أصيل من الطلاب.</span>
-            </button>
+          <li class="tl__item reveal">
+            <span class="tl__when"><span class="num">12.5.2026</span></span>
+            <div class="tl__card">
+              <h3 data-he="השקת האתר">إطلاق الموقع</h3>
+              <p data-he="זיכרון דיגיטלי חי של היוזמה, בערבית ובעברית.">ذاكرة رقمية حية للمبادرة، بالعربية والعبرية.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg><span data-he="מקור: יומן האתר">المصدر: سجل الموقع</span></span>
+            </div>
           </li>
-          <li class="gallery__item" data-cat="awareness">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/tea-station-640.webp" srcset="assets/img/tea-station-640.webp 640w, assets/img/tea-station-1280.webp 1280w" sizes="(max-width: 768px) 50vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                   data-full="assets/img/tea-station-1920.webp"
-                   alt="حاسوب يعرض اختباراً صحياً تفاعلياً بجانب سلال الحلوى الصحية"
-                   data-he-alt="מחשב נייד שמציג חידון בריאות אינטראקטיבי ליד סלסלות"
-              >
-              <span class="gallery__caption" data-he="תחנת התה הירוק: פינה אינטראקטיבית למודעות בריאותית.">محطة الشاي الأخضر: ركن تفاعلي للوعي الصحي.</span>
-            </button>
+          <li class="tl__item reveal">
+            <span class="tl__when"><span class="num">13.5.2026</span></span>
+            <div class="tl__card">
+              <h3 data-he="כרזות, מאמרים ומחשבון BMI">ملصقات، مقالات، وحاسبة BMI</h3>
+              <p data-he="תיעוד כרזות ההסברה במסדרונות, והוספת ספריית המאמרים ומחשבון ה-BMI לאתר.">توثيق ملصقات التوعية في الممرات، وإضافة مكتبة المقالات وحاسبة BMI إلى الموقع.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="מקור: קובצי התמונות ויומן האתר">المصدر: ملفات الصور وسجل الموقع</span></span>
+            </div>
           </li>
-          <li class="gallery__item" data-cat="food">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/food-platter-640.webp" srcset="assets/img/food-platter-640.webp 640w, assets/img/food-platter-1280.webp 1280w" sizes="(max-width: 768px) 50vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                   data-full="assets/img/food-platter-1920.webp"
-                   alt="طبق خشبي من الخضروات المقطّعة: جزر وخيار وكرفس وفلفل"
-                   data-he-alt="מגש עץ עם ירקות חתוכים: גזר, מלפפון, סלרי ופלפל">
-              <span class="gallery__caption" data-he="מגש ירקות טריים שהוגש למשתתפים ביום הבריאות.">طبق خضروات طازجة قُدّم للمشاركين في يوم الصحة.</span>
-            </button>
+          <li class="tl__item tl__item--major reveal">
+            <span class="tl__when"><span class="num">18.5.2026</span></span>
+            <div class="tl__card">
+              <h3 data-he="השקת האמנה הדיגיטלית">إطلاق الميثاق الرقمي</h3>
+              <p data-he="החתימות הראשונות נרשמו באותו יום.">أولى التوقيعات سُجّلت في اليوم نفسه.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#pen"/></svg><span data-he="מקור: יומן החתימות">المصدر: سجل التوقيعات</span></span>
+            </div>
           </li>
-          <li class="gallery__item" data-cat="move">
-            <button class="gallery__btn" type="button">
-              <img src="assets/img/exercise-equipment-640.webp" srcset="assets/img/exercise-equipment-640.webp 640w, assets/img/exercise-equipment-1280.webp 1280w" sizes="(max-width: 768px) 50vw, 30vw" width="640" height="427" loading="lazy" decoding="async"
-                   data-full="assets/img/exercise-equipment-1920.webp"
-                   alt="أثقال كيتلبل بوزن 4 كغ وحبل مقاومة أخضر"
-                   data-he-alt="משקולות קטלבל של 4 ק״ג וגומיית התנגדות ירוקה">
-              <span class="gallery__caption" data-he="ציוד לפעילות גופנית בפעילות התנועה הבית ספרית.">أدوات النشاط البدني في فعالية الحركة المدرسية.</span>
-            </button>
+          <li class="tl__item reveal">
+            <span class="tl__when"><span class="num">22.5.2026</span></span>
+            <div class="tl__card">
+              <h3 data-he="מצגת לוועדה">عرض اللجنة</h3>
+              <p data-he="מצגת דו-לשונית עם נתוני ההשפעה של היוזמה.">عرض ثنائي اللغة مع أرقام أثر المبادرة.</p>
+              <span class="tl__src"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg><span data-he="מקור: יומן האתר">المصدر: سجل الموقع</span></span>
+            </div>
           </li>
-        </ul>
-        <p class="gallery__empty" hidden data-he="אין תמונות בקטגוריה זו.">لا توجد صور في هذا التصنيف.</p>
+          <li class="tl__item tl__item--next reveal">
+            <span class="tl__when" data-he="והלאה">وما بعدها</span>
+            <div class="tl__card">
+              <h3 data-he="המשכיות">الاستمرارية</h3>
+              <p data-he="קצב קבוע של פעילויות — מיומי ועד שנתי.">إيقاع ثابت من الأنشطة — من اليومي إلى السنوي.</p>
+              <a class="link-arrow" href="#continuity"><span data-he="לתוכנית ההמשכיות">إلى خطة الاستمرارية</span><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#arrow"/></svg></a>
+            </div>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -569,19 +686,19 @@
           <article class="dash__card dash__card--hero reveal">
             <p class="dash__label" data-he="משתתפים בפעילויות היוזמה">مشارك في أنشطة المبادرة</p>
             <p class="dash__value num" data-count="1000">1,000</p>
-            <p class="dash__note" data-he="מספר המשתתפים הכולל בפעילויות לאורך השנה.">العدد الإجمالي للمشاركين في الأنشطة خلال العام.</p>
+            <p class="dash__note" data-he="המספר הכולל של המשתתפים בפעילויות היוזמה.">العدد الإجمالي للمشاركين في أنشطة المبادرة.</p>
           </article>
 
           <article class="dash__card reveal">
             <p class="dash__label" data-he="מביאים מים מדי יום">يحضرون الماء يومياً</p>
-            <div class="dash__ring" style="--p:50" role="img" aria-label="أكثر من 50% من الطلاب يحضرون زجاجة ماء يومياً" data-he-aria-label="יותר מ-50% מהתלמידים מביאים בקבוק מים מדי יום">
+            <div class="dash__ring" style="--p:50" role="img" aria-label="أكثر من 50% — إحضار الماء يومياً" data-he-aria-label="יותר מ-50% — הבאת מים יומית">
               <svg viewBox="0 0 120 120" aria-hidden="true">
                 <circle class="dash__ring-bg" cx="60" cy="60" r="52"/>
                 <circle class="dash__ring-fg" cx="60" cy="60" r="52" pathLength="100"/>
               </svg>
               <span class="dash__ring-val num" data-count="50" data-suffix="%+">50%+</span>
             </div>
-            <p class="dash__note" data-he="מהתלמידים מגיעים עם בקבוק מים אישי.">من الطلاب يأتون بزجاجة ماء شخصية.</p>
+            <p class="dash__note" data-he="הבאת בקבוק מים לבית הספר מדי יום.">إحضار زجاجة ماء إلى المدرسة كل يوم.</p>
           </article>
 
           <article class="dash__card reveal">
@@ -605,6 +722,9 @@
           </article>
         </div>
 
+        <p class="dash__source"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#info"/></svg><span data-he="מקור: נתוני צוות היוזמה, עודכנו במאי 2026.">المصدر: بيانات فريق المبادرة، حُدّثت في أيار 2026.</span></p>
+
+        <p class="shift__title" data-he="מה אנחנו רואים בשטח (תיאור איכותני)">ما الذي نلاحظه في الميدان (وصف نوعي)</p>
         <div class="shift reveal">
           <div class="shift__col shift__col--before">
             <span class="shift__chip" data-he="לפני">قبل</span>
@@ -631,7 +751,7 @@
             </span>
             <p class="cert__kicker" data-he="הכרה רשמית">اعتراف رسمي</p>
             <h3 data-he="בית ספר מקדם בריאות — שלושה כוכבים">مدرسة معزِّزة للصحة — ثلاث نجوم</h3>
-            <p data-he="תיכון אורט אבו רביעה קיבל דירוג שלושה כוכבים כבית ספר מקדם בריאות, בחתימת משרד החינוך ומשרד הבריאות. ההכרה מראה שבריאות אצלנו אינה פעילות חולפת אלא חלק מתרבות בית הספר.">حصلت المدرسة على تصنيف ثلاث نجوم كمدرسة معزِّزة للصحة، بتوقيع وزارة التربية ووزارة الصحة. هذا الاعتراف يُظهر أن الصحة عندنا ليست نشاطاً عابراً، بل جزء من ثقافة المدرسة.</p>
+            <p data-he="תיכון אורט אבו רביעה קיבל דירוג שלושה כוכבים בתוכנית «בית ספר מקדם בריאות» לשנת הלימודים תשפ&quot;א. על התעודה מופיעים הסמלים של משרד החינוך ומשרד הבריאות. היוזמה של היום נבנתה על הבסיס הזה.">حصلت ثانوية أورط أبو ربيعة على تصنيف ثلاث نجوم في برنامج «مدرسة معزِّزة للصحة» للسنة الدراسية תשפ"א (2020–2021)، وتحمل الشهادة شعارَي وزارة التربية ووزارة الصحة. مبادرة اليوم بُنيت على هذا الأساس.</p>
           </figcaption>
         </figure>
       </div>
@@ -771,7 +891,7 @@
   <!-- ================================================================ MOBILE DOCK -->
   <nav class="dock" aria-label="تنقل سريع" data-he-aria-label="ניווט מהיר">
     <a href="#story"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#compass"/></svg><span data-he="סיפור">القصة</span></a>
-    <a href="#evidence"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="תיעוד">الأدلة</span></a>
+    <a href="#field"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#camera"/></svg><span data-he="מהשטח">الميدان</span></a>
     <a href="#impact"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#chart"/></svg><span data-he="השפעה">الأثر</span></a>
     <a class="dock__cta" href="pledge.html"><svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#pen"/></svg><span data-he="אמנה">الميثاق</span></a>
   </nav>

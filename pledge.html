@@ -18,7 +18,7 @@
   <script>!function(d){d.documentElement.classList.add("js");try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("ortbari_lang");if(l==="he"){d.documentElement.lang="he";d.documentElement.classList.add("i18n-pending")}}catch(e){}}(document)</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=Rubik:wght@500;600;700;800&family=Amiri&family=Frank+Ruhl+Libre:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;600;700&family=Noto+Kufi+Arabic:wght@700;800&family=Rubik:wght@600;800&family=Amiri&family=Frank+Ruhl+Libre:wght@500&display=swap">
   <link rel="stylesheet" href="assets/css/tokens.css">
   <link rel="stylesheet" href="assets/css/base.css">
   <link rel="stylesheet" href="assets/css/pledge.css">
@@ -53,7 +53,7 @@
           <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#globe"/></svg>
           <span data-lang-label lang="he">עברית</span>
         </button>
-        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="فتح القائمة">
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="فتح القائمة" data-he-aria-label="פתיחת התפריט">
           <span class="menu-btn__bars" aria-hidden="true"></span>
         </button>
       </div>
@@ -94,13 +94,20 @@
               <input class="input" id="pledgeName" name="name" type="text" autocomplete="name" maxlength="60" required aria-describedby="nameHint nameErr"
                      placeholder="الاسم الأول واسم العائلة" data-he-placeholder="שם פרטי ושם משפחה">
               <span class="field__hint" id="nameHint" data-he="בלוח הכבוד יוצגו רק השם הפרטי והאות הראשונה של שם המשפחה.">في لوحة الشرف يظهر الاسم الأول وأول حرف من اسم العائلة فقط.</span>
-              <span class="field__error" id="nameErr" hidden data-he="נא להזין שם (2 אותיות לפחות).">يرجى إدخال الاسم (حرفان على الأقل).</span>
+              <span class="field__error" id="nameErr" hidden data-he="נא להזין שם באותיות בלבד (2–40 תווים).">يرجى إدخال الاسم بالأحرف فقط (من 2 إلى 40 حرفاً).</span>
             </div>
 
             <div class="field">
               <label class="field__label" for="pledgeClass" data-he="כיתה (רשות)">الصف (اختياري)</label>
               <input class="input" id="pledgeClass" name="classroom" type="text" maxlength="24" autocomplete="off"
-                     placeholder="مثال: العاشر 2" data-he-placeholder='לדוגמה: י"א 2'>
+                     placeholder="مثال: العاشر 2" data-he-placeholder='לדוגמה: י"א 2' aria-describedby="classErr">
+              <span class="field__error" id="classErr" hidden data-he="אותיות ומספרים בלבד (עד 20 תווים).">أحرف وأرقام فقط (حتى 20 خانة).</span>
+            </div>
+
+            <!-- honeypot: invisible to people, tempting to bots -->
+            <div class="hp" aria-hidden="true">
+              <label for="pledgeWebsite">Website</label>
+              <input id="pledgeWebsite" name="website" type="text" tabindex="-1" autocomplete="off">
             </div>
 
             <div class="field">
@@ -126,6 +133,8 @@
             </label>
             <span class="field__error" id="consentErr" hidden data-he="יש לאשר כדי לחתום.">يجب الموافقة للتوقيع.</span>
 
+            <p class="field__error" id="rateErr" role="alert" hidden></p>
+
             <button class="btn btn--primary btn--block sign__submit" type="submit">
               <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#pen"/></svg>
               <span data-he="אני חותם/ת על האמנה">أوقّع على الميثاق</span>
@@ -133,7 +142,7 @@
 
             <p class="sign__privacy">
               <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg>
-              <span data-he="איננו מבקשים אימייל או טלפון. השם המלא נשמר אצל צוות היוזמה בלבד.">لا نطلب بريداً إلكترونياً أو هاتفاً. الاسم الكامل يُحفظ لدى فريق المبادرة فقط.</span>
+              <span data-he="איננו מבקשים אימייל או טלפון. השם המלא נשמר אצל צוות היוזמה בלבד, ואפשר לבקש להסיר חתימה דרך המורה המלווה.">لا نطلب بريداً إلكترونياً أو هاتفاً. الاسم الكامل يُحفظ لدى فريق المبادرة فقط، ويمكن طلب حذف التوقيع عبر المعلمة المرافقة.</span>
             </p>
           </form>
 
