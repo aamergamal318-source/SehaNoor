@@ -59,3 +59,4 @@ GitHub Pages يعرض فرع `main` من المجلد الجذر. أي دمج إ
 ## النسخة الأصلية (قبل إعادة التصميم 2026)
 - الفرع: `backup-before-redesign-2026`
 - الوسم: `original-site-2026-10-18`
+- النسخة الأصلية منشورة كأرشيف دائم: https://aamergamal318-source.github.io/SehaNoor-Archive/ (مستودع `SehaNoor-Archive` + فرع `sehanoor-original-archive`)، ومربوطة من تذييل الموقع.

@@ -497,6 +497,26 @@ html[lang="he"] h1, html[lang="he"] h2, html[lang="he"] h3 { letter-spacing: -.0
   font-size: var(--fs-xs);
   color: rgba(238, 242, 236, .55);
 }
+.footer-archive {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: fit-content;
+  max-width: 100%;
+  margin-top: var(--sp-5);
+  padding: .7rem 1rem;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: var(--r-md);
+  font-size: var(--fs-xs);
+  color: rgba(238, 242, 236, .6);
+  transition: border-color .2s, background-color .2s, color .2s;
+}
+.site-footer a.footer-archive:hover,
+.site-footer a.footer-archive:focus-visible { color: #fff; border-color: var(--leaf-400); background: rgba(255,255,255,.04); }
+.footer-archive > .icon { flex: none; color: var(--leaf-400); }
+.footer-archive__text { display: grid; gap: .15rem; }
+.footer-archive__text strong { font-size: var(--fs-sm); font-weight: 600; color: rgba(238, 242, 236, .88); }
+.footer-archive__ext { flex: none; width: .9em; height: .9em; opacity: .7; }
 .footer-dune {
   position: absolute;
   inset-inline: 0;
