@@ -1,17 +1,44 @@
-# Image placeholders
+# الصور الأصلية | תמונות מקור
 
-Replace these paths with real school photos using the same filenames:
+هذا المجلد يحفظ الملفات الأصلية كما وصلت. الموقع يعرض نسخاً مُحسّنة منها (webp بعرض 640/1280/1920) في `assets/img/` بنفس الاسم.
+لا تُحذف الأصول من هنا، ولا تُضاف صورة دون تسجيل مصدرها وتاريخها في الجدول أدناه وفي `docs/FACTS.md`.
 
-- `students-leadership.jpg`
-- `healthy-food-day.jpg`
-- `activity-1.jpg`
-- `water-campaign.jpg`
-- `posters-campaign.jpg`
-- `parents-community.jpg`
-- `self-image-workshop.jpg`
-- `gallery-health-day.jpg`
-- `gallery-sport.jpg`
-- `gallery-food.jpg`
-- `video-cover.jpg`
+قواعد:
+- صور حقيقية من المدرسة فقط، بمصدر معروف. لا صور مولّدة ولا صور من بحث في الإنترنت.
+- لا تُنشر صور طلاب دون إذن نشر مناسب، ولا أسماء أو قياسات صحية شخصية.
+- تاريخ وصول الملف أو نشره ليس تاريخ النشاط نفسه.
 
-The site includes visual fallbacks, so it remains publishable before photos are added.
+## يوم الصحة (صور WhatsApp)
+
+وصلت في 11.5.2026 أو قبله (أسماء ملفات WhatsApp الأصلية، commit `af2df73`). **تاريخ إقامة اليوم نفسه غير موثّق.** الملفات بلا بيانات EXIF.
+
+| الملف | المحتوى | يظهر في |
+|---|---|---|
+| `diabetes-station.jpeg` | لافتة «درهم وقاية خير من قنطار علاج — محطة السكري» وبالونات | الرئيسية (الواجهة، قصص الميدان)، العرض |
+| `food-display.jpeg` | طاولة خضار وفواكه ومكسرات | الرئيسية، مركز المعرفة، العرض |
+| `food-platter.jpeg` | طبق خضار مقطّعة | الرئيسية، مركز المعرفة، العرض |
+| `tea-station.jpeg` | محطة الشاي: حاسوب ولعبة أسئلة وسلال أكياس شاي | الرئيسية، العرض |
+| `tea-card.jpeg` | بطاقة «صحتك حياتك» مع كيس شاي | الرئيسية |
+| `exercise-equipment.jpeg` | أثقال وأحزمة مطاطية على الأرض | الرئيسية، مركز المعرفة، العرض |
+
+## الشهادات
+
+| الملف | المحتوى | المصدر | يظهر في |
+|---|---|---|---|
+| `certificate.jpeg` | شهادة «בית ספר מקדם בריאות» بتصنيف ثلاث نجوم، שנה"ל תשפ"א (2020–2021)، معلّقة على جدار المدرسة | صورة من الفريق | الرئيسية (الأثر)، العرض |
+| `certificate-2025-26.jpg` | «תעודת הכרה כבית ספר מקדם בריאות», שנה"ל תשפ"ו (2025–2026) — **بلا تصنيف نجوم** | زوّدها صاحب المشروع (18.10.2026)؛ نسخة محفوظة من منشور المدرسة على فيسبوك في 24.8.2026 ([الصورة](https://www.facebook.com/photo/?fbid=1079651737996473))، 1320×1836. يُفضّل استبدالها بالملف الأصلي من المدرسة | الرئيسية (الأثر)، العرض |
+
+## ملصقات الممرات — `posters/`
+
+صُوّرت في 13.5.2026 (أسماء ملفات WhatsApp الأصلية)، واستُعيدت من commit `af2df73`. **من صمّمها (الطلاب أم مواد جاهزة) غير مؤكد.**
+
+| الملف | يظهر في |
+|---|---|
+| `poster-food-pyramid.jpeg`، `poster-cigarette.jpeg`، `poster-smoking.jpeg`، `poster-smoker-story.jpeg`، `poster-memory.jpeg`، `poster-success-steps.jpeg` | الرئيسية (قصة الملصقات) |
+| `poster-excellence.jpeg`، `poster-excellence-2.jpeg` | غير مستخدمة — لقطتان للملصق نفسه «أسرار التفوق» (موضوع دراسي لا صحي) |
+| `battery-recycling.jpeg` | غير مستخدمة — موضوعها إعادة تدوير البطاريات |
+| `ort-bari-summer-activities.jpeg` | غير مستخدمة — ملصق أنشطة صيفية من «אורט בריא» |
+
+## أدلة معروفة غير موجودة هنا
+
+- **يوم صحة نشرته المدرسة في 13.2.2025** ([المنشور](https://www.facebook.com/permalink.php?story_fbid=pfbid067ba9ZjXwDcoPiB1zK7VziWmMEtw2bS2BytCh2GhwWYF1Ny4ng5zSXThfPNbTLYRl&id=100078549700490))، نحو 30 صورة. لم تُضف أي صورة منه: تُضاف فقط بعد الحصول على الملفات من المدرسة وتأكيد إذن النشر.

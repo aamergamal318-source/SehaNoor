@@ -599,6 +599,7 @@ html[lang="he"] .manifesto { line-height: 1.3; }
 .tl__card p { color: var(--text-2); font-size: var(--fs-sm); line-height: 1.7; }
 .tl__src { display: inline-flex; align-items: center; gap: .35rem; margin-top: .2rem; padding: .15rem .6rem; border-radius: var(--r-pill); background: var(--sand-50); font-size: var(--fs-xs); font-weight: 600; color: var(--sand-600); }
 .tl__src .icon { width: 14px; height: 14px; }
+.tl__kind { display: block; margin-top: .15rem; font-family: var(--font-body); font-size: var(--fs-xs); font-weight: 600; color: var(--sand-600); }
 a.tl__src { text-decoration: none; transition: background-color .2s, color .2s; }
 a.tl__src:hover, a.tl__src:focus-visible { background: var(--leaf-200); color: var(--forest-900); }
 @media (max-width: 640px) {
@@ -713,6 +714,8 @@ a.tl__src:hover, a.tl__src:focus-visible { background: var(--leaf-200); color: v
 .cert__kicker { font-size: var(--fs-sm); font-weight: 600; color: var(--sand-600); }
 .cert h3 { color: var(--ink) !important; font-size: var(--fs-xl); margin-block: .3rem var(--sp-4); }
 .cert p:last-child { color: var(--ink-2); max-width: 60ch; }
+.cert--next { margin-top: var(--sp-5); }
+.cert--next .cert__img { transform: rotate(2deg); }
 @media (max-width: 900px) {
   .dash { grid-template-columns: repeat(2, 1fr); }
   .dash__card--hero { grid-column: span 2; }
