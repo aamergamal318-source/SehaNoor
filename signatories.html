@@ -2,337 +2,102 @@
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>لوحة الشرف | أورط أبو ربيعة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title data-he="לוח הכבוד | מנהיגי בריאות">لوحة الشرف | قادة الصحة</title>
+  <meta name="description" content="لوحة شرف موقّعي ميثاق الصحة في أورط أبو ربيعة." data-he-content="לוח הכבוד של החותמים על אמנת הבריאות באורט אבו רביעה.">
+  <meta name="theme-color" content="#0a1f15">
+  <link rel="canonical" href="https://aamergamal318-source.github.io/SehaNoor/signatories.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="لوحة الشرف | לוח הכבוד — قادة الصحة">
+  <meta property="og:description" content="مجتمع قادة الصحة في أورط أبو ربيعة. קהילת מנהיגי הבריאות באורט אבו רביעה.">
+  <meta property="og:image" content="https://aamergamal318-source.github.io/SehaNoor/assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/img/favicon-64.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script>!function(d){d.documentElement.classList.add("js");try{var l=new URLSearchParams(location.search).get("lang")||localStorage.getItem("ortbari_lang");if(l==="he"){d.documentElement.lang="he";d.documentElement.classList.add("i18n-pending")}}catch(e){}}(document)</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="pledge.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Sans+Hebrew:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@600;700;800&family=Rubik:wght@500;600;700;800&display=swap">
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/pledge.css">
 </head>
-<body class="sigs-page-body">
+<body class="page-wall on-dark">
 
-  <canvas class="sigs-bg-canvas" id="bgCanvas" aria-hidden="true"></canvas>
+  <a class="skip-link" href="#wall" data-he="דילוג ללוח">انتقل إلى اللوحة</a>
 
-  <!-- ── Header ── -->
-  <header class="sigs-hdr">
-    <div class="sigs-hdr-inner">
-      <a href="pledge.html" class="sigs-back-link">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
-          <polyline points="15 18 9 12 15 6"/>
-        </svg>
-        <span data-he="חזרה לחתימה">العودة للتوقيع</span>
+  <header class="site-header site-header--dark">
+    <div class="container container--wide header-inner">
+      <a class="brand" href="./" aria-label="قادة الصحة – الصفحة الرئيسية" data-he-aria-label="מנהיגי בריאות – דף הבית">
+        <img class="brand__mark" src="assets/img/mark-96.png" srcset="assets/img/mark-96.png 1x, assets/img/mark-192.png 2x" width="42" height="42" alt="">
+        <span class="brand__text">
+          <span class="brand__name" data-he="מנהיגי בריאות">قادة الصحة</span>
+          <span class="brand__sub" data-he="לוח הכבוד">لوحة الشرف</span>
+        </span>
       </a>
-      <img src="logo/logo.png" class="sigs-hdr-logo" alt="">
-      <div class="sigs-hdr-actions">
-        <a href="pledge.html" class="sigs-pledge-cta">
-          <span>✍️</span>
-          <span data-he="חתמו גם אתם">وقّع الآن</span>
+      <div class="header-actions">
+        <button class="lang-toggle" type="button" data-lang-toggle aria-label="التبديل إلى العبرية">
+          <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#globe"/></svg>
+          <span data-lang-label lang="he">עברית</span>
+        </button>
+        <a class="btn btn--primary btn--sm" href="pledge.html">
+          <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#pen"/></svg>
+          <span data-he="חתמו גם אתם">وقّعوا أنتم أيضاً</span>
         </a>
-        <button class="pledge-lang-pill" id="sLangBtn">🌐 <span id="sLangLabel">עברית</span></button>
       </div>
     </div>
   </header>
 
-  <!-- ── Hero ── -->
-  <section class="sigs-hero">
-    <div class="sigs-hero-glow"></div>
-    <div class="container">
-      <div class="sigs-eyebrow" data-he="לוח הכבוד">لوحة الشرف</div>
-      <h1 class="sigs-hero-h1">
-        <span class="sigs-h1-white" data-he="קהילת ">مجتمع </span>
-        <span class="sigs-h1-grad" data-he="מובילי הבריאות">قادة الصحة</span>
-      </h1>
-      <div class="sigs-counter-wrap">
-        <div class="sigs-big-num" id="bigCount">0</div>
-        <div class="sigs-big-label">
-          <strong data-he="חתומים">موقّعون</strong>
-          <span data-he="על אמנת הבריאות">على ميثاق الصحة</span>
-        </div>
+  <main id="main">
+    <section class="wall-hero">
+      <div class="container wall-hero__inner">
+        <p class="eyebrow" data-he="לוח הכבוד">لوحة الشرف</p>
+        <h1 class="wall-hero__title">
+          <span data-he="קהילת">مجتمع</span>
+          <span class="wall-hero__accent" data-he="מנהיגי הבריאות">قادة الصحة</span>
+        </h1>
+        <p class="wall-hero__count">
+          <span class="num" data-wall-count>0</span>
+          <span data-he="חתמו על אמנת הבריאות">وقّعوا على ميثاق الصحة</span>
+        </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ── Search ── -->
-  <div class="sigs-controls">
-    <div class="sigs-controls-inner">
-      <div class="sigs-search-box">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="search" class="sigs-search-input" id="sigSearch"
-               data-placeholder-he="חפשו לפי שם..."
-               placeholder="ابحث باسم الشخص...">
+    <section class="container wall" id="wall" aria-labelledby="wallTitle">
+      <div class="wall__bar">
+        <h2 id="wallTitle" class="wall__title" data-he="כל החותמים">جميع الموقّعين</h2>
+        <label class="wall__search">
+          <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#search"/></svg>
+          <span class="visually-hidden" data-he="חיפוש לפי שם או כיתה">البحث بالاسم أو الصف</span>
+          <input type="search" data-wall-search placeholder="ابحث بالاسم أو الصف" data-he-placeholder="חיפוש לפי שם או כיתה" autocomplete="off">
+        </label>
       </div>
-    </div>
-  </div>
+      <p class="wall__status" data-wall-status role="status" aria-live="polite"></p>
+      <ul class="wall__grid" role="list" data-wall-grid aria-busy="true"></ul>
 
-  <!-- ── Wall ── -->
-  <section class="pledge-wall">
-    <div class="wall-section-label" data-he="כל החתומים">جميع الموقّعين</div>
-
-    <!-- Populated by JS -->
-    <div class="sig-masonry" id="sigMasonry"></div>
-
-    <!-- Empty state (shown when no signatories) -->
-    <div class="sigs-empty" id="sigsEmpty" hidden>
-      <span class="sigs-empty-icon">🌿</span>
-      <h3 data-he="הדף ריק בינתיים">الصفحة فارغة حتى الآن</h3>
-      <p data-he="היו הראשונים לחתום על אמנת הבריאות של אורט אבו רביעה!">
-        كونوا أول من يوقّع على ميثاق الصحة في أورط أبو ربيعة!
+      <div class="wall__empty" data-wall-empty hidden>
+        <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#leaf"/></svg>
+        <h3 data-he="הלוח מחכה לחתימה הראשונה">اللوحة تنتظر أول توقيع</h3>
+        <p data-he="היו הראשונים לחתום על אמנת הבריאות של אורט אבו רביעה.">كونوا أول من يوقّع على ميثاق الصحة في أورط أبو ربيعة.</p>
+        <a class="btn btn--primary" href="pledge.html" data-he="לחתימה">إلى التوقيع</a>
+      </div>
+      <p class="wall__privacy">
+        <svg class="icon" aria-hidden="true"><use href="assets/img/icons.svg#shield"/></svg>
+        <span data-he="מטעמי פרטיות מוצגים רק השם הפרטי והאות הראשונה של שם המשפחה.">حرصاً على الخصوصية، يُعرض الاسم الأول وأول حرف من اسم العائلة فقط.</span>
       </p>
-      <a href="pledge.html" class="sigs-empty-cta">
-        <span>✍️</span>
-        <span data-he="חתמו ראשונים!">وقّع أولاً!</span>
-      </a>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- ── Footer ── -->
-  <footer class="sigs-footer">
-    <div>
-      <a href="pledge.html" data-he="חתמו על האמנה">وقّع الميثاق</a>
-      <a href="index.html"  data-he="חזרה לאתר">العودة للموقع</a>
-    </div>
-    <div class="sigs-footer-brand" data-he="אורט אבו רביעה | אורט בריא">
-      أورط أبو ربيعة | أورط صحي
+  <footer class="site-footer site-footer--slim">
+    <div class="container footer-bottom">
+      <span>© <span class="num" data-year>2026</span> <span data-he="בית הספר המקיף אורט אבו רביעה – כסיפה">المدرسة الشاملة أورط أبو ربيعة – كسيفة</span></span>
+      <span><a href="./" data-he="דף הבית">الرئيسية</a> · <a href="pledge.html" data-he="אמנת התלמידים">ميثاق الطلاب</a></span>
     </div>
   </footer>
 
-  <div class="share-toast" id="shareToast" data-he="הקישור הועתק!">تم نسخ الرابط!</div>
-
-<script>
-/* ══════════════════════════════════════════════════════════
-   ⬇️  PASTE YOUR GOOGLE APPS SCRIPT URL HERE AFTER SETUP
-   ══════════════════════════════════════════════════════════ */
-const GAS_URL = 'https://script.google.com/macros/s/AKfycbw3sf6B9CsXjD8K3_MqO1_Yid4x4T-I84zTUwwMYmTUz2tXzK314D-eNd-TN6NB41iq/exec';
-/* ══════════════════════════════════════════════════════════ */
-
-/* ── Language ── */
-const LANG_KEY = 'ortbari_lang';
-let lang = localStorage.getItem(LANG_KEY) || 'ar';
-
-function applyLang(l) {
-  lang = l;
-  localStorage.setItem(LANG_KEY, l);
-  document.documentElement.lang = l;
-  document.documentElement.dir = 'rtl'; // Both Arabic and Hebrew are RTL
-  document.querySelectorAll('[data-he]').forEach(el => {
-    if (l === 'he') {
-      if (!el.dataset.arSaved) el.dataset.arSaved = el.textContent;
-      el.textContent = el.getAttribute('data-he');
-    } else {
-      if (el.dataset.arSaved) el.textContent = el.dataset.arSaved;
-    }
-  });
-  document.querySelectorAll('[data-placeholder-he]').forEach(el => {
-    if (!el.dataset.placeholderArSaved) el.dataset.placeholderArSaved = el.placeholder;
-    el.placeholder = l === 'he' ? el.getAttribute('data-placeholder-he') : el.dataset.placeholderArSaved;
-  });
-  const lbl = document.getElementById('sLangLabel');
-  if (lbl) lbl.textContent = l === 'ar' ? 'עברית' : 'العربية';
-}
-
-document.getElementById('sLangBtn').addEventListener('click', () => applyLang(lang === 'ar' ? 'he' : 'ar'));
-applyLang(lang);
-
-/* ── Storage ── */
-const STORAGE_KEY = 'sehanoor_pledges';
-function getSignatories() {
-  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]'); }
-  catch { return []; }
-}
-
-/* ── Accent ribbons ── */
-const RIBBONS = [
-  'linear-gradient(90deg,#4ade80,#22d3ee)',
-  'linear-gradient(90deg,#f472b6,#fb7185)',
-  'linear-gradient(90deg,#fb923c,#fbbf24)',
-  'linear-gradient(90deg,#818cf8,#a78bfa)',
-  'linear-gradient(90deg,#22d3ee,#38bdf8)',
-  'linear-gradient(90deg,#86efac,#4ade80)',
-  'linear-gradient(90deg,#f43f5e,#fb923c)',
-  'linear-gradient(90deg,#c084fc,#818cf8)',
-  'linear-gradient(90deg,#fbbf24,#f59e0b)',
-  'linear-gradient(90deg,#34d399,#059669)',
-];
-
-function getRibbon(id) {
-  const h = [...id].reduce((a, c) => (a + c.charCodeAt(0)) | 0, 0);
-  return RIBBONS[Math.abs(h) % RIBBONS.length];
-}
-
-function getTilt(id) {
-  const h = [...id].reduce((a, c) => (a + c.charCodeAt(0)) | 0, 0);
-  return ((Math.abs(h) % 41) / 10 - 2).toFixed(1);
-}
-
-/* ── Format date ── */
-function fmtDate(iso) {
-  try {
-    return new Date(iso).toLocaleDateString('ar-SA', { year:'numeric', month:'short', day:'numeric' });
-  } catch { return ''; }
-}
-
-/* ── Animate counter ── */
-function animateCount(el, target, duration = 1200) {
-  if (target === 0) { el.textContent = '0'; return; }
-  const start = performance.now();
-  function step(now) {
-    const t = Math.min((now - start) / duration, 1);
-    const ease = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(ease * target);
-    if (t < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
-}
-
-/* ── Build card HTML ── */
-function buildCard(sig, index) {
-  const ribbon = getRibbon(sig.id);
-  const tilt   = getTilt(sig.id);
-  const delay  = Math.min(index * 60, 600);
-
-  const sigImg = sig.signature
-    ? `<div class="sig-card-sig-wrap"><img src="${sig.signature}" alt="" loading="lazy"></div>`
-    : `<div class="sig-no-sig-placeholder"><span>✍</span></div>`;
-
-  const classTag = sig.classroom
-    ? `<span class="sig-card-class-badge">${escHtml(sig.classroom)}</span>`
-    : '';
-
-  return `
-    <article class="sig-card" style="--ribbon:${ribbon};--tilt:${tilt}deg;--card-delay:${delay}ms;">
-      <div class="sig-card-ribbon" style="background:${ribbon}"></div>
-      <div class="sig-card-body">
-        <div class="sig-card-name">${escHtml(sig.name)}</div>
-        <div class="sig-card-meta">
-          ${classTag}
-          <span>${fmtDate(sig.date)}</span>
-        </div>
-        ${sigImg}
-        <span class="sig-card-date" dir="ltr">${new Date(sig.date).toLocaleDateString()}</span>
-      </div>
-    </article>`;
-}
-
-function escHtml(str) {
-  return String(str)
-    .replace(/&/g,'&amp;')
-    .replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;')
-    .replace(/"/g,'&quot;');
-}
-
-/* ── Render wall ── */
-let allSigs = [];
-
-function render(list) {
-  const masonry = document.getElementById('sigMasonry');
-  const empty   = document.getElementById('sigsEmpty');
-  if (!list.length) {
-    masonry.innerHTML = '';
-    empty.hidden = false;
-    return;
-  }
-  empty.hidden = true;
-  masonry.innerHTML = list.map((s, i) => buildCard(s, i)).join('');
-}
-
-async function load() {
-  const countEl = document.getElementById('bigCount');
-
-  // 1. اعرض البيانات المحلية فوراً
-  const local = getSignatories().slice().reverse();
-  allSigs = local;
-  animateCount(countEl, allSigs.length);
-  render(allSigs);
-
-  // 2. اجلب العدد الحقيقي أولاً (سريع)
-  if (GAS_URL) {
-    try {
-      const cr = await fetch(GAS_URL + '?action=count');
-      const cj = await cr.json();
-      if (cj.success) animateCount(countEl, cj.count);
-    } catch (_) {}
-  }
-
-  // 3. اجلب القائمة الكاملة من Sheets
-  if (!GAS_URL) return;
-  try {
-    const resp = await fetch(GAS_URL);
-    const json = await resp.json();
-    if (!json.success || !Array.isArray(json.signatories)) return;
-
-    // خريطة التوقيعات المحلية (الصورة لا تُحفظ في Sheets أحياناً)
-    const localSigMap = {};
-    local.forEach(s => { if (s.signature) localSigMap[s.id] = s.signature; });
-
-    // ادمج: استخدم بيانات Sheets + التوقيع المحلي إن كان موجوداً
-    const merged = json.signatories.map(s => ({
-      ...s,
-      signature: s.signature || localSigMap[s.id] || null
-    }));
-
-    const remoteIds = new Set(json.signatories.map(s => s.id));
-    const localOnly = local.filter(s => !remoteIds.has(s.id));
-    allSigs = [...merged, ...localOnly];
-
-    animateCount(countEl, allSigs.length);
-    render(allSigs);
-  } catch (_) {}
-}
-
-load();
-
-/* ── Search ── */
-document.getElementById('sigSearch').addEventListener('input', function () {
-  const q = this.value.trim().toLowerCase();
-  if (!q) { render(allSigs); return; }
-  render(allSigs.filter(s => s.name.toLowerCase().includes(q) ||
-    (s.classroom || '').toLowerCase().includes(q)));
-});
-
-/* ── Star-field background ── */
-(function initStars() {
-  const cv  = document.getElementById('bgCanvas');
-  const ctx = cv.getContext('2d');
-  let stars = [];
-
-  function resize() {
-    cv.width  = window.innerWidth;
-    cv.height = window.innerHeight;
-    buildStars();
-  }
-
-  function buildStars() {
-    stars = Array.from({ length: 160 }, () => ({
-      x:  Math.random() * cv.width,
-      y:  Math.random() * cv.height,
-      r:  Math.random() * 1.3 + 0.3,
-      a:  Math.random(),
-      da: (Math.random() * 0.004 + 0.001) * (Math.random() > .5 ? 1 : -1),
-    }));
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, cv.width, cv.height);
-    stars.forEach(s => {
-      s.a += s.da;
-      if (s.a > 0.85 || s.a < 0.05) s.da *= -1;
-      ctx.beginPath();
-      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(255,255,255,${s.a.toFixed(2)})`;
-      ctx.fill();
-    });
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-})();
-</script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/site.js"></script>
+  <script src="assets/js/pledge-api.js"></script>
+  <script src="assets/js/wall.js"></script>
 </body>
 </html>

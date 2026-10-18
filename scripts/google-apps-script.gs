@@ -1,64 +1,67 @@
 /**
- * SEHANOOR — Google Apps Script (Container-Bound)
- * ─────────────────────────────────────────────────
- * POST → يحفظ التوقيع الجديد (مع صورة التوقيع)
- * GET  → يرجع قائمة الموقّعين
+ * SEHANOOR — Google Apps Script (container-bound to the pledges sheet)
+ * ─────────────────────────────────────────────────────────────────────
+ * POST → saves a new pledge (name, class, signature image)
+ * GET  → ?action=count  → { success, count }
+ *        (default)      → { success, signatories:[{date,name,classroom,id,signature}] }
+ *
+ * PRIVACY (2026 update):
+ *  - The site no longer sends contact details; column D stays empty for new rows.
+ *  - The public GET never returns column D (contact), even for older rows
+ *    that still contain an email or phone number.
+ *  - After pasting this file: Deploy → Manage deployments → Edit → Version: New
+ *    → Deploy. The /exec URL stays the same.
  */
 
-// ── POST: حفظ توقيع جديد ─────────────────────────────────
+var MAX_SIGNATURE_CHARS = 49000;
+var MAX_TEXT_CHARS = 80;
+
+// ── POST: save a new pledge ───────────────────────────────────────────
 function doPost(e) {
   try {
-    // البيانات تأتي في حقل payload كـ JSON string من form submission
     var raw  = (e.parameter && e.parameter.payload) ? e.parameter.payload
              : (e.postData  && e.postData.contents)  ? e.postData.contents
              : '{}';
     var data = JSON.parse(raw);
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+    var name = clip(data.name);
+    if (name.length < 2) return jsonOut({ success: false, error: 'name required' });
 
     var sig = String(data.signature || '');
-    if (sig.length > 49000) sig = sig.substring(0, 49000);
+    if (sig.indexOf('data:image/png;base64,') !== 0 || sig.length > MAX_SIGNATURE_CHARS) sig = '';
 
-    sheet.appendRow([
-      data.date      || new Date().toISOString(),
-      data.name      || '',
-      data.classroom || '',
-      data.contact   || '',
-      data.id        || '',
+    SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().appendRow([
+      data.date || new Date().toISOString(),
+      name,
+      clip(data.classroom),
+      '',                       // contact: no longer collected
+      clip(data.id),
       sig
     ]);
-
     return jsonOut({ success: true });
   } catch (err) {
-    return jsonOut({ success: false, error: err.toString() });
+    return jsonOut({ success: false, error: String(err) });
   }
 }
 
-// ── GET: إرجاع البيانات حسب الطلب ───────────────────────
+// ── GET ───────────────────────────────────────────────────────────────
 function doGet(e) {
   var action = (e && e.parameter && e.parameter.action) ? e.parameter.action : 'list';
-
-  if (action === 'count') return handleCount();  // عدد فقط (خفيف)
-  return handleList();                           // القائمة الكاملة
+  return action === 'count' ? handleCount() : handleList();
 }
 
-// العدد فقط — سريع جداً
 function handleCount() {
   try {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var count = Math.max(0, sheet.getLastRow() - 1); // اطرح سطر العناوين
-    return jsonOut({ success: true, count: count });
+    return jsonOut({ success: true, count: Math.max(0, sheet.getLastRow() - 1) });
   } catch (err) {
-    return jsonOut({ success: false, error: err.toString() });
+    return jsonOut({ success: false, error: String(err) });
   }
 }
 
-// القائمة الكاملة مع التوقيعات
 function handleList() {
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var rows  = sheet.getDataRange().getValues();
-    var list  = [];
-
+    var rows = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet().getDataRange().getValues();
+    var list = [];
     for (var i = 1; i < rows.length; i++) {
       var r = rows[i];
       if (!r[1]) continue;
@@ -66,22 +69,21 @@ function handleList() {
         date:      r[0],
         name:      r[1],
         classroom: r[2],
-        contact:   r[3],
+        // r[3] (contact) is intentionally never returned
         id:        r[4] || String(i),
         signature: r[5] || null
       });
     }
-
     list.reverse();
     return jsonOut({ success: true, signatories: list });
   } catch (err) {
-    return jsonOut({ success: false, error: err.toString() });
+    return jsonOut({ success: false, error: String(err) });
   }
 }
 
-// ── مساعد ─────────────────────────────────────────────────
+// ── helpers ───────────────────────────────────────────────────────────
+function clip(v) { return String(v == null ? '' : v).replace(/\s+/g, ' ').trim().slice(0, MAX_TEXT_CHARS); }
+
 function jsonOut(data) {
-  var out = ContentService.createTextOutput(JSON.stringify(data));
-  out.setMimeType(ContentService.MimeType.JSON);
-  return out;
+  return ContentService.createTextOutput(JSON.stringify(data)).setMimeType(ContentService.MimeType.JSON);
 }
